@@ -12,11 +12,6 @@ package misEstructuras;
  *
  * @author Ben
  */
-public class ListaCamposTexto {
-    
-    NodoCampoTexto inicio;
-    int cantidad;
-    
-    
+public class PilaPlantas {
     
 }
