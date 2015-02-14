@@ -15,8 +15,27 @@ package misEstructuras;
 public class ListaCamposTexto {
     
     NodoCampoTexto inicio;
-    int cantidad;
+    private int cantidad;
     
+    /**
+     * 
+     */
+    public void insertarCampoTexto()
+    {
+    }
+        
+    public void borrarCampoTexto(){}
+    
+    public NodoCampoTexto buscarCampoTexto()
+    {
+        return null;
+    }
+    
+    public int getCantidad()
+    {
+        return cantidad;
+    }
+
     
     
 }
