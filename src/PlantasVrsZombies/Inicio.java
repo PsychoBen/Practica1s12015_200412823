@@ -13,6 +13,7 @@ import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -22,7 +23,10 @@ public class Inicio extends Mi_Ventana_200412823 {
 
     String pathPlantaImage ="C:\\Users\\Ben\\Dropbox\\Mis docs\\EDD\\15\\Practicas\\Practica1s12015_200412823\\src\\imagenes\\planta.jpg";
     String pathZombieImage ="C:\\Users\\Ben\\Dropbox\\Mis docs\\EDD\\15\\Practicas\\Practica1s12015_200412823\\src\\imagenes\\zombie.jpg";
-    
+    String pathPlantaImageDefault ="C:\\Users\\Ben\\Dropbox\\Mis docs\\EDD\\15\\Practicas\\Practica1s12015_200412823\\src\\imagenes\\defaultPlanta.jpg";
+    String pathZombieImageDefault ="C:\\Users\\Ben\\Dropbox\\Mis docs\\EDD\\15\\Practicas\\Practica1s12015_200412823\\src\\imagenes\\defaultZombie.jpg";
+    String foto = "null";
+    FileNameExtensionFilter filtroFotos = new FileNameExtensionFilter("JPG & GIF & PNG", "jpg", "gif","png");
     /**
      * Creates new form Inicio
      */
@@ -87,11 +91,50 @@ public class Inicio extends Mi_Ventana_200412823 {
         jbAgregarNuevoCampoZombies = new javax.swing.JButton();
         jbFinalizarNuevosCamposZombies = new javax.swing.JButton();
         diagCatalogoPlantas = new javax.swing.JDialog();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPaneCatalogoPlantas = new javax.swing.JScrollPane();
         jSeparator2 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
+        botonAgregarPlantasCatalogo = new javax.swing.JButton();
         botonFinalizaDatosPlayerPlantas = new javax.swing.JButton();
         diagNuevaPlanta = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        etiquetaImagenPlanta = new javax.swing.JLabel();
+        txtNombrePlantaNueva = new javax.swing.JTextField();
+        txtPuntosAtaquePlantaNueva = new javax.swing.JTextField();
+        txtPuntosDefensaPlantaNueva = new javax.swing.JTextField();
+        botonNuevaPlanta = new javax.swing.JButton();
+        botonGuardarPlantaNueva = new javax.swing.JButton();
+        botonSalirIngresoPlantaNueva = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        txtTipoAtaquePlantaNueva = new javax.swing.JTextField();
+        botonConfirmNewPlanta = new java.awt.Button();
+        labelConfirmacionNuevaPlanta = new java.awt.Label();
+        botonAbortNewPlanta = new java.awt.Button();
+        jFileChooserFotos = new javax.swing.JFileChooser();
+        diagCatalogoPlantas1 = new javax.swing.JDialog();
+        jScrollPaneCatalogoPlantas1 = new javax.swing.JScrollPane();
+        jSeparator3 = new javax.swing.JSeparator();
+        botonAgregarPlantasCatalogo1 = new javax.swing.JButton();
+        botonFinalizaDatosPlayerPlantas1 = new javax.swing.JButton();
+        diagNuevaPlanta1 = new javax.swing.JDialog();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        etiquetaImagenPlanta1 = new javax.swing.JLabel();
+        txtNombrePlantaNueva1 = new javax.swing.JTextField();
+        txtPuntosAtaquePlantaNueva1 = new javax.swing.JTextField();
+        txtPuntosDefensaPlantaNueva1 = new javax.swing.JTextField();
+        botonNuevaPlanta1 = new javax.swing.JButton();
+        botonGuardarPlantaNueva1 = new javax.swing.JButton();
+        botonSalirIngresoPlantaNueva1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        txtTipoAtaquePlantaNueva1 = new javax.swing.JTextField();
+        botonConfirmNewPlanta1 = new java.awt.Button();
+        labelConfirmacionNuevaPlanta1 = new java.awt.Label();
+        botonAbortNewPlanta1 = new java.awt.Button();
         jbPlayerPlantas = new javax.swing.JButton();
         jbPlayerZombie = new javax.swing.JButton();
         jbStartJuego = new javax.swing.JButton();
@@ -273,10 +316,8 @@ public class Inicio extends Mi_Ventana_200412823 {
 
         diagDatosPlayerZombies.setTitle("Player Zombies");
         diagDatosPlayerZombies.setIconImage(getIconImage());
-        diagDatosPlayerZombies.setMaximumSize(new java.awt.Dimension(540, 280));
         diagDatosPlayerZombies.setMinimumSize(new java.awt.Dimension(540, 280));
         diagDatosPlayerZombies.setModal(true);
-        diagDatosPlayerZombies.setPreferredSize(new java.awt.Dimension(540, 280));
         diagDatosPlayerZombies.setResizable(false);
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -434,15 +475,25 @@ public class Inicio extends Mi_Ventana_200412823 {
         );
 
         diagCatalogoPlantas.setTitle("Creacion de Catalogo de Plantas");
-        diagCatalogoPlantas.setMaximumSize(new java.awt.Dimension(628, 300));
-        diagCatalogoPlantas.setMinimumSize(new java.awt.Dimension(628, 300));
+        diagCatalogoPlantas.setMaximumSize(new java.awt.Dimension(635, 300));
+        diagCatalogoPlantas.setMinimumSize(new java.awt.Dimension(635, 300));
         diagCatalogoPlantas.setModal(true);
+        diagCatalogoPlantas.setPreferredSize(new java.awt.Dimension(635, 300));
         diagCatalogoPlantas.setResizable(false);
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jButton1.setText("Nueva planta");
+        botonAgregarPlantasCatalogo.setBackground(java.awt.Color.green);
+        botonAgregarPlantasCatalogo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        botonAgregarPlantasCatalogo.setText("Agregar plantas");
+        botonAgregarPlantasCatalogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarPlantasCatalogoActionPerformed(evt);
+            }
+        });
 
+        botonFinalizaDatosPlayerPlantas.setBackground(java.awt.Color.blue);
+        botonFinalizaDatosPlayerPlantas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         botonFinalizaDatosPlayerPlantas.setText("Finalizar");
         botonFinalizaDatosPlayerPlantas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -456,12 +507,12 @@ public class Inicio extends Mi_Ventana_200412823 {
             diagCatalogoPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(diagCatalogoPlantasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneCatalogoPlantas, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(diagCatalogoPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                    .addComponent(botonAgregarPlantasCatalogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botonFinalizaDatosPlayerPlantas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -470,26 +521,448 @@ public class Inicio extends Mi_Ventana_200412823 {
             .addGroup(diagCatalogoPlantasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(diagCatalogoPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(diagCatalogoPlantasLayout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
-                        .addComponent(botonFinalizaDatosPlayerPlantas))
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPaneCatalogoPlantas, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
                     .addComponent(jSeparator2))
                 .addContainerGap())
+            .addGroup(diagCatalogoPlantasLayout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addComponent(botonAgregarPlantasCatalogo)
+                .addGap(42, 42, 42)
+                .addComponent(botonFinalizaDatosPlayerPlantas)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         diagCatalogoPlantas.getAccessibleContext().setAccessibleParent(diagDatosPlayerPlantas);
+
+        diagNuevaPlanta.setTitle("Nueva Planta");
+        diagNuevaPlanta.setBackground(java.awt.Color.black);
+        diagNuevaPlanta.setIconImage(getIconImage());
+        diagNuevaPlanta.setMaximumSize(new java.awt.Dimension(620, 430));
+        diagNuevaPlanta.setMinimumSize(new java.awt.Dimension(620, 430));
+        diagNuevaPlanta.setModal(true);
+        diagNuevaPlanta.setPreferredSize(new java.awt.Dimension(620, 430));
+        diagNuevaPlanta.setResizable(false);
+        diagNuevaPlanta.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                diagNuevaPlantaWindowOpened(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Ingrese la nueva Planta");
+        jLabel1.setPreferredSize(new java.awt.Dimension(282, 40));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Nombre");
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Puntos Ataque");
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Puntos Defensa");
+
+        etiquetaImagenPlanta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        etiquetaImagenPlanta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        etiquetaImagenPlanta.setEnabled(false);
+        etiquetaImagenPlanta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                etiquetaImagenPlantaMouseClicked(evt);
+            }
+        });
+
+        txtNombrePlantaNueva.setEnabled(false);
+
+        txtPuntosAtaquePlantaNueva.setEnabled(false);
+
+        txtPuntosDefensaPlantaNueva.setEnabled(false);
+
+        botonNuevaPlanta.setBackground(java.awt.Color.cyan);
+        botonNuevaPlanta.setText("Nuevo");
+        botonNuevaPlanta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonNuevaPlantaActionPerformed(evt);
+            }
+        });
+
+        botonGuardarPlantaNueva.setBackground(java.awt.Color.green);
+        botonGuardarPlantaNueva.setText("Guardar");
+        botonGuardarPlantaNueva.setEnabled(false);
+        botonGuardarPlantaNueva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGuardarPlantaNuevaActionPerformed(evt);
+            }
+        });
+
+        botonSalirIngresoPlantaNueva.setBackground(java.awt.Color.red);
+        botonSalirIngresoPlantaNueva.setText("Salir");
+        botonSalirIngresoPlantaNueva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSalirIngresoPlantaNuevaActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Tipo Ataque");
+
+        txtTipoAtaquePlantaNueva.setEnabled(false);
+
+        botonConfirmNewPlanta.setBackground(java.awt.Color.green);
+        botonConfirmNewPlanta.setEnabled(false);
+        botonConfirmNewPlanta.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        botonConfirmNewPlanta.setLabel("Si");
+        botonConfirmNewPlanta.setMaximumSize(new java.awt.Dimension(45, 25));
+        botonConfirmNewPlanta.setMinimumSize(new java.awt.Dimension(45, 25));
+        botonConfirmNewPlanta.setPreferredSize(new java.awt.Dimension(45, 25));
+        botonConfirmNewPlanta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonConfirmNewPlantaActionPerformed(evt);
+            }
+        });
+
+        labelConfirmacionNuevaPlanta.setAlignment(java.awt.Label.CENTER);
+        labelConfirmacionNuevaPlanta.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        labelConfirmacionNuevaPlanta.setForeground(java.awt.Color.red);
+        labelConfirmacionNuevaPlanta.setMaximumSize(new java.awt.Dimension(390, 20));
+        labelConfirmacionNuevaPlanta.setMinimumSize(new java.awt.Dimension(390, 20));
+        labelConfirmacionNuevaPlanta.setPreferredSize(new java.awt.Dimension(390, 20));
+        labelConfirmacionNuevaPlanta.setText("Confirma que lo desea agregar?");
+
+        botonAbortNewPlanta.setBackground(java.awt.Color.red);
+        botonAbortNewPlanta.setEnabled(false);
+        botonAbortNewPlanta.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        botonAbortNewPlanta.setLabel("No");
+        botonAbortNewPlanta.setMaximumSize(new java.awt.Dimension(45, 25));
+        botonAbortNewPlanta.setMinimumSize(new java.awt.Dimension(45, 25));
+        botonAbortNewPlanta.setPreferredSize(new java.awt.Dimension(45, 25));
+        botonAbortNewPlanta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAbortNewPlantaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout diagNuevaPlantaLayout = new javax.swing.GroupLayout(diagNuevaPlanta.getContentPane());
         diagNuevaPlanta.getContentPane().setLayout(diagNuevaPlantaLayout);
         diagNuevaPlantaLayout.setHorizontalGroup(
             diagNuevaPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(diagNuevaPlantaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(diagNuevaPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(diagNuevaPlantaLayout.createSequentialGroup()
+                        .addGroup(diagNuevaPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(diagNuevaPlantaLayout.createSequentialGroup()
+                                .addGroup(diagNuevaPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(botonNuevaPlanta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(diagNuevaPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTipoAtaquePlantaNueva)
+                                    .addComponent(txtPuntosAtaquePlantaNueva)
+                                    .addComponent(txtPuntosDefensaPlantaNueva)
+                                    .addComponent(txtNombrePlantaNueva)
+                                    .addGroup(diagNuevaPlantaLayout.createSequentialGroup()
+                                        .addComponent(botonGuardarPlantaNueva, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(botonSalirIngresoPlantaNueva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(diagNuevaPlantaLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(botonConfirmNewPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(99, 99, 99)
+                                .addComponent(botonAbortNewPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(85, 85, 85))
+                            .addComponent(labelConfirmacionNuevaPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addComponent(etiquetaImagenPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         diagNuevaPlantaLayout.setVerticalGroup(
             diagNuevaPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(diagNuevaPlantaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(diagNuevaPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(etiquetaImagenPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(diagNuevaPlantaLayout.createSequentialGroup()
+                        .addGroup(diagNuevaPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtNombrePlantaNueva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(diagNuevaPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtPuntosAtaquePlantaNueva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(diagNuevaPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(txtPuntosDefensaPlantaNueva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(diagNuevaPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(txtTipoAtaquePlantaNueva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(diagNuevaPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botonSalirIngresoPlantaNueva)
+                            .addComponent(botonGuardarPlantaNueva)
+                            .addComponent(botonNuevaPlanta))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelConfirmacionNuevaPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(diagNuevaPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botonAbortNewPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botonConfirmNewPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(148, Short.MAX_VALUE))
+        );
+
+        diagNuevaPlanta.getAccessibleContext().setAccessibleParent(diagCatalogoPlantas);
+
+        jFileChooserFotos.setCurrentDirectory(new java.io.File("C:\\Photographs"));
+        jFileChooserFotos.setFileFilter(filtroFotos);
+        jFileChooserFotos.setMaximumSize(new java.awt.Dimension(640, 410));
+        jFileChooserFotos.setMinimumSize(new java.awt.Dimension(640, 410));
+        jFileChooserFotos.setPreferredSize(new java.awt.Dimension(640, 410));
+
+        diagCatalogoPlantas1.setTitle("Creacion de Catalogo de Plantas");
+        diagCatalogoPlantas1.setMaximumSize(new java.awt.Dimension(635, 300));
+        diagCatalogoPlantas1.setMinimumSize(new java.awt.Dimension(635, 300));
+        diagCatalogoPlantas1.setModal(true);
+        diagCatalogoPlantas1.setPreferredSize(new java.awt.Dimension(635, 300));
+        diagCatalogoPlantas1.setResizable(false);
+
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        botonAgregarPlantasCatalogo1.setBackground(java.awt.Color.green);
+        botonAgregarPlantasCatalogo1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        botonAgregarPlantasCatalogo1.setText("Agregar plantas");
+        botonAgregarPlantasCatalogo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarPlantasCatalogo1ActionPerformed(evt);
+            }
+        });
+
+        botonFinalizaDatosPlayerPlantas1.setBackground(java.awt.Color.blue);
+        botonFinalizaDatosPlayerPlantas1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        botonFinalizaDatosPlayerPlantas1.setText("Finalizar");
+        botonFinalizaDatosPlayerPlantas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonFinalizaDatosPlayerPlantas1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout diagCatalogoPlantas1Layout = new javax.swing.GroupLayout(diagCatalogoPlantas1.getContentPane());
+        diagCatalogoPlantas1.getContentPane().setLayout(diagCatalogoPlantas1Layout);
+        diagCatalogoPlantas1Layout.setHorizontalGroup(
+            diagCatalogoPlantas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagCatalogoPlantas1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPaneCatalogoPlantas1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(diagCatalogoPlantas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonAgregarPlantasCatalogo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonFinalizaDatosPlayerPlantas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        diagCatalogoPlantas1Layout.setVerticalGroup(
+            diagCatalogoPlantas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagCatalogoPlantas1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(diagCatalogoPlantas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneCatalogoPlantas1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                    .addComponent(jSeparator3))
+                .addContainerGap())
+            .addGroup(diagCatalogoPlantas1Layout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addComponent(botonAgregarPlantasCatalogo1)
+                .addGap(42, 42, 42)
+                .addComponent(botonFinalizaDatosPlayerPlantas1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        diagNuevaPlanta1.setTitle("Nueva Planta");
+        diagNuevaPlanta1.setBackground(java.awt.Color.black);
+        diagNuevaPlanta1.setIconImage(getIconImage());
+        diagNuevaPlanta1.setMaximumSize(new java.awt.Dimension(620, 430));
+        diagNuevaPlanta1.setMinimumSize(new java.awt.Dimension(620, 430));
+        diagNuevaPlanta1.setModal(true);
+        diagNuevaPlanta1.setPreferredSize(new java.awt.Dimension(620, 430));
+        diagNuevaPlanta1.setResizable(false);
+        diagNuevaPlanta1.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                diagNuevaPlanta1WindowOpened(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Ingrese la nueva Planta");
+        jLabel5.setPreferredSize(new java.awt.Dimension(282, 40));
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Nombre");
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Puntos Ataque");
+
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Puntos Defensa");
+
+        etiquetaImagenPlanta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        etiquetaImagenPlanta1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        etiquetaImagenPlanta1.setEnabled(false);
+        etiquetaImagenPlanta1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                etiquetaImagenPlanta1MouseClicked(evt);
+            }
+        });
+
+        txtNombrePlantaNueva1.setEnabled(false);
+
+        txtPuntosAtaquePlantaNueva1.setEnabled(false);
+
+        txtPuntosDefensaPlantaNueva1.setEnabled(false);
+
+        botonNuevaPlanta1.setBackground(java.awt.Color.cyan);
+        botonNuevaPlanta1.setText("Nuevo");
+        botonNuevaPlanta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonNuevaPlanta1ActionPerformed(evt);
+            }
+        });
+
+        botonGuardarPlantaNueva1.setBackground(java.awt.Color.green);
+        botonGuardarPlantaNueva1.setText("Guardar");
+        botonGuardarPlantaNueva1.setEnabled(false);
+        botonGuardarPlantaNueva1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGuardarPlantaNueva1ActionPerformed(evt);
+            }
+        });
+
+        botonSalirIngresoPlantaNueva1.setBackground(java.awt.Color.red);
+        botonSalirIngresoPlantaNueva1.setText("Salir");
+        botonSalirIngresoPlantaNueva1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSalirIngresoPlantaNueva1ActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Tipo Ataque");
+
+        txtTipoAtaquePlantaNueva1.setEnabled(false);
+
+        botonConfirmNewPlanta1.setBackground(java.awt.Color.green);
+        botonConfirmNewPlanta1.setEnabled(false);
+        botonConfirmNewPlanta1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        botonConfirmNewPlanta1.setLabel("Si");
+        botonConfirmNewPlanta1.setMaximumSize(new java.awt.Dimension(45, 25));
+        botonConfirmNewPlanta1.setMinimumSize(new java.awt.Dimension(45, 25));
+        botonConfirmNewPlanta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonConfirmNewPlanta1ActionPerformed(evt);
+            }
+        });
+
+        labelConfirmacionNuevaPlanta1.setAlignment(java.awt.Label.CENTER);
+        labelConfirmacionNuevaPlanta1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        labelConfirmacionNuevaPlanta1.setForeground(java.awt.Color.red);
+        labelConfirmacionNuevaPlanta1.setMaximumSize(new java.awt.Dimension(390, 20));
+        labelConfirmacionNuevaPlanta1.setMinimumSize(new java.awt.Dimension(390, 20));
+        labelConfirmacionNuevaPlanta1.setText("Confirma que lo desea agregar?");
+
+        botonAbortNewPlanta1.setBackground(java.awt.Color.red);
+        botonAbortNewPlanta1.setEnabled(false);
+        botonAbortNewPlanta1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        botonAbortNewPlanta1.setLabel("No");
+        botonAbortNewPlanta1.setMaximumSize(new java.awt.Dimension(45, 25));
+        botonAbortNewPlanta1.setMinimumSize(new java.awt.Dimension(45, 25));
+        botonAbortNewPlanta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAbortNewPlanta1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout diagNuevaPlanta1Layout = new javax.swing.GroupLayout(diagNuevaPlanta1.getContentPane());
+        diagNuevaPlanta1.getContentPane().setLayout(diagNuevaPlanta1Layout);
+        diagNuevaPlanta1Layout.setHorizontalGroup(
+            diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagNuevaPlanta1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(diagNuevaPlanta1Layout.createSequentialGroup()
+                        .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(diagNuevaPlanta1Layout.createSequentialGroup()
+                                .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(botonNuevaPlanta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTipoAtaquePlantaNueva1)
+                                    .addComponent(txtPuntosAtaquePlantaNueva1)
+                                    .addComponent(txtPuntosDefensaPlantaNueva1)
+                                    .addComponent(txtNombrePlantaNueva1)
+                                    .addGroup(diagNuevaPlanta1Layout.createSequentialGroup()
+                                        .addComponent(botonGuardarPlantaNueva1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(botonSalirIngresoPlantaNueva1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(diagNuevaPlanta1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(botonConfirmNewPlanta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(99, 99, 99)
+                                .addComponent(botonAbortNewPlanta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(85, 85, 85))
+                            .addComponent(labelConfirmacionNuevaPlanta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addComponent(etiquetaImagenPlanta1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        diagNuevaPlanta1Layout.setVerticalGroup(
+            diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagNuevaPlanta1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(etiquetaImagenPlanta1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(diagNuevaPlanta1Layout.createSequentialGroup()
+                        .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(txtNombrePlantaNueva1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(txtPuntosAtaquePlantaNueva1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(txtPuntosDefensaPlantaNueva1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(txtTipoAtaquePlantaNueva1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botonSalirIngresoPlantaNueva1)
+                            .addComponent(botonGuardarPlantaNueva1)
+                            .addComponent(botonNuevaPlanta1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelConfirmacionNuevaPlanta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botonAbortNewPlanta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botonConfirmNewPlanta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -640,6 +1113,143 @@ public class Inicio extends Mi_Ventana_200412823 {
         jbPlayerPlantas.setEnabled(false);
     }//GEN-LAST:event_botonFinalizaDatosPlayerPlantasActionPerformed
 
+    private void limpiarTextosNuevaPlanta()
+    {
+        txtNombrePlantaNueva.setText("");
+        txtPuntosAtaquePlantaNueva.setText("");
+        txtPuntosDefensaPlantaNueva.setText("");
+        txtTipoAtaquePlantaNueva.setText("");
+    }
+    
+    private void botonNuevaPlantaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevaPlantaActionPerformed
+        txtNombrePlantaNueva.setEnabled(true);
+        txtPuntosAtaquePlantaNueva.setEnabled(true);
+        txtPuntosDefensaPlantaNueva.setEnabled(true);
+        txtTipoAtaquePlantaNueva.setEnabled(true);
+        etiquetaImagenPlanta.setEnabled(true);
+        botonNuevaPlanta.setEnabled(false);
+        botonGuardarPlantaNueva.setEnabled(true);
+        botonSalirIngresoPlantaNueva.setEnabled(false);
+    }//GEN-LAST:event_botonNuevaPlantaActionPerformed
+
+    private void botonConfirmNewPlantaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmNewPlantaActionPerformed
+        //Primero inserto la planta al listado del catalogo 
+        txtNombrePlantaNueva.setEnabled(false);
+        txtPuntosAtaquePlantaNueva.setEnabled(false);
+        txtPuntosDefensaPlantaNueva.setEnabled(false);
+        txtTipoAtaquePlantaNueva.setEnabled(false);
+        etiquetaImagenPlanta.setEnabled(false);
+        botonNuevaPlanta.setEnabled(true);
+        botonGuardarPlantaNueva.setEnabled(false);
+        labelConfirmacionNuevaPlanta.setVisible(false);
+        botonSalirIngresoPlantaNueva.setEnabled(true);
+        labelConfirmacionNuevaPlanta.setVisible(false);
+        botonAbortNewPlanta.setEnabled(false);
+        botonConfirmNewPlanta.setEnabled(false);
+        botonAbortNewPlanta.setVisible(false);
+        botonConfirmNewPlanta.setVisible(false);        
+        limpiarTextosNuevaPlanta();
+    }//GEN-LAST:event_botonConfirmNewPlantaActionPerformed
+
+    private void botonAbortNewPlantaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAbortNewPlantaActionPerformed
+        txtNombrePlantaNueva.setEnabled(false);
+        txtPuntosAtaquePlantaNueva.setEnabled(false);
+        txtPuntosDefensaPlantaNueva.setEnabled(false);
+        txtTipoAtaquePlantaNueva.setEnabled(false);
+        etiquetaImagenPlanta.setEnabled(false);
+        botonNuevaPlanta.setEnabled(true);
+        botonGuardarPlantaNueva.setEnabled(false);
+        labelConfirmacionNuevaPlanta.setVisible(false);
+        botonSalirIngresoPlantaNueva.setEnabled(true);
+        labelConfirmacionNuevaPlanta.setVisible(false);
+        botonAbortNewPlanta.setEnabled(false);
+        botonConfirmNewPlanta.setEnabled(false);
+        botonAbortNewPlanta.setVisible(false);
+        botonConfirmNewPlanta.setVisible(false);        
+        limpiarTextosNuevaPlanta();
+    }//GEN-LAST:event_botonAbortNewPlantaActionPerformed
+
+    private void botonGuardarPlantaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarPlantaNuevaActionPerformed
+        labelConfirmacionNuevaPlanta.setVisible(true);
+        botonConfirmNewPlanta.setEnabled(true);
+        botonAbortNewPlanta.setEnabled(true);
+        botonConfirmNewPlanta.setVisible(true);
+        botonAbortNewPlanta.setVisible(true);        
+        botonSalirIngresoPlantaNueva.setEnabled(false);
+        botonGuardarPlantaNueva.setEnabled(false);
+        botonNuevaPlanta.setEnabled(false);
+    }//GEN-LAST:event_botonGuardarPlantaNuevaActionPerformed
+
+    private void botonSalirIngresoPlantaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirIngresoPlantaNuevaActionPerformed
+        limpiarTextosNuevaPlanta();
+    }//GEN-LAST:event_botonSalirIngresoPlantaNuevaActionPerformed
+
+    private void botonAgregarPlantasCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarPlantasCatalogoActionPerformed
+        diagNuevaPlanta.setLocationRelativeTo(null);
+        limpiarTextosNuevaPlanta();       
+        diagNuevaPlanta.show();       
+        diagNuevaPlanta.setModal(true);        
+        //ponerImagenLabel(pathPlantaImageDefault, etiquetaImagenPlanta);
+    }//GEN-LAST:event_botonAgregarPlantasCatalogoActionPerformed
+
+    private void etiquetaImagenPlantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaImagenPlantaMouseClicked
+        int resuul = jFileChooserFotos.showOpenDialog(diagNuevaPlanta); 
+        if(resuul == jFileChooserFotos.APPROVE_OPTION){
+        foto = jFileChooserFotos.getSelectedFile().getPath();
+            if(!foto.isEmpty()){
+                ImageIcon fot = new ImageIcon(foto);
+                Icon icono = new ImageIcon(fot.getImage().getScaledInstance(etiquetaImagenPlanta.getWidth(), etiquetaImagenPlanta.getHeight(), Image.SCALE_DEFAULT));
+                etiquetaImagenPlanta.setIcon(icono);        
+                this.repaint();
+            }
+        }
+    }//GEN-LAST:event_etiquetaImagenPlantaMouseClicked
+
+    private void diagNuevaPlantaWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagNuevaPlantaWindowOpened
+//        labelConfirmacionNuevaPlanta.setVisible(false);
+//        botonConfirmNewPlanta.setEnabled(false);
+//        botonAbortNewPlanta.setEnabled(false);
+//        botonConfirmNewPlanta.setVisible(false);
+//        botonAbortNewPlanta.setVisible(false);
+        ponerImagenLabel(pathPlantaImageDefault, etiquetaImagenPlanta);
+    }//GEN-LAST:event_diagNuevaPlantaWindowOpened
+
+    private void botonAgregarPlantasCatalogo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarPlantasCatalogo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonAgregarPlantasCatalogo1ActionPerformed
+
+    private void botonFinalizaDatosPlayerPlantas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizaDatosPlayerPlantas1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonFinalizaDatosPlayerPlantas1ActionPerformed
+
+    private void etiquetaImagenPlanta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaImagenPlanta1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_etiquetaImagenPlanta1MouseClicked
+
+    private void botonNuevaPlanta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevaPlanta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonNuevaPlanta1ActionPerformed
+
+    private void botonGuardarPlantaNueva1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarPlantaNueva1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonGuardarPlantaNueva1ActionPerformed
+
+    private void botonSalirIngresoPlantaNueva1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirIngresoPlantaNueva1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonSalirIngresoPlantaNueva1ActionPerformed
+
+    private void botonConfirmNewPlanta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmNewPlanta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonConfirmNewPlanta1ActionPerformed
+
+    private void botonAbortNewPlanta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAbortNewPlanta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonAbortNewPlanta1ActionPerformed
+
+    private void diagNuevaPlanta1WindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagNuevaPlanta1WindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_diagNuevaPlanta1WindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -689,14 +1299,33 @@ public class Inicio extends Mi_Ventana_200412823 {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public java.awt.Button botonAbortNewPlanta;
+    public java.awt.Button botonAbortNewPlanta1;
+    private javax.swing.JButton botonAgregarPlantasCatalogo;
+    private javax.swing.JButton botonAgregarPlantasCatalogo1;
+    public java.awt.Button botonConfirmNewPlanta;
+    public java.awt.Button botonConfirmNewPlanta1;
     private javax.swing.JButton botonFinalizaDatosPlayerPlantas;
+    private javax.swing.JButton botonFinalizaDatosPlayerPlantas1;
+    private javax.swing.JButton botonGuardarPlantaNueva;
+    private javax.swing.JButton botonGuardarPlantaNueva1;
+    private javax.swing.JButton botonNuevaPlanta;
+    private javax.swing.JButton botonNuevaPlanta1;
+    private javax.swing.JButton botonSalirIngresoPlantaNueva;
+    private javax.swing.JButton botonSalirIngresoPlantaNueva1;
     private javax.swing.JDialog diagCatalogoPlantas;
+    private javax.swing.JDialog diagCatalogoPlantas1;
     private javax.swing.JDialog diagDatosPlayerPlantas;
     private javax.swing.JDialog diagDatosPlayerZombies;
     private javax.swing.JDialog diagNuevaPlanta;
+    private javax.swing.JDialog diagNuevaPlanta1;
     private javax.swing.JDialog diagNuevosCamposPlayerPlantas;
     private javax.swing.JDialog diagNuevosCamposPlayerZombies;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel etiquetaImagenPlanta;
+    private javax.swing.JLabel etiquetaImagenPlanta1;
+    private javax.swing.JFileChooser jFileChooserFotos;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -706,11 +1335,21 @@ public class Inicio extends Mi_Ventana_200412823 {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelZombie;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPaneCatalogoPlantas;
+    private javax.swing.JScrollPane jScrollPaneCatalogoPlantas1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JButton jbAgregarNuevoCampoPlantas;
     private javax.swing.JButton jbAgregarNuevoCampoZombies;
     private javax.swing.JButton jbCancelDatosPlayerPlantas;
@@ -728,11 +1367,21 @@ public class Inicio extends Mi_Ventana_200412823 {
     private javax.swing.JButton jbPlayerZombie;
     private javax.swing.JButton jbStartJuego;
     private javax.swing.JLabel jlabelPlanta;
+    public java.awt.Label labelConfirmacionNuevaPlanta;
+    public java.awt.Label labelConfirmacionNuevaPlanta1;
     private javax.swing.JTextField txtCantidadDatosPlantas;
     private javax.swing.JTextField txtCantidadDatosZombies;
     private javax.swing.JTextField txtNewCampoPlantas;
     private javax.swing.JTextField txtNewCampoZombies;
+    private javax.swing.JTextField txtNombrePlantaNueva;
+    private javax.swing.JTextField txtNombrePlantaNueva1;
     private javax.swing.JTextField txtNombrePlayerPlantas;
     private javax.swing.JTextField txtNombrePlayerZombies;
+    private javax.swing.JTextField txtPuntosAtaquePlantaNueva;
+    private javax.swing.JTextField txtPuntosAtaquePlantaNueva1;
+    private javax.swing.JTextField txtPuntosDefensaPlantaNueva;
+    private javax.swing.JTextField txtPuntosDefensaPlantaNueva1;
+    private javax.swing.JTextField txtTipoAtaquePlantaNueva;
+    private javax.swing.JTextField txtTipoAtaquePlantaNueva1;
     // End of variables declaration//GEN-END:variables
 }
