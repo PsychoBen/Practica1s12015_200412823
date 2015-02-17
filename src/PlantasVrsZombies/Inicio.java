@@ -1,7 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Universidad de San Carlos de Guatemala
+ * Facultad de Ingenieria
+ * Ingenieria en Ciencias y Sistemas
+ * Esdras Benjamin Cotto Revolorio
+ * Carnet: 200412823
  */
 
 package PlantasVrsZombies;
@@ -18,13 +20,16 @@ import javax.swing.JLabel;
  */
 public class Inicio extends Mi_Ventana_200412823 {
 
+    String pathPlantaImage ="C:\\Users\\Ben\\Dropbox\\Mis docs\\EDD\\15\\Practicas\\Practica1s12015_200412823\\src\\imagenes\\planta.jpg";
+    String pathZombieImage ="C:\\Users\\Ben\\Dropbox\\Mis docs\\EDD\\15\\Practicas\\Practica1s12015_200412823\\src\\imagenes\\zombie.jpg";
+    
     /**
      * Creates new form Inicio
      */
     public Inicio() {
         initComponents();
-        ponerImagenLabel("imagenes/planta.jpg", jlabelPlanta);
-        ponerImagenLabel("imagenes/zombie.jpg", jLabelZombie);
+        ponerImagenLabel(pathPlantaImage, jlabelPlanta);
+        ponerImagenLabel(pathZombieImage, jLabelZombie);
     }
     
     /**
@@ -32,6 +37,8 @@ public class Inicio extends Mi_Ventana_200412823 {
      */
     public void ponerImagenLabel(String imag,JLabel etiqueta)
     {
+        //Image immage = new ImageIcon(getClass().getResource(imag)).getImage();
+        //Image immage = new ImageIcon(imag).getImage();
         ImageIcon fot = new ImageIcon(imag);
         Icon icono = new ImageIcon(fot.getImage().getScaledInstance(etiqueta.getWidth(), etiqueta.getHeight(), Image.SCALE_DEFAULT));
         etiqueta.setIcon(icono);
@@ -47,6 +54,44 @@ public class Inicio extends Mi_Ventana_200412823 {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        diagDatosPlayerPlantas = new javax.swing.JDialog();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtNombrePlayerPlantas = new javax.swing.JTextField();
+        jbOkDatosPlayerPlantas = new javax.swing.JButton();
+        jbCancelDatosPlayerPlantas = new javax.swing.JButton();
+        txtCantidadDatosPlantas = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jbMoreDatosPlayerPlantas = new javax.swing.JButton();
+        jbContinuarCatalogoDatosPlayerPlantas = new javax.swing.JButton();
+        diagNuevosCamposPlayerPlantas = new javax.swing.JDialog();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        txtNewCampoPlantas = new javax.swing.JTextField();
+        jbAgregarNuevoCampoPlantas = new javax.swing.JButton();
+        jbFinalizarNuevosCamposPlantas = new javax.swing.JButton();
+        diagDatosPlayerZombies = new javax.swing.JDialog();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        txtNombrePlayerZombies = new javax.swing.JTextField();
+        jbOkDatosPlayerZombies = new javax.swing.JButton();
+        jbCancelDatosPlayerZombies = new javax.swing.JButton();
+        txtCantidadDatosZombies = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jbMoreDatosPlayerZombies = new javax.swing.JButton();
+        jbContinuarCatalogoDatosPlayerZombies = new javax.swing.JButton();
+        diagNuevosCamposPlayerZombies = new javax.swing.JDialog();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        txtNewCampoZombies = new javax.swing.JTextField();
+        jbAgregarNuevoCampoZombies = new javax.swing.JButton();
+        jbFinalizarNuevosCamposZombies = new javax.swing.JButton();
+        diagCatalogoPlantas = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jSeparator2 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
+        botonFinalizaDatosPlayerPlantas = new javax.swing.JButton();
+        diagNuevaPlanta = new javax.swing.JDialog();
         jbPlayerPlantas = new javax.swing.JButton();
         jbPlayerZombie = new javax.swing.JButton();
         jbStartJuego = new javax.swing.JButton();
@@ -55,18 +100,449 @@ public class Inicio extends Mi_Ventana_200412823 {
         jLabelZombie = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
 
+        diagDatosPlayerPlantas.setTitle("Player Plantas");
+        diagDatosPlayerPlantas.setIconImage(getIconImage());
+        diagDatosPlayerPlantas.setMaximumSize(new java.awt.Dimension(540, 280));
+        diagDatosPlayerPlantas.setMinimumSize(new java.awt.Dimension(540, 280));
+        diagDatosPlayerPlantas.setModal(true);
+        diagDatosPlayerPlantas.setPreferredSize(new java.awt.Dimension(540, 280));
+        diagDatosPlayerPlantas.setResizable(false);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Ingrese los datos");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel12.setText("Nombre");
+        jLabel12.setToolTipText("");
+
+        txtNombrePlayerPlantas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNombrePlayerPlantas.setToolTipText("Escriba su nombre");
+
+        jbOkDatosPlayerPlantas.setBackground(java.awt.Color.green);
+        jbOkDatosPlayerPlantas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jbOkDatosPlayerPlantas.setText("Aceptar");
+
+        jbCancelDatosPlayerPlantas.setBackground(java.awt.Color.red);
+        jbCancelDatosPlayerPlantas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jbCancelDatosPlayerPlantas.setText("Cancelar");
+        jbCancelDatosPlayerPlantas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelDatosPlayerPlantasActionPerformed(evt);
+            }
+        });
+
+        txtCantidadDatosPlantas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCantidadDatosPlantas.setToolTipText("Cuantas plantas quieres?");
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel13.setText("Cantidad");
+
+        jbMoreDatosPlayerPlantas.setBackground(java.awt.Color.blue);
+        jbMoreDatosPlayerPlantas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jbMoreDatosPlayerPlantas.setText("Agregar mas Campos");
+        jbMoreDatosPlayerPlantas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbMoreDatosPlayerPlantasActionPerformed(evt);
+            }
+        });
+
+        jbContinuarCatalogoDatosPlayerPlantas.setBackground(java.awt.Color.cyan);
+        jbContinuarCatalogoDatosPlayerPlantas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jbContinuarCatalogoDatosPlayerPlantas.setText("Continuar");
+        jbContinuarCatalogoDatosPlayerPlantas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbContinuarCatalogoDatosPlayerPlantasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout diagDatosPlayerPlantasLayout = new javax.swing.GroupLayout(diagDatosPlayerPlantas.getContentPane());
+        diagDatosPlayerPlantas.getContentPane().setLayout(diagDatosPlayerPlantasLayout);
+        diagDatosPlayerPlantasLayout.setHorizontalGroup(
+            diagDatosPlayerPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagDatosPlayerPlantasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(diagDatosPlayerPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(diagDatosPlayerPlantasLayout.createSequentialGroup()
+                        .addGroup(diagDatosPlayerPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(diagDatosPlayerPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(diagDatosPlayerPlantasLayout.createSequentialGroup()
+                                .addComponent(jbMoreDatosPlayerPlantas)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jbContinuarCatalogoDatosPlayerPlantas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtCantidadDatosPlantas, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(txtNombrePlayerPlantas))
+                        .addGap(18, 18, 18)
+                        .addGroup(diagDatosPlayerPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbOkDatosPlayerPlantas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbCancelDatosPlayerPlantas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        diagDatosPlayerPlantasLayout.setVerticalGroup(
+            diagDatosPlayerPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagDatosPlayerPlantasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(diagDatosPlayerPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(txtNombrePlayerPlantas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbOkDatosPlayerPlantas))
+                .addGap(18, 18, 18)
+                .addGroup(diagDatosPlayerPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(txtCantidadDatosPlantas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbCancelDatosPlayerPlantas))
+                .addGap(51, 51, 51)
+                .addGroup(diagDatosPlayerPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbMoreDatosPlayerPlantas)
+                    .addComponent(jbContinuarCatalogoDatosPlayerPlantas))
+                .addContainerGap(71, Short.MAX_VALUE))
+        );
+
+        diagDatosPlayerPlantas.getAccessibleContext().setAccessibleParent(this);
+
+        diagNuevosCamposPlayerPlantas.setTitle("Nuevos Campos");
+        diagNuevosCamposPlayerPlantas.setAlwaysOnTop(true);
+        diagNuevosCamposPlayerPlantas.setIconImage(getIconImage());
+        diagNuevosCamposPlayerPlantas.setMaximumSize(new java.awt.Dimension(507, 160));
+        diagNuevosCamposPlayerPlantas.setMinimumSize(new java.awt.Dimension(507, 160));
+        diagNuevosCamposPlayerPlantas.setModal(true);
+        diagNuevosCamposPlayerPlantas.setResizable(false);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("Nuevo Campo");
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("Ingrese el nuevo campo");
+
+        txtNewCampoPlantas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txtNewCampoPlantas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNewCampoPlantas.setToolTipText("Nuevo Campo");
+
+        jbAgregarNuevoCampoPlantas.setBackground(java.awt.Color.green);
+        jbAgregarNuevoCampoPlantas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jbAgregarNuevoCampoPlantas.setText("Nuevo");
+
+        jbFinalizarNuevosCamposPlantas.setBackground(java.awt.Color.red);
+        jbFinalizarNuevosCamposPlantas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jbFinalizarNuevosCamposPlantas.setText("Finalizar");
+
+        javax.swing.GroupLayout diagNuevosCamposPlayerPlantasLayout = new javax.swing.GroupLayout(diagNuevosCamposPlayerPlantas.getContentPane());
+        diagNuevosCamposPlayerPlantas.getContentPane().setLayout(diagNuevosCamposPlayerPlantasLayout);
+        diagNuevosCamposPlayerPlantasLayout.setHorizontalGroup(
+            diagNuevosCamposPlayerPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagNuevosCamposPlayerPlantasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(diagNuevosCamposPlayerPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(diagNuevosCamposPlayerPlantasLayout.createSequentialGroup()
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNewCampoPlantas, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(diagNuevosCamposPlayerPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbFinalizarNuevosCamposPlantas, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(jbAgregarNuevoCampoPlantas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        diagNuevosCamposPlayerPlantasLayout.setVerticalGroup(
+            diagNuevosCamposPlayerPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagNuevosCamposPlayerPlantasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(diagNuevosCamposPlayerPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(diagNuevosCamposPlayerPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel14)
+                        .addComponent(txtNewCampoPlantas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbAgregarNuevoCampoPlantas))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbFinalizarNuevosCamposPlantas)
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+
+        diagNuevosCamposPlayerPlantas.getAccessibleContext().setAccessibleParent(diagDatosPlayerPlantas);
+
+        diagDatosPlayerZombies.setTitle("Player Zombies");
+        diagDatosPlayerZombies.setIconImage(getIconImage());
+        diagDatosPlayerZombies.setMaximumSize(new java.awt.Dimension(540, 280));
+        diagDatosPlayerZombies.setMinimumSize(new java.awt.Dimension(540, 280));
+        diagDatosPlayerZombies.setModal(true);
+        diagDatosPlayerZombies.setPreferredSize(new java.awt.Dimension(540, 280));
+        diagDatosPlayerZombies.setResizable(false);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("Ingrese los datos");
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel17.setText("Nombre");
+        jLabel17.setToolTipText("");
+
+        txtNombrePlayerZombies.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNombrePlayerZombies.setToolTipText("Escriba su nombre");
+
+        jbOkDatosPlayerZombies.setBackground(java.awt.Color.green);
+        jbOkDatosPlayerZombies.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jbOkDatosPlayerZombies.setText("Aceptar");
+
+        jbCancelDatosPlayerZombies.setBackground(java.awt.Color.red);
+        jbCancelDatosPlayerZombies.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jbCancelDatosPlayerZombies.setText("Cancelar");
+        jbCancelDatosPlayerZombies.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelDatosPlayerZombiesActionPerformed(evt);
+            }
+        });
+
+        txtCantidadDatosZombies.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCantidadDatosZombies.setToolTipText("Cuantas plantas quieres?");
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel18.setText("Cantidad");
+
+        jbMoreDatosPlayerZombies.setBackground(java.awt.Color.blue);
+        jbMoreDatosPlayerZombies.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jbMoreDatosPlayerZombies.setText("Agregar mas Campos");
+        jbMoreDatosPlayerZombies.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbMoreDatosPlayerZombiesActionPerformed(evt);
+            }
+        });
+
+        jbContinuarCatalogoDatosPlayerZombies.setBackground(java.awt.Color.cyan);
+        jbContinuarCatalogoDatosPlayerZombies.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jbContinuarCatalogoDatosPlayerZombies.setText("Continuar");
+
+        javax.swing.GroupLayout diagDatosPlayerZombiesLayout = new javax.swing.GroupLayout(diagDatosPlayerZombies.getContentPane());
+        diagDatosPlayerZombies.getContentPane().setLayout(diagDatosPlayerZombiesLayout);
+        diagDatosPlayerZombiesLayout.setHorizontalGroup(
+            diagDatosPlayerZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagDatosPlayerZombiesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(diagDatosPlayerZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(diagDatosPlayerZombiesLayout.createSequentialGroup()
+                        .addGroup(diagDatosPlayerZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(diagDatosPlayerZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(diagDatosPlayerZombiesLayout.createSequentialGroup()
+                                .addComponent(jbMoreDatosPlayerZombies)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jbContinuarCatalogoDatosPlayerZombies, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtCantidadDatosZombies, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(txtNombrePlayerZombies))
+                        .addGap(18, 18, 18)
+                        .addGroup(diagDatosPlayerZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbOkDatosPlayerZombies, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbCancelDatosPlayerZombies, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        diagDatosPlayerZombiesLayout.setVerticalGroup(
+            diagDatosPlayerZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagDatosPlayerZombiesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(diagDatosPlayerZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(txtNombrePlayerZombies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbOkDatosPlayerZombies))
+                .addGap(18, 18, 18)
+                .addGroup(diagDatosPlayerZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(txtCantidadDatosZombies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbCancelDatosPlayerZombies))
+                .addGap(51, 51, 51)
+                .addGroup(diagDatosPlayerZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbMoreDatosPlayerZombies)
+                    .addComponent(jbContinuarCatalogoDatosPlayerZombies))
+                .addContainerGap(71, Short.MAX_VALUE))
+        );
+
+        diagNuevosCamposPlayerZombies.setTitle("Nuevos Campos");
+        diagNuevosCamposPlayerZombies.setAlwaysOnTop(true);
+        diagNuevosCamposPlayerZombies.setIconImage(getIconImage());
+        diagNuevosCamposPlayerZombies.setMaximumSize(new java.awt.Dimension(507, 160));
+        diagNuevosCamposPlayerZombies.setMinimumSize(new java.awt.Dimension(507, 160));
+        diagNuevosCamposPlayerZombies.setModal(true);
+        diagNuevosCamposPlayerZombies.setResizable(false);
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("Nuevo Campo");
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("Ingrese el nuevo campo");
+
+        txtNewCampoZombies.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txtNewCampoZombies.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNewCampoZombies.setToolTipText("Nuevo Campo");
+
+        jbAgregarNuevoCampoZombies.setBackground(java.awt.Color.green);
+        jbAgregarNuevoCampoZombies.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jbAgregarNuevoCampoZombies.setText("Nuevo");
+
+        jbFinalizarNuevosCamposZombies.setBackground(java.awt.Color.red);
+        jbFinalizarNuevosCamposZombies.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jbFinalizarNuevosCamposZombies.setText("Finalizar");
+
+        javax.swing.GroupLayout diagNuevosCamposPlayerZombiesLayout = new javax.swing.GroupLayout(diagNuevosCamposPlayerZombies.getContentPane());
+        diagNuevosCamposPlayerZombies.getContentPane().setLayout(diagNuevosCamposPlayerZombiesLayout);
+        diagNuevosCamposPlayerZombiesLayout.setHorizontalGroup(
+            diagNuevosCamposPlayerZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagNuevosCamposPlayerZombiesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(diagNuevosCamposPlayerZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(diagNuevosCamposPlayerZombiesLayout.createSequentialGroup()
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNewCampoZombies, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(diagNuevosCamposPlayerZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbFinalizarNuevosCamposZombies, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(jbAgregarNuevoCampoZombies, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        diagNuevosCamposPlayerZombiesLayout.setVerticalGroup(
+            diagNuevosCamposPlayerZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagNuevosCamposPlayerZombiesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(diagNuevosCamposPlayerZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(diagNuevosCamposPlayerZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel19)
+                        .addComponent(txtNewCampoZombies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbAgregarNuevoCampoZombies))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbFinalizarNuevosCamposZombies)
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+
+        diagCatalogoPlantas.setTitle("Creacion de Catalogo de Plantas");
+        diagCatalogoPlantas.setMaximumSize(new java.awt.Dimension(628, 300));
+        diagCatalogoPlantas.setMinimumSize(new java.awt.Dimension(628, 300));
+        diagCatalogoPlantas.setModal(true);
+        diagCatalogoPlantas.setResizable(false);
+
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jButton1.setText("Nueva planta");
+
+        botonFinalizaDatosPlayerPlantas.setText("Finalizar");
+        botonFinalizaDatosPlayerPlantas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonFinalizaDatosPlayerPlantasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout diagCatalogoPlantasLayout = new javax.swing.GroupLayout(diagCatalogoPlantas.getContentPane());
+        diagCatalogoPlantas.getContentPane().setLayout(diagCatalogoPlantasLayout);
+        diagCatalogoPlantasLayout.setHorizontalGroup(
+            diagCatalogoPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagCatalogoPlantasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(diagCatalogoPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                    .addComponent(botonFinalizaDatosPlayerPlantas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        diagCatalogoPlantasLayout.setVerticalGroup(
+            diagCatalogoPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagCatalogoPlantasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(diagCatalogoPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(diagCatalogoPlantasLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+                        .addComponent(botonFinalizaDatosPlayerPlantas))
+                    .addComponent(jScrollPane1)
+                    .addComponent(jSeparator2))
+                .addContainerGap())
+        );
+
+        diagCatalogoPlantas.getAccessibleContext().setAccessibleParent(diagDatosPlayerPlantas);
+
+        javax.swing.GroupLayout diagNuevaPlantaLayout = new javax.swing.GroupLayout(diagNuevaPlanta.getContentPane());
+        diagNuevaPlanta.getContentPane().setLayout(diagNuevaPlantaLayout);
+        diagNuevaPlantaLayout.setHorizontalGroup(
+            diagNuevaPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        diagNuevaPlantaLayout.setVerticalGroup(
+            diagNuevaPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Planta versus Zombies Guatemalteco");
+        setBackground(new java.awt.Color(255, 255, 255));
         setIconImage(getIconImage());
         setIconImages(getIconImages());
+        setResizable(false);
 
+        jbPlayerPlantas.setBackground(java.awt.Color.green);
+        jbPlayerPlantas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbPlayerPlantas.setText("Player Plantas");
+        jbPlayerPlantas.setToolTipText("Plantas");
+        jbPlayerPlantas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbPlayerPlantasActionPerformed(evt);
+            }
+        });
 
+        jbPlayerZombie.setBackground(new java.awt.Color(255, 51, 0));
+        jbPlayerZombie.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbPlayerZombie.setText("Player Zombies");
+        jbPlayerZombie.setToolTipText("Zombies");
+        jbPlayerZombie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbPlayerZombieActionPerformed(evt);
+            }
+        });
 
+        jbStartJuego.setBackground(java.awt.Color.blue);
+        jbStartJuego.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbStartJuego.setText("Comenzar ");
+        jbStartJuego.setToolTipText("Start");
+        jbStartJuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbStartJuegoActionPerformed(evt);
+            }
+        });
 
+        jbEliminarDatos.setBackground(java.awt.Color.gray);
+        jbEliminarDatos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbEliminarDatos.setText("Eliminar Datos");
+        jbEliminarDatos.setToolTipText("Borrar Datos");
+        jbEliminarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarDatosActionPerformed(evt);
+            }
+        });
+
+        jlabelPlanta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabelZombie.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelZombie.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -83,8 +559,8 @@ public class Inicio extends Mi_Ventana_200412823 {
                     .addComponent(jbPlayerPlantas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbEliminarDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbPlayerZombie, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                    .addComponent(jLabelZombie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jlabelPlanta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jlabelPlanta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelZombie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -92,14 +568,14 @@ public class Inicio extends Mi_Ventana_200412823 {
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jlabelPlanta, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+                .addComponent(jlabelPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbPlayerPlantas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelZombie, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelZombie, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbPlayerZombie)
-                .addGap(54, 54, 54)
+                .addGap(30, 30, 30)
                 .addComponent(jbEliminarDatos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbStartJuego)
@@ -108,6 +584,61 @@ public class Inicio extends Mi_Ventana_200412823 {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbPlayerPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPlayerPlantasActionPerformed
+        diagDatosPlayerPlantas.setLocationRelativeTo(null);
+        diagDatosPlayerPlantas.show();
+        diagDatosPlayerPlantas.setModal(true);
+        
+    }//GEN-LAST:event_jbPlayerPlantasActionPerformed
+
+    private void jbPlayerZombieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPlayerZombieActionPerformed
+        diagDatosPlayerZombies.setLocationRelativeTo(null);
+        diagDatosPlayerZombies.show();
+        diagDatosPlayerZombies.setModal(true);
+    }//GEN-LAST:event_jbPlayerZombieActionPerformed
+
+    private void jbEliminarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarDatosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbEliminarDatosActionPerformed
+
+    private void jbStartJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbStartJuegoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbStartJuegoActionPerformed
+
+    private void jbCancelDatosPlayerPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelDatosPlayerPlantasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbCancelDatosPlayerPlantasActionPerformed
+
+    private void jbMoreDatosPlayerPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMoreDatosPlayerPlantasActionPerformed
+        // TODO add your handling code here:
+        diagNuevosCamposPlayerPlantas.setLocationRelativeTo(null);
+        diagNuevosCamposPlayerPlantas.show();
+        diagNuevosCamposPlayerPlantas.setModal(true);
+    }//GEN-LAST:event_jbMoreDatosPlayerPlantasActionPerformed
+
+    private void jbCancelDatosPlayerZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelDatosPlayerZombiesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbCancelDatosPlayerZombiesActionPerformed
+
+    private void jbMoreDatosPlayerZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMoreDatosPlayerZombiesActionPerformed
+        diagNuevosCamposPlayerZombies.setLocationRelativeTo(null);
+        diagNuevosCamposPlayerZombies.show();
+        diagNuevosCamposPlayerZombies.setModal(true);
+    }//GEN-LAST:event_jbMoreDatosPlayerZombiesActionPerformed
+
+    private void jbContinuarCatalogoDatosPlayerPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbContinuarCatalogoDatosPlayerPlantasActionPerformed
+        diagCatalogoPlantas.setLocationRelativeTo(null);
+        diagCatalogoPlantas.show();
+        diagCatalogoPlantas.setModal(true);
+    }//GEN-LAST:event_jbContinuarCatalogoDatosPlayerPlantasActionPerformed
+
+    private void botonFinalizaDatosPlayerPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizaDatosPlayerPlantasActionPerformed
+        // TODO add your handling code here:
+        diagCatalogoPlantas.hide();
+        diagDatosPlayerPlantas.hide();
+        jbPlayerPlantas.setEnabled(false);
+    }//GEN-LAST:event_botonFinalizaDatosPlayerPlantasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,12 +689,50 @@ public class Inicio extends Mi_Ventana_200412823 {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonFinalizaDatosPlayerPlantas;
+    private javax.swing.JDialog diagCatalogoPlantas;
+    private javax.swing.JDialog diagDatosPlayerPlantas;
+    private javax.swing.JDialog diagDatosPlayerZombies;
+    private javax.swing.JDialog diagNuevaPlanta;
+    private javax.swing.JDialog diagNuevosCamposPlayerPlantas;
+    private javax.swing.JDialog diagNuevosCamposPlayerZombies;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabelZombie;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JButton jbAgregarNuevoCampoPlantas;
+    private javax.swing.JButton jbAgregarNuevoCampoZombies;
+    private javax.swing.JButton jbCancelDatosPlayerPlantas;
+    private javax.swing.JButton jbCancelDatosPlayerZombies;
+    private javax.swing.JButton jbContinuarCatalogoDatosPlayerPlantas;
+    private javax.swing.JButton jbContinuarCatalogoDatosPlayerZombies;
     private javax.swing.JButton jbEliminarDatos;
-    private javax.swing.JButton jbPlayerPlantas;
+    private javax.swing.JButton jbFinalizarNuevosCamposPlantas;
+    private javax.swing.JButton jbFinalizarNuevosCamposZombies;
+    private javax.swing.JButton jbMoreDatosPlayerPlantas;
+    private javax.swing.JButton jbMoreDatosPlayerZombies;
+    private javax.swing.JButton jbOkDatosPlayerPlantas;
+    private javax.swing.JButton jbOkDatosPlayerZombies;
+    public javax.swing.JButton jbPlayerPlantas;
     private javax.swing.JButton jbPlayerZombie;
     private javax.swing.JButton jbStartJuego;
     private javax.swing.JLabel jlabelPlanta;
+    private javax.swing.JTextField txtCantidadDatosPlantas;
+    private javax.swing.JTextField txtCantidadDatosZombies;
+    private javax.swing.JTextField txtNewCampoPlantas;
+    private javax.swing.JTextField txtNewCampoZombies;
+    private javax.swing.JTextField txtNombrePlayerPlantas;
+    private javax.swing.JTextField txtNombrePlayerZombies;
     // End of variables declaration//GEN-END:variables
 }
