@@ -6,11 +6,14 @@
 
 package PlantasVrsZombies;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Ben
  */
-public class Inicio extends javax.swing.JFrame {
+public class Inicio extends Mi_Ventana_200412823 {
 
     /**
      * Creates new form Inicio
@@ -29,6 +32,9 @@ public class Inicio extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Planta versus Zombies Guatemalteco");
+        setIconImage(getIconImage());
+        setIconImages(getIconImages());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,9 +80,22 @@ public class Inicio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inicio().setVisible(true);
+                Mi_Ventana_200412823 jf = new Inicio();
+                jf.setLocationRelativeTo(null);                
+                jf.setVisible(true);
             }
         });
+    }
+    
+    /**
+     * Sobrecarga del metodo para utilizar un icono personalizado para la aplicacion
+     */
+    @Override
+     public Image getIconImage() 
+    {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("imagenes/icono.png"));
+        return retValue;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
