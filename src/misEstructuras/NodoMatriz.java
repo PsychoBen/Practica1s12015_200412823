@@ -14,4 +14,10 @@ package misEstructuras;
  */
 public class NodoMatriz {
     
+    NodoMatriz arriba;
+    NodoMatriz abajo;
+    NodoMatriz izquierda;
+    NodoMatriz derecha;
+    ListaPersonajes listaPersonajesNodo;
+    
 }
