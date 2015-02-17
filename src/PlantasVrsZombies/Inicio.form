@@ -30,13 +30,72 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="437" max="-2" attributes="0"/>
+              <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jbStartJuego" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jbPlayerPlantas" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jbEliminarDatos" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jbPlayerZombie" alignment="1" pref="126" max="32767" attributes="0"/>
+                  <Component id="jLabelZombie" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jlabelPlanta" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jlabelPlanta" pref="65" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jbPlayerPlantas" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabelZombie" min="-2" pref="52" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jbPlayerZombie" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              <Component id="jbEliminarDatos" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jbStartJuego" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JButton" name="jbPlayerPlantas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Player Plantas"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbPlayerZombie">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Player Zombies"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbStartJuego">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Comenzar "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jbEliminarDatos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Eliminar Datos"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jlabelPlanta">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelZombie">
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparator1">
+      <Properties>
+        <Property name="orientation" type="int" value="1"/>
+      </Properties>
+    </Component>
+  </SubComponents>
 </Form>

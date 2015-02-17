@@ -8,6 +8,9 @@ package PlantasVrsZombies;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -20,6 +23,19 @@ public class Inicio extends Mi_Ventana_200412823 {
      */
     public Inicio() {
         initComponents();
+        ponerImagenLabel("imagenes/planta.jpg", jlabelPlanta);
+        ponerImagenLabel("imagenes/zombie.jpg", jLabelZombie);
+    }
+    
+    /**
+     * Este metodo es para poner imagen en un label y que se ajuste al tamaño de este
+     */
+    public void ponerImagenLabel(String imag,JLabel etiqueta)
+    {
+        ImageIcon fot = new ImageIcon(imag);
+        Icon icono = new ImageIcon(fot.getImage().getScaledInstance(etiqueta.getWidth(), etiqueta.getHeight(), Image.SCALE_DEFAULT));
+        etiqueta.setIcon(icono);
+        this.repaint();
     }
 
     /**
@@ -31,20 +47,63 @@ public class Inicio extends Mi_Ventana_200412823 {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jbPlayerPlantas = new javax.swing.JButton();
+        jbPlayerZombie = new javax.swing.JButton();
+        jbStartJuego = new javax.swing.JButton();
+        jbEliminarDatos = new javax.swing.JButton();
+        jlabelPlanta = new javax.swing.JLabel();
+        jLabelZombie = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Planta versus Zombies Guatemalteco");
         setIconImage(getIconImage());
         setIconImages(getIconImages());
 
+        jbPlayerPlantas.setText("Player Plantas");
+
+        jbPlayerZombie.setText("Player Zombies");
+
+        jbStartJuego.setText("Comenzar ");
+
+        jbEliminarDatos.setText("Eliminar Datos");
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(437, 437, 437)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jbStartJuego, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbPlayerPlantas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbEliminarDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbPlayerZombie, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                    .addComponent(jLabelZombie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jlabelPlanta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlabelPlanta, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbPlayerPlantas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelZombie, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbPlayerZombie)
+                .addGap(54, 54, 54)
+                .addComponent(jbEliminarDatos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbStartJuego)
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -99,5 +158,12 @@ public class Inicio extends Mi_Ventana_200412823 {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelZombie;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton jbEliminarDatos;
+    private javax.swing.JButton jbPlayerPlantas;
+    private javax.swing.JButton jbPlayerZombie;
+    private javax.swing.JButton jbStartJuego;
+    private javax.swing.JLabel jlabelPlanta;
     // End of variables declaration//GEN-END:variables
 }
