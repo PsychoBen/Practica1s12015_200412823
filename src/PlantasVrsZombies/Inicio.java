@@ -1574,6 +1574,8 @@ public class Inicio extends Mi_Ventana_200412823 {
         jScrollPaneCatalogoZombies.add(panel);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+    
     /**
      * @param args the command line arguments
      */

@@ -19,5 +19,73 @@ public class NodoMatriz {
     NodoMatriz izquierda;
     NodoMatriz derecha;
     ListaPersonajes listaPersonajesNodo;
+    int fila; int col;
+    String imagen;
+    
+    
+
+    public NodoMatriz getArriba() {
+        return arriba;
+    }
+
+    public void setArriba(NodoMatriz arriba) {
+        this.arriba = arriba;
+    }
+
+    public NodoMatriz getAbajo() {
+        return abajo;
+    }
+
+    public void setAbajo(NodoMatriz abajo) {
+        this.abajo = abajo;
+    }
+
+    public NodoMatriz getIzquierda() {
+        return izquierda;
+    }
+
+    public void setIzquierda(NodoMatriz izquierda) {
+        this.izquierda = izquierda;
+    }
+
+    public NodoMatriz getDerecha() {
+        return derecha;
+    }
+
+    public void setDerecha(NodoMatriz derecha) {
+        this.derecha = derecha;
+    }
+
+    public ListaPersonajes getListaPersonajesNodo() {
+        return listaPersonajesNodo;
+    }
+
+    public void setListaPersonajesNodo(ListaPersonajes listaPersonajesNodo) {
+        this.listaPersonajesNodo = listaPersonajesNodo;
+    }
+
+    public int getFila() {
+        return fila;
+    }
+
+    public void setFila(int fila) {
+        this.fila = fila;
+    }
+
+    public int getCol() {
+        return col;
+    }
+
+    public void setCol(int col) {
+        this.col = col;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }    
     
 }
