@@ -20,6 +20,8 @@ public class NodoZombie {
     private String imagen;
     private String tipoAtaque;
     private int tipoIdentificadorAtaque;
+    private String tipoPersonaje;
+    private int identificadorTipoPersonaje;
     private int puntosAtaque;
     private int puntosDefensa;
 
@@ -34,6 +36,19 @@ public class NodoZombie {
         this.tipoAtaque = tipoAtaque;
         this.puntosAtaque = puntosAtaque;
         this.puntosDefensa = puntosDefensa;
+        this.tipoIdentificadorAtaque = obtenerTipoAtaque(tipoAtaque);
+        this.siguiente = null;
+        this.anterior = null;
+    }
+    
+    public NodoZombie(String nombre, String imagen, String tipoAtaque, int puntosAtaque, int puntosDefensa, String tipoPersonaj) {
+        this.nombre = nombre;
+        this.imagen = imagen;
+        this.tipoAtaque = tipoAtaque;
+        this.puntosAtaque = puntosAtaque;
+        this.puntosDefensa = puntosDefensa;
+        this.tipoPersonaje = tipoPersonaj;
+        this.identificadorTipoPersonaje = obtenerTipoPersonaje(tipoPersonaj);
         this.tipoIdentificadorAtaque = obtenerTipoAtaque(tipoAtaque);
         this.siguiente = null;
         this.anterior = null;
@@ -102,6 +117,22 @@ public class NodoZombie {
     public void setPuntosDefensa(int puntosDefensa) {
         this.puntosDefensa = puntosDefensa;
     }
+
+    public String getTipoPersonaje() {
+        return tipoPersonaje;
+    }
+
+    public void setTipoPersonaje(String tipoPersonaje) {
+        this.tipoPersonaje = tipoPersonaje;
+    }
+
+    public int getIdentificadorTipoPersonaje() {
+        return identificadorTipoPersonaje;
+    }
+
+    public void setIdentificadorTipoPersonaje(int identificadorTipoPersonaje) {
+        this.identificadorTipoPersonaje = identificadorTipoPersonaje;
+    }       
     
     private int obtenerTipoAtaque(String tipo)
     {
@@ -113,6 +144,28 @@ public class NodoZombie {
                 break;
             }
             case "Disparo":
+            {
+                resultado = 2;
+                break;
+            }
+            default:{
+                System.out.println("Que hago aca??");
+                break;
+            }    
+        }
+        return resultado;
+    } 
+    
+    private int obtenerTipoPersonaje(String tipo)
+    {
+        int resultado = -666;
+        switch (tipo){
+            case "Plantas":
+            {
+                resultado = 1;
+                break;
+            }
+            case "Zombies":
             {
                 resultado = 2;
                 break;
