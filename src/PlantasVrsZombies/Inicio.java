@@ -8,11 +8,13 @@
 
 package PlantasVrsZombies;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -27,6 +29,7 @@ public class Inicio extends Mi_Ventana_200412823 {
     String pathZombieImageDefault ="C:\\Users\\Ben\\Dropbox\\Mis docs\\EDD\\15\\Practicas\\Practica1s12015_200412823\\src\\imagenes\\defaultZombie.jpg";
     String foto = "null";
     FileNameExtensionFilter filtroFotos = new FileNameExtensionFilter("JPG & GIF & PNG", "jpg", "gif","png");
+  
     /**
      * Creates new form Inicio
      */
@@ -113,28 +116,29 @@ public class Inicio extends Mi_Ventana_200412823 {
         labelConfirmacionNuevaPlanta = new java.awt.Label();
         botonAbortNewPlanta = new java.awt.Button();
         jFileChooserFotos = new javax.swing.JFileChooser();
-        diagCatalogoPlantas1 = new javax.swing.JDialog();
-        jScrollPaneCatalogoPlantas1 = new javax.swing.JScrollPane();
+        diagCatalogoZombies = new javax.swing.JDialog();
+        jScrollPaneCatalogoZombies = new javax.swing.JScrollPane();
         jSeparator3 = new javax.swing.JSeparator();
-        botonAgregarPlantasCatalogo1 = new javax.swing.JButton();
-        botonFinalizaDatosPlayerPlantas1 = new javax.swing.JButton();
-        diagNuevaPlanta1 = new javax.swing.JDialog();
+        botonAgregarZombiesCatalogo = new javax.swing.JButton();
+        botonFinalizaDatosPlayerZombies = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        diagNuevoZombie = new javax.swing.JDialog();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        etiquetaImagenPlanta1 = new javax.swing.JLabel();
-        txtNombrePlantaNueva1 = new javax.swing.JTextField();
-        txtPuntosAtaquePlantaNueva1 = new javax.swing.JTextField();
-        txtPuntosDefensaPlantaNueva1 = new javax.swing.JTextField();
-        botonNuevaPlanta1 = new javax.swing.JButton();
-        botonGuardarPlantaNueva1 = new javax.swing.JButton();
-        botonSalirIngresoPlantaNueva1 = new javax.swing.JButton();
+        etiquetaImagenZombie = new javax.swing.JLabel();
+        txtNombreZombieNuevo = new javax.swing.JTextField();
+        txtPuntosAtaqueZombieNuevo = new javax.swing.JTextField();
+        txtPuntosDefensaZombieNuevo = new javax.swing.JTextField();
+        botonZombieNuevo = new javax.swing.JButton();
+        botonGuardarZombieNuevo = new javax.swing.JButton();
+        botonSalirIngresoZombieNuevo = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        txtTipoAtaquePlantaNueva1 = new javax.swing.JTextField();
-        botonConfirmNewPlanta1 = new java.awt.Button();
-        labelConfirmacionNuevaPlanta1 = new java.awt.Label();
-        botonAbortNewPlanta1 = new java.awt.Button();
+        txtTipoAtaqueZombieNuevo = new javax.swing.JTextField();
+        botonConfirmNewZombie = new java.awt.Button();
+        labelConfirmacionNuevoZombie = new java.awt.Label();
+        botonAbortNewZombie = new java.awt.Button();
         jbPlayerPlantas = new javax.swing.JButton();
         jbPlayerZombie = new javax.swing.JButton();
         jbStartJuego = new javax.swing.JButton();
@@ -150,12 +154,20 @@ public class Inicio extends Mi_Ventana_200412823 {
         diagDatosPlayerPlantas.setModal(true);
         diagDatosPlayerPlantas.setPreferredSize(new java.awt.Dimension(540, 280));
         diagDatosPlayerPlantas.setResizable(false);
+        diagDatosPlayerPlantas.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                diagDatosPlayerPlantasWindowOpened(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 204));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Ingrese los datos");
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Nombre");
         jLabel12.setToolTipText("");
 
@@ -165,6 +177,11 @@ public class Inicio extends Mi_Ventana_200412823 {
         jbOkDatosPlayerPlantas.setBackground(java.awt.Color.green);
         jbOkDatosPlayerPlantas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbOkDatosPlayerPlantas.setText("Aceptar");
+        jbOkDatosPlayerPlantas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbOkDatosPlayerPlantasActionPerformed(evt);
+            }
+        });
 
         jbCancelDatosPlayerPlantas.setBackground(java.awt.Color.red);
         jbCancelDatosPlayerPlantas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -179,6 +196,8 @@ public class Inicio extends Mi_Ventana_200412823 {
         txtCantidadDatosPlantas.setToolTipText("Cuantas plantas quieres?");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Cantidad");
 
         jbMoreDatosPlayerPlantas.setBackground(java.awt.Color.blue);
@@ -256,8 +275,14 @@ public class Inicio extends Mi_Ventana_200412823 {
         diagNuevosCamposPlayerPlantas.setMinimumSize(new java.awt.Dimension(507, 160));
         diagNuevosCamposPlayerPlantas.setModal(true);
         diagNuevosCamposPlayerPlantas.setResizable(false);
+        diagNuevosCamposPlayerPlantas.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                diagNuevosCamposPlayerPlantasWindowOpened(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("Nuevo Campo");
 
@@ -273,10 +298,20 @@ public class Inicio extends Mi_Ventana_200412823 {
         jbAgregarNuevoCampoPlantas.setBackground(java.awt.Color.green);
         jbAgregarNuevoCampoPlantas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbAgregarNuevoCampoPlantas.setText("Nuevo");
+        jbAgregarNuevoCampoPlantas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAgregarNuevoCampoPlantasActionPerformed(evt);
+            }
+        });
 
         jbFinalizarNuevosCamposPlantas.setBackground(java.awt.Color.red);
         jbFinalizarNuevosCamposPlantas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbFinalizarNuevosCamposPlantas.setText("Finalizar");
+        jbFinalizarNuevosCamposPlantas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbFinalizarNuevosCamposPlantasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout diagNuevosCamposPlayerPlantasLayout = new javax.swing.GroupLayout(diagNuevosCamposPlayerPlantas.getContentPane());
         diagNuevosCamposPlayerPlantas.getContentPane().setLayout(diagNuevosCamposPlayerPlantasLayout);
@@ -319,12 +354,19 @@ public class Inicio extends Mi_Ventana_200412823 {
         diagDatosPlayerZombies.setMinimumSize(new java.awt.Dimension(540, 280));
         diagDatosPlayerZombies.setModal(true);
         diagDatosPlayerZombies.setResizable(false);
+        diagDatosPlayerZombies.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                diagDatosPlayerZombiesWindowOpened(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(51, 0, 204));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Ingrese los datos");
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Nombre");
         jLabel17.setToolTipText("");
 
@@ -334,6 +376,11 @@ public class Inicio extends Mi_Ventana_200412823 {
         jbOkDatosPlayerZombies.setBackground(java.awt.Color.green);
         jbOkDatosPlayerZombies.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbOkDatosPlayerZombies.setText("Aceptar");
+        jbOkDatosPlayerZombies.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbOkDatosPlayerZombiesActionPerformed(evt);
+            }
+        });
 
         jbCancelDatosPlayerZombies.setBackground(java.awt.Color.red);
         jbCancelDatosPlayerZombies.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -348,6 +395,8 @@ public class Inicio extends Mi_Ventana_200412823 {
         txtCantidadDatosZombies.setToolTipText("Cuantas plantas quieres?");
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Cantidad");
 
         jbMoreDatosPlayerZombies.setBackground(java.awt.Color.blue);
@@ -362,6 +411,11 @@ public class Inicio extends Mi_Ventana_200412823 {
         jbContinuarCatalogoDatosPlayerZombies.setBackground(java.awt.Color.cyan);
         jbContinuarCatalogoDatosPlayerZombies.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbContinuarCatalogoDatosPlayerZombies.setText("Continuar");
+        jbContinuarCatalogoDatosPlayerZombies.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbContinuarCatalogoDatosPlayerZombiesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout diagDatosPlayerZombiesLayout = new javax.swing.GroupLayout(diagDatosPlayerZombies.getContentPane());
         diagDatosPlayerZombies.getContentPane().setLayout(diagDatosPlayerZombiesLayout);
@@ -414,12 +468,17 @@ public class Inicio extends Mi_Ventana_200412823 {
         diagNuevosCamposPlayerZombies.setTitle("Nuevos Campos");
         diagNuevosCamposPlayerZombies.setAlwaysOnTop(true);
         diagNuevosCamposPlayerZombies.setIconImage(getIconImage());
-        diagNuevosCamposPlayerZombies.setMaximumSize(new java.awt.Dimension(507, 160));
         diagNuevosCamposPlayerZombies.setMinimumSize(new java.awt.Dimension(507, 160));
         diagNuevosCamposPlayerZombies.setModal(true);
         diagNuevosCamposPlayerZombies.setResizable(false);
+        diagNuevosCamposPlayerZombies.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                diagNuevosCamposPlayerZombiesWindowOpened(evt);
+            }
+        });
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("Nuevo Campo");
 
@@ -435,10 +494,20 @@ public class Inicio extends Mi_Ventana_200412823 {
         jbAgregarNuevoCampoZombies.setBackground(java.awt.Color.green);
         jbAgregarNuevoCampoZombies.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbAgregarNuevoCampoZombies.setText("Nuevo");
+        jbAgregarNuevoCampoZombies.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAgregarNuevoCampoZombiesActionPerformed(evt);
+            }
+        });
 
         jbFinalizarNuevosCamposZombies.setBackground(java.awt.Color.red);
         jbFinalizarNuevosCamposZombies.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbFinalizarNuevosCamposZombies.setText("Finalizar");
+        jbFinalizarNuevosCamposZombies.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbFinalizarNuevosCamposZombiesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout diagNuevosCamposPlayerZombiesLayout = new javax.swing.GroupLayout(diagNuevosCamposPlayerZombies.getContentPane());
         diagNuevosCamposPlayerZombies.getContentPane().setLayout(diagNuevosCamposPlayerZombiesLayout);
@@ -475,11 +544,19 @@ public class Inicio extends Mi_Ventana_200412823 {
         );
 
         diagCatalogoPlantas.setTitle("Creacion de Catalogo de Plantas");
-        diagCatalogoPlantas.setMaximumSize(new java.awt.Dimension(635, 300));
-        diagCatalogoPlantas.setMinimumSize(new java.awt.Dimension(635, 300));
+        diagCatalogoPlantas.setMaximumSize(new java.awt.Dimension(640, 300));
+        diagCatalogoPlantas.setMinimumSize(new java.awt.Dimension(640, 300));
         diagCatalogoPlantas.setModal(true);
-        diagCatalogoPlantas.setPreferredSize(new java.awt.Dimension(635, 300));
+        diagCatalogoPlantas.setPreferredSize(new java.awt.Dimension(640, 300));
         diagCatalogoPlantas.setResizable(false);
+        diagCatalogoPlantas.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                diagCatalogoPlantasWindowOpened(evt);
+            }
+        });
+
+        jScrollPaneCatalogoPlantas.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPaneCatalogoPlantas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Catalogo de Plantas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Agency FB", 1, 24), java.awt.Color.green)); // NOI18N
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -521,15 +598,14 @@ public class Inicio extends Mi_Ventana_200412823 {
             .addGroup(diagCatalogoPlantasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(diagCatalogoPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(diagCatalogoPlantasLayout.createSequentialGroup()
+                        .addComponent(botonAgregarPlantasCatalogo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botonFinalizaDatosPlayerPlantas)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPaneCatalogoPlantas, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
                     .addComponent(jSeparator2))
                 .addContainerGap())
-            .addGroup(diagCatalogoPlantasLayout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(botonAgregarPlantasCatalogo)
-                .addGap(42, 42, 42)
-                .addComponent(botonFinalizaDatosPlayerPlantas)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         diagCatalogoPlantas.getAccessibleContext().setAccessibleParent(diagDatosPlayerPlantas);
@@ -554,12 +630,18 @@ public class Inicio extends Mi_Ventana_200412823 {
         jLabel1.setText("Ingrese la nueva Planta");
         jLabel1.setPreferredSize(new java.awt.Dimension(282, 40));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Nombre");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Puntos Ataque");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Puntos Defensa");
 
@@ -603,6 +685,8 @@ public class Inicio extends Mi_Ventana_200412823 {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Tipo Ataque");
 
@@ -614,7 +698,6 @@ public class Inicio extends Mi_Ventana_200412823 {
         botonConfirmNewPlanta.setLabel("Si");
         botonConfirmNewPlanta.setMaximumSize(new java.awt.Dimension(45, 25));
         botonConfirmNewPlanta.setMinimumSize(new java.awt.Dimension(45, 25));
-        botonConfirmNewPlanta.setPreferredSize(new java.awt.Dimension(45, 25));
         botonConfirmNewPlanta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonConfirmNewPlantaActionPerformed(evt);
@@ -622,11 +705,11 @@ public class Inicio extends Mi_Ventana_200412823 {
         });
 
         labelConfirmacionNuevaPlanta.setAlignment(java.awt.Label.CENTER);
+        labelConfirmacionNuevaPlanta.setBackground(java.awt.Color.black);
         labelConfirmacionNuevaPlanta.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         labelConfirmacionNuevaPlanta.setForeground(java.awt.Color.red);
         labelConfirmacionNuevaPlanta.setMaximumSize(new java.awt.Dimension(390, 20));
         labelConfirmacionNuevaPlanta.setMinimumSize(new java.awt.Dimension(390, 20));
-        labelConfirmacionNuevaPlanta.setPreferredSize(new java.awt.Dimension(390, 20));
         labelConfirmacionNuevaPlanta.setText("Confirma que lo desea agregar?");
 
         botonAbortNewPlanta.setBackground(java.awt.Color.red);
@@ -635,7 +718,6 @@ public class Inicio extends Mi_Ventana_200412823 {
         botonAbortNewPlanta.setLabel("No");
         botonAbortNewPlanta.setMaximumSize(new java.awt.Dimension(45, 25));
         botonAbortNewPlanta.setMinimumSize(new java.awt.Dimension(45, 25));
-        botonAbortNewPlanta.setPreferredSize(new java.awt.Dimension(45, 25));
         botonAbortNewPlanta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonAbortNewPlantaActionPerformed(evt);
@@ -655,7 +737,7 @@ public class Inicio extends Mi_Ventana_200412823 {
                             .addGroup(diagNuevaPlantaLayout.createSequentialGroup()
                                 .addGroup(diagNuevaPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(botonNuevaPlanta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -668,14 +750,14 @@ public class Inicio extends Mi_Ventana_200412823 {
                                     .addGroup(diagNuevaPlantaLayout.createSequentialGroup()
                                         .addComponent(botonGuardarPlantaNueva, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(botonSalirIngresoPlantaNueva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addComponent(botonSalirIngresoPlantaNueva, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))))
                             .addGroup(diagNuevaPlantaLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(botonConfirmNewPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(99, 99, 99)
                                 .addComponent(botonAbortNewPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(85, 85, 85))
-                            .addComponent(labelConfirmacionNuevaPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelConfirmacionNuevaPlanta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(10, 10, 10)
                         .addComponent(etiquetaImagenPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -726,242 +808,272 @@ public class Inicio extends Mi_Ventana_200412823 {
         jFileChooserFotos.setMinimumSize(new java.awt.Dimension(640, 410));
         jFileChooserFotos.setPreferredSize(new java.awt.Dimension(640, 410));
 
-        diagCatalogoPlantas1.setTitle("Creacion de Catalogo de Plantas");
-        diagCatalogoPlantas1.setMaximumSize(new java.awt.Dimension(635, 300));
-        diagCatalogoPlantas1.setMinimumSize(new java.awt.Dimension(635, 300));
-        diagCatalogoPlantas1.setModal(true);
-        diagCatalogoPlantas1.setPreferredSize(new java.awt.Dimension(635, 300));
-        diagCatalogoPlantas1.setResizable(false);
+        diagCatalogoZombies.setTitle("Creacion de Catalogo de Zombies");
+        diagCatalogoZombies.setMaximumSize(new java.awt.Dimension(650, 350));
+        diagCatalogoZombies.setMinimumSize(new java.awt.Dimension(650, 350));
+        diagCatalogoZombies.setModal(true);
+        diagCatalogoZombies.setPreferredSize(new java.awt.Dimension(650, 350));
+        diagCatalogoZombies.setResizable(false);
+        diagCatalogoZombies.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                diagCatalogoZombiesWindowOpened(evt);
+            }
+        });
+
+        jScrollPaneCatalogoZombies.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPaneCatalogoZombies.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Catalogo de Zombies", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Agency FB", 1, 24), java.awt.Color.red)); // NOI18N
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        botonAgregarPlantasCatalogo1.setBackground(java.awt.Color.green);
-        botonAgregarPlantasCatalogo1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        botonAgregarPlantasCatalogo1.setText("Agregar plantas");
-        botonAgregarPlantasCatalogo1.addActionListener(new java.awt.event.ActionListener() {
+        botonAgregarZombiesCatalogo.setBackground(java.awt.Color.green);
+        botonAgregarZombiesCatalogo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        botonAgregarZombiesCatalogo.setText("Agregar Zombies");
+        botonAgregarZombiesCatalogo.setToolTipText("Agregar Zombies");
+        botonAgregarZombiesCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAgregarPlantasCatalogo1ActionPerformed(evt);
+                botonAgregarZombiesCatalogoActionPerformed(evt);
             }
         });
 
-        botonFinalizaDatosPlayerPlantas1.setBackground(java.awt.Color.blue);
-        botonFinalizaDatosPlayerPlantas1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        botonFinalizaDatosPlayerPlantas1.setText("Finalizar");
-        botonFinalizaDatosPlayerPlantas1.addActionListener(new java.awt.event.ActionListener() {
+        botonFinalizaDatosPlayerZombies.setBackground(java.awt.Color.blue);
+        botonFinalizaDatosPlayerZombies.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        botonFinalizaDatosPlayerZombies.setText("Finalizar");
+        botonFinalizaDatosPlayerZombies.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonFinalizaDatosPlayerPlantas1ActionPerformed(evt);
+                botonFinalizaDatosPlayerZombiesActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout diagCatalogoPlantas1Layout = new javax.swing.GroupLayout(diagCatalogoPlantas1.getContentPane());
-        diagCatalogoPlantas1.getContentPane().setLayout(diagCatalogoPlantas1Layout);
-        diagCatalogoPlantas1Layout.setHorizontalGroup(
-            diagCatalogoPlantas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(diagCatalogoPlantas1Layout.createSequentialGroup()
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout diagCatalogoZombiesLayout = new javax.swing.GroupLayout(diagCatalogoZombies.getContentPane());
+        diagCatalogoZombies.getContentPane().setLayout(diagCatalogoZombiesLayout);
+        diagCatalogoZombiesLayout.setHorizontalGroup(
+            diagCatalogoZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagCatalogoZombiesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPaneCatalogoPlantas1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneCatalogoZombies, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(diagCatalogoPlantas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonAgregarPlantasCatalogo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonFinalizaDatosPlayerPlantas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(diagCatalogoZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonFinalizaDatosPlayerZombies, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonAgregarZombiesCatalogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        diagCatalogoPlantas1Layout.setVerticalGroup(
-            diagCatalogoPlantas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(diagCatalogoPlantas1Layout.createSequentialGroup()
+        diagCatalogoZombiesLayout.setVerticalGroup(
+            diagCatalogoZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagCatalogoZombiesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(diagCatalogoPlantas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneCatalogoPlantas1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                .addGroup(diagCatalogoZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(diagCatalogoZombiesLayout.createSequentialGroup()
+                        .addComponent(botonAgregarZombiesCatalogo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botonFinalizaDatosPlayerZombies)
+                        .addGap(34, 34, 34)
+                        .addComponent(jButton1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPaneCatalogoZombies, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
                     .addComponent(jSeparator3))
                 .addContainerGap())
-            .addGroup(diagCatalogoPlantas1Layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(botonAgregarPlantasCatalogo1)
-                .addGap(42, 42, 42)
-                .addComponent(botonFinalizaDatosPlayerPlantas1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        diagNuevaPlanta1.setTitle("Nueva Planta");
-        diagNuevaPlanta1.setBackground(java.awt.Color.black);
-        diagNuevaPlanta1.setIconImage(getIconImage());
-        diagNuevaPlanta1.setMaximumSize(new java.awt.Dimension(620, 430));
-        diagNuevaPlanta1.setMinimumSize(new java.awt.Dimension(620, 430));
-        diagNuevaPlanta1.setModal(true);
-        diagNuevaPlanta1.setPreferredSize(new java.awt.Dimension(620, 430));
-        diagNuevaPlanta1.setResizable(false);
-        diagNuevaPlanta1.addWindowListener(new java.awt.event.WindowAdapter() {
+        diagNuevoZombie.setTitle("Nuevo Zombie");
+        diagNuevoZombie.setBackground(java.awt.Color.black);
+        diagNuevoZombie.setIconImage(getIconImage());
+        diagNuevoZombie.setMaximumSize(new java.awt.Dimension(620, 430));
+        diagNuevoZombie.setMinimumSize(new java.awt.Dimension(620, 430));
+        diagNuevoZombie.setModal(true);
+        diagNuevoZombie.setPreferredSize(new java.awt.Dimension(620, 430));
+        diagNuevoZombie.setResizable(false);
+        diagNuevoZombie.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
-                diagNuevaPlanta1WindowOpened(evt);
+                diagNuevoZombieWindowOpened(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 51, 153));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Ingrese la nueva Planta");
+        jLabel5.setText("Ingrese el nuevo Zombie");
         jLabel5.setPreferredSize(new java.awt.Dimension(282, 40));
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Nombre");
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Puntos Ataque");
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Puntos Defensa");
 
-        etiquetaImagenPlanta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        etiquetaImagenPlanta1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        etiquetaImagenPlanta1.setEnabled(false);
-        etiquetaImagenPlanta1.addMouseListener(new java.awt.event.MouseAdapter() {
+        etiquetaImagenZombie.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        etiquetaImagenZombie.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        etiquetaImagenZombie.setEnabled(false);
+        etiquetaImagenZombie.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                etiquetaImagenPlanta1MouseClicked(evt);
+                etiquetaImagenZombieMouseClicked(evt);
             }
         });
 
-        txtNombrePlantaNueva1.setEnabled(false);
+        txtNombreZombieNuevo.setEnabled(false);
 
-        txtPuntosAtaquePlantaNueva1.setEnabled(false);
+        txtPuntosAtaqueZombieNuevo.setEnabled(false);
 
-        txtPuntosDefensaPlantaNueva1.setEnabled(false);
+        txtPuntosDefensaZombieNuevo.setEnabled(false);
 
-        botonNuevaPlanta1.setBackground(java.awt.Color.cyan);
-        botonNuevaPlanta1.setText("Nuevo");
-        botonNuevaPlanta1.addActionListener(new java.awt.event.ActionListener() {
+        botonZombieNuevo.setBackground(java.awt.Color.cyan);
+        botonZombieNuevo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        botonZombieNuevo.setText("Nuevo");
+        botonZombieNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonNuevaPlanta1ActionPerformed(evt);
+                botonZombieNuevoActionPerformed(evt);
             }
         });
 
-        botonGuardarPlantaNueva1.setBackground(java.awt.Color.green);
-        botonGuardarPlantaNueva1.setText("Guardar");
-        botonGuardarPlantaNueva1.setEnabled(false);
-        botonGuardarPlantaNueva1.addActionListener(new java.awt.event.ActionListener() {
+        botonGuardarZombieNuevo.setBackground(java.awt.Color.green);
+        botonGuardarZombieNuevo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        botonGuardarZombieNuevo.setText("Guardar");
+        botonGuardarZombieNuevo.setEnabled(false);
+        botonGuardarZombieNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonGuardarPlantaNueva1ActionPerformed(evt);
+                botonGuardarZombieNuevoActionPerformed(evt);
             }
         });
 
-        botonSalirIngresoPlantaNueva1.setBackground(java.awt.Color.red);
-        botonSalirIngresoPlantaNueva1.setText("Salir");
-        botonSalirIngresoPlantaNueva1.addActionListener(new java.awt.event.ActionListener() {
+        botonSalirIngresoZombieNuevo.setBackground(java.awt.Color.red);
+        botonSalirIngresoZombieNuevo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        botonSalirIngresoZombieNuevo.setText("Salir");
+        botonSalirIngresoZombieNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonSalirIngresoPlantaNueva1ActionPerformed(evt);
+                botonSalirIngresoZombieNuevoActionPerformed(evt);
             }
         });
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Tipo Ataque");
 
-        txtTipoAtaquePlantaNueva1.setEnabled(false);
+        txtTipoAtaqueZombieNuevo.setEnabled(false);
 
-        botonConfirmNewPlanta1.setBackground(java.awt.Color.green);
-        botonConfirmNewPlanta1.setEnabled(false);
-        botonConfirmNewPlanta1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        botonConfirmNewPlanta1.setLabel("Si");
-        botonConfirmNewPlanta1.setMaximumSize(new java.awt.Dimension(45, 25));
-        botonConfirmNewPlanta1.setMinimumSize(new java.awt.Dimension(45, 25));
-        botonConfirmNewPlanta1.addActionListener(new java.awt.event.ActionListener() {
+        botonConfirmNewZombie.setBackground(java.awt.Color.green);
+        botonConfirmNewZombie.setEnabled(false);
+        botonConfirmNewZombie.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        botonConfirmNewZombie.setLabel("Si");
+        botonConfirmNewZombie.setMaximumSize(new java.awt.Dimension(45, 25));
+        botonConfirmNewZombie.setMinimumSize(new java.awt.Dimension(45, 25));
+        botonConfirmNewZombie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonConfirmNewPlanta1ActionPerformed(evt);
+                botonConfirmNewZombieActionPerformed(evt);
             }
         });
 
-        labelConfirmacionNuevaPlanta1.setAlignment(java.awt.Label.CENTER);
-        labelConfirmacionNuevaPlanta1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        labelConfirmacionNuevaPlanta1.setForeground(java.awt.Color.red);
-        labelConfirmacionNuevaPlanta1.setMaximumSize(new java.awt.Dimension(390, 20));
-        labelConfirmacionNuevaPlanta1.setMinimumSize(new java.awt.Dimension(390, 20));
-        labelConfirmacionNuevaPlanta1.setText("Confirma que lo desea agregar?");
+        labelConfirmacionNuevoZombie.setAlignment(java.awt.Label.CENTER);
+        labelConfirmacionNuevoZombie.setBackground(java.awt.Color.black);
+        labelConfirmacionNuevoZombie.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        labelConfirmacionNuevoZombie.setForeground(java.awt.Color.red);
+        labelConfirmacionNuevoZombie.setMaximumSize(new java.awt.Dimension(390, 20));
+        labelConfirmacionNuevoZombie.setMinimumSize(new java.awt.Dimension(390, 20));
+        labelConfirmacionNuevoZombie.setText("Confirma que lo desea agregar?");
 
-        botonAbortNewPlanta1.setBackground(java.awt.Color.red);
-        botonAbortNewPlanta1.setEnabled(false);
-        botonAbortNewPlanta1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        botonAbortNewPlanta1.setLabel("No");
-        botonAbortNewPlanta1.setMaximumSize(new java.awt.Dimension(45, 25));
-        botonAbortNewPlanta1.setMinimumSize(new java.awt.Dimension(45, 25));
-        botonAbortNewPlanta1.addActionListener(new java.awt.event.ActionListener() {
+        botonAbortNewZombie.setBackground(java.awt.Color.red);
+        botonAbortNewZombie.setEnabled(false);
+        botonAbortNewZombie.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        botonAbortNewZombie.setLabel("No");
+        botonAbortNewZombie.setMaximumSize(new java.awt.Dimension(45, 25));
+        botonAbortNewZombie.setMinimumSize(new java.awt.Dimension(45, 25));
+        botonAbortNewZombie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAbortNewPlanta1ActionPerformed(evt);
+                botonAbortNewZombieActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout diagNuevaPlanta1Layout = new javax.swing.GroupLayout(diagNuevaPlanta1.getContentPane());
-        diagNuevaPlanta1.getContentPane().setLayout(diagNuevaPlanta1Layout);
-        diagNuevaPlanta1Layout.setHorizontalGroup(
-            diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(diagNuevaPlanta1Layout.createSequentialGroup()
+        javax.swing.GroupLayout diagNuevoZombieLayout = new javax.swing.GroupLayout(diagNuevoZombie.getContentPane());
+        diagNuevoZombie.getContentPane().setLayout(diagNuevoZombieLayout);
+        diagNuevoZombieLayout.setHorizontalGroup(
+            diagNuevoZombieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagNuevoZombieLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(diagNuevoZombieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(diagNuevaPlanta1Layout.createSequentialGroup()
-                        .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(diagNuevaPlanta1Layout.createSequentialGroup()
-                                .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(botonNuevaPlanta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                    .addGroup(diagNuevoZombieLayout.createSequentialGroup()
+                        .addGroup(diagNuevoZombieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(diagNuevoZombieLayout.createSequentialGroup()
+                                .addGroup(diagNuevoZombieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(botonZombieNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTipoAtaquePlantaNueva1)
-                                    .addComponent(txtPuntosAtaquePlantaNueva1)
-                                    .addComponent(txtPuntosDefensaPlantaNueva1)
-                                    .addComponent(txtNombrePlantaNueva1)
-                                    .addGroup(diagNuevaPlanta1Layout.createSequentialGroup()
-                                        .addComponent(botonGuardarPlantaNueva1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(diagNuevoZombieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTipoAtaqueZombieNuevo)
+                                    .addComponent(txtPuntosAtaqueZombieNuevo)
+                                    .addComponent(txtPuntosDefensaZombieNuevo)
+                                    .addComponent(txtNombreZombieNuevo)
+                                    .addGroup(diagNuevoZombieLayout.createSequentialGroup()
+                                        .addComponent(botonGuardarZombieNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(botonSalirIngresoPlantaNueva1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addGroup(diagNuevaPlanta1Layout.createSequentialGroup()
+                                        .addComponent(botonSalirIngresoZombieNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))))
+                            .addGroup(diagNuevoZombieLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(botonConfirmNewPlanta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(botonConfirmNewZombie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(99, 99, 99)
-                                .addComponent(botonAbortNewPlanta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(botonAbortNewZombie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(85, 85, 85))
-                            .addComponent(labelConfirmacionNuevaPlanta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelConfirmacionNuevoZombie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(10, 10, 10)
-                        .addComponent(etiquetaImagenPlanta1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(etiquetaImagenZombie, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-        diagNuevaPlanta1Layout.setVerticalGroup(
-            diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(diagNuevaPlanta1Layout.createSequentialGroup()
+        diagNuevoZombieLayout.setVerticalGroup(
+            diagNuevoZombieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diagNuevoZombieLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(etiquetaImagenPlanta1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(diagNuevaPlanta1Layout.createSequentialGroup()
-                        .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(diagNuevoZombieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(etiquetaImagenZombie, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(diagNuevoZombieLayout.createSequentialGroup()
+                        .addGroup(diagNuevoZombieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(txtNombrePlantaNueva1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNombreZombieNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(diagNuevoZombieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(txtPuntosAtaquePlantaNueva1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPuntosAtaqueZombieNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(diagNuevoZombieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
-                            .addComponent(txtPuntosDefensaPlantaNueva1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPuntosDefensaZombieNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(diagNuevoZombieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
-                            .addComponent(txtTipoAtaquePlantaNueva1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTipoAtaqueZombieNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(botonSalirIngresoPlantaNueva1)
-                            .addComponent(botonGuardarPlantaNueva1)
-                            .addComponent(botonNuevaPlanta1))
+                        .addGroup(diagNuevoZombieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botonSalirIngresoZombieNuevo)
+                            .addComponent(botonGuardarZombieNuevo)
+                            .addComponent(botonZombieNuevo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelConfirmacionNuevaPlanta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelConfirmacionNuevoZombie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(diagNuevaPlanta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botonAbortNewPlanta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botonConfirmNewPlanta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(diagNuevoZombieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botonAbortNewZombie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botonConfirmNewZombie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(148, Short.MAX_VALUE))
         );
 
@@ -1058,61 +1170,75 @@ public class Inicio extends Mi_Ventana_200412823 {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //ya
     private void jbPlayerPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPlayerPlantasActionPerformed
         diagDatosPlayerPlantas.setLocationRelativeTo(null);
         diagDatosPlayerPlantas.show();
-        diagDatosPlayerPlantas.setModal(true);
-        
+        diagDatosPlayerPlantas.setModal(true); 
+        //diagDatosPlayerPlantas.getContentPane().setBackground(new Color(0,0,0));
     }//GEN-LAST:event_jbPlayerPlantasActionPerformed
 
+    //ya
     private void jbPlayerZombieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPlayerZombieActionPerformed
         diagDatosPlayerZombies.setLocationRelativeTo(null);
         diagDatosPlayerZombies.show();
         diagDatosPlayerZombies.setModal(true);
+        //diagDatosPlayerZombies.getContentPane().setBackground(new Color(0,0,0));
     }//GEN-LAST:event_jbPlayerZombieActionPerformed
 
+    //pendiente
     private void jbEliminarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarDatosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbEliminarDatosActionPerformed
 
+    //pendiente
     private void jbStartJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbStartJuegoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbStartJuegoActionPerformed
 
+    //pendiente
     private void jbCancelDatosPlayerPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelDatosPlayerPlantasActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jbCancelDatosPlayerPlantasActionPerformed
 
+    //ya
     private void jbMoreDatosPlayerPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMoreDatosPlayerPlantasActionPerformed
-        // TODO add your handling code here:
         diagNuevosCamposPlayerPlantas.setLocationRelativeTo(null);
         diagNuevosCamposPlayerPlantas.show();
-        diagNuevosCamposPlayerPlantas.setModal(true);
+        diagNuevosCamposPlayerPlantas.setModal(true);        
     }//GEN-LAST:event_jbMoreDatosPlayerPlantasActionPerformed
 
+    //pendiente
     private void jbCancelDatosPlayerZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelDatosPlayerZombiesActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jbCancelDatosPlayerZombiesActionPerformed
 
+    //ya
     private void jbMoreDatosPlayerZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMoreDatosPlayerZombiesActionPerformed
         diagNuevosCamposPlayerZombies.setLocationRelativeTo(null);
         diagNuevosCamposPlayerZombies.show();
         diagNuevosCamposPlayerZombies.setModal(true);
+        //diagNuevosCamposPlayerZombies.getContentPane().setBackground(new Color(0,0,0));
     }//GEN-LAST:event_jbMoreDatosPlayerZombiesActionPerformed
 
+    //ya
     private void jbContinuarCatalogoDatosPlayerPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbContinuarCatalogoDatosPlayerPlantasActionPerformed
         diagCatalogoPlantas.setLocationRelativeTo(null);
         diagCatalogoPlantas.show();
         diagCatalogoPlantas.setModal(true);
+       // diagCatalogoPlantas.getContentPane().setBackground(new Color(0,0,0));
     }//GEN-LAST:event_jbContinuarCatalogoDatosPlayerPlantasActionPerformed
 
+    //ya
     private void botonFinalizaDatosPlayerPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizaDatosPlayerPlantasActionPerformed
-        // TODO add your handling code here:
         diagCatalogoPlantas.hide();
         diagDatosPlayerPlantas.hide();
         jbPlayerPlantas.setEnabled(false);
     }//GEN-LAST:event_botonFinalizaDatosPlayerPlantasActionPerformed
 
+    /**
+     * Limpiar textos para nueva planta
+     */
     private void limpiarTextosNuevaPlanta()
     {
         txtNombrePlantaNueva.setText("");
@@ -1121,6 +1247,18 @@ public class Inicio extends Mi_Ventana_200412823 {
         txtTipoAtaquePlantaNueva.setText("");
     }
     
+    /**
+     * Limpiar texto para un nuevo zombie
+     */
+    private void limpiarTextosNuevoZombie()
+    {
+        txtNombreZombieNuevo.setText("");
+        txtPuntosAtaqueZombieNuevo.setText("");
+        txtPuntosDefensaZombieNuevo.setText("");
+        txtTipoAtaqueZombieNuevo.setText("");
+    }
+    
+    //ya
     private void botonNuevaPlantaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevaPlantaActionPerformed
         txtNombrePlantaNueva.setEnabled(true);
         txtPuntosAtaquePlantaNueva.setEnabled(true);
@@ -1132,6 +1270,7 @@ public class Inicio extends Mi_Ventana_200412823 {
         botonSalirIngresoPlantaNueva.setEnabled(false);
     }//GEN-LAST:event_botonNuevaPlantaActionPerformed
 
+    //ya
     private void botonConfirmNewPlantaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmNewPlantaActionPerformed
         //Primero inserto la planta al listado del catalogo 
         txtNombrePlantaNueva.setEnabled(false);
@@ -1151,6 +1290,7 @@ public class Inicio extends Mi_Ventana_200412823 {
         limpiarTextosNuevaPlanta();
     }//GEN-LAST:event_botonConfirmNewPlantaActionPerformed
 
+    //ya
     private void botonAbortNewPlantaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAbortNewPlantaActionPerformed
         txtNombrePlantaNueva.setEnabled(false);
         txtPuntosAtaquePlantaNueva.setEnabled(false);
@@ -1169,6 +1309,7 @@ public class Inicio extends Mi_Ventana_200412823 {
         limpiarTextosNuevaPlanta();
     }//GEN-LAST:event_botonAbortNewPlantaActionPerformed
 
+    //ya
     private void botonGuardarPlantaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarPlantaNuevaActionPerformed
         labelConfirmacionNuevaPlanta.setVisible(true);
         botonConfirmNewPlanta.setEnabled(true);
@@ -1180,19 +1321,23 @@ public class Inicio extends Mi_Ventana_200412823 {
         botonNuevaPlanta.setEnabled(false);
     }//GEN-LAST:event_botonGuardarPlantaNuevaActionPerformed
 
+    //ya
     private void botonSalirIngresoPlantaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirIngresoPlantaNuevaActionPerformed
         limpiarTextosNuevaPlanta();
     }//GEN-LAST:event_botonSalirIngresoPlantaNuevaActionPerformed
 
+    //ya
     private void botonAgregarPlantasCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarPlantasCatalogoActionPerformed
         diagNuevaPlanta.setLocationRelativeTo(null);
         limpiarTextosNuevaPlanta();       
         diagNuevaPlanta.show();       
-        diagNuevaPlanta.setModal(true);        
-        //ponerImagenLabel(pathPlantaImageDefault, etiquetaImagenPlanta);
+        diagNuevaPlanta.setModal(true); 
+        //diagNuevaPlanta.getContentPane().setBackground(new Color(0,0,0));
     }//GEN-LAST:event_botonAgregarPlantasCatalogoActionPerformed
 
+    //ya
     private void etiquetaImagenPlantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaImagenPlantaMouseClicked
+        foto="";
         int resuul = jFileChooserFotos.showOpenDialog(diagNuevaPlanta); 
         if(resuul == jFileChooserFotos.APPROVE_OPTION){
         foto = jFileChooserFotos.getSelectedFile().getPath();
@@ -1205,50 +1350,191 @@ public class Inicio extends Mi_Ventana_200412823 {
         }
     }//GEN-LAST:event_etiquetaImagenPlantaMouseClicked
 
+    //ya
     private void diagNuevaPlantaWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagNuevaPlantaWindowOpened
-//        labelConfirmacionNuevaPlanta.setVisible(false);
-//        botonConfirmNewPlanta.setEnabled(false);
-//        botonAbortNewPlanta.setEnabled(false);
-//        botonConfirmNewPlanta.setVisible(false);
-//        botonAbortNewPlanta.setVisible(false);
         ponerImagenLabel(pathPlantaImageDefault, etiquetaImagenPlanta);
+        diagNuevaPlanta.getContentPane().setBackground(new Color(0,0,0));
     }//GEN-LAST:event_diagNuevaPlantaWindowOpened
 
-    private void botonAgregarPlantasCatalogo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarPlantasCatalogo1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonAgregarPlantasCatalogo1ActionPerformed
+    //ya
+    private void botonAgregarZombiesCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarZombiesCatalogoActionPerformed
+        diagNuevoZombie.setLocationRelativeTo(null);
+        limpiarTextosNuevoZombie();       
+        diagNuevoZombie.show();       
+        diagNuevoZombie.setModal(true);        
+    }//GEN-LAST:event_botonAgregarZombiesCatalogoActionPerformed
 
-    private void botonFinalizaDatosPlayerPlantas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizaDatosPlayerPlantas1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonFinalizaDatosPlayerPlantas1ActionPerformed
+    //ya
+    private void botonFinalizaDatosPlayerZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizaDatosPlayerZombiesActionPerformed
+       diagCatalogoZombies.hide();
+       diagDatosPlayerZombies.hide();
+       jbPlayerZombie.setEnabled(false);
+    }//GEN-LAST:event_botonFinalizaDatosPlayerZombiesActionPerformed
 
-    private void etiquetaImagenPlanta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaImagenPlanta1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_etiquetaImagenPlanta1MouseClicked
+    //ya
+    private void etiquetaImagenZombieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaImagenZombieMouseClicked
+         foto ="";
+        int resuul = jFileChooserFotos.showOpenDialog(diagNuevaPlanta); 
+        if(resuul == jFileChooserFotos.APPROVE_OPTION){
+        foto = jFileChooserFotos.getSelectedFile().getPath();
+            if(!foto.isEmpty()){
+                ImageIcon fot = new ImageIcon(foto);
+                Icon icono = new ImageIcon(fot.getImage().getScaledInstance(etiquetaImagenZombie.getWidth(), etiquetaImagenZombie.getHeight(), Image.SCALE_DEFAULT));
+                etiquetaImagenZombie.setIcon(icono);        
+                this.repaint();
+            }
+        }
+    }//GEN-LAST:event_etiquetaImagenZombieMouseClicked
 
-    private void botonNuevaPlanta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevaPlanta1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonNuevaPlanta1ActionPerformed
+    //ya
+    private void botonZombieNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonZombieNuevoActionPerformed
+        txtNombreZombieNuevo.setEnabled(true);
+        txtPuntosAtaqueZombieNuevo.setEnabled(true);
+        txtPuntosDefensaZombieNuevo.setEnabled(true);
+        txtTipoAtaqueZombieNuevo.setEnabled(true);
+        etiquetaImagenZombie.setEnabled(true);
+        botonZombieNuevo.setEnabled(false);
+        botonGuardarZombieNuevo.setEnabled(true);
+        botonSalirIngresoZombieNuevo.setEnabled(false);
+    }//GEN-LAST:event_botonZombieNuevoActionPerformed
 
-    private void botonGuardarPlantaNueva1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarPlantaNueva1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonGuardarPlantaNueva1ActionPerformed
+    //ya
+    private void botonGuardarZombieNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarZombieNuevoActionPerformed
+        labelConfirmacionNuevoZombie.setVisible(true);
+        botonConfirmNewZombie.setEnabled(true);
+        botonAbortNewZombie.setEnabled(true);
+        botonConfirmNewZombie.setVisible(true);
+        botonAbortNewZombie.setVisible(true);        
+        botonSalirIngresoZombieNuevo.setEnabled(false);
+        botonGuardarZombieNuevo.setEnabled(false);
+        botonZombieNuevo.setEnabled(false);
+    }//GEN-LAST:event_botonGuardarZombieNuevoActionPerformed
 
-    private void botonSalirIngresoPlantaNueva1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirIngresoPlantaNueva1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonSalirIngresoPlantaNueva1ActionPerformed
+    //ya
+    private void botonSalirIngresoZombieNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirIngresoZombieNuevoActionPerformed
+        limpiarTextosNuevoZombie();
+    }//GEN-LAST:event_botonSalirIngresoZombieNuevoActionPerformed
 
-    private void botonConfirmNewPlanta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmNewPlanta1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonConfirmNewPlanta1ActionPerformed
+    //ya
+    private void botonConfirmNewZombieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmNewZombieActionPerformed
+        //Primero inserto la planta al listado del catalogo 
+        txtNombreZombieNuevo.setEnabled(false);
+        txtPuntosAtaqueZombieNuevo.setEnabled(false);
+        txtPuntosDefensaZombieNuevo.setEnabled(false);
+        txtTipoAtaqueZombieNuevo.setEnabled(false);
+        etiquetaImagenZombie.setEnabled(false);
+        botonZombieNuevo.setEnabled(true);
+        botonGuardarZombieNuevo.setEnabled(false);
+        labelConfirmacionNuevoZombie.setVisible(false);
+        botonSalirIngresoZombieNuevo.setEnabled(true);
+        labelConfirmacionNuevoZombie.setVisible(false);
+        botonAbortNewZombie.setEnabled(false);
+        botonConfirmNewZombie.setEnabled(false);
+        botonAbortNewZombie.setVisible(false);
+        botonConfirmNewZombie.setVisible(false);        
+        limpiarTextosNuevoZombie();
+    }//GEN-LAST:event_botonConfirmNewZombieActionPerformed
 
-    private void botonAbortNewPlanta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAbortNewPlanta1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonAbortNewPlanta1ActionPerformed
+    //ya
+    private void botonAbortNewZombieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAbortNewZombieActionPerformed
+        txtNombreZombieNuevo.setEnabled(false);
+        txtPuntosAtaqueZombieNuevo.setEnabled(false);
+        txtPuntosDefensaZombieNuevo.setEnabled(false);
+        txtTipoAtaqueZombieNuevo.setEnabled(false);
+        etiquetaImagenZombie.setEnabled(false);
+        botonZombieNuevo.setEnabled(true);
+        botonGuardarZombieNuevo.setEnabled(false);
+        labelConfirmacionNuevoZombie.setVisible(false);
+        botonSalirIngresoZombieNuevo.setEnabled(true);
+        labelConfirmacionNuevoZombie.setVisible(false);
+        botonAbortNewZombie.setEnabled(false);
+        botonConfirmNewZombie.setEnabled(false);
+        botonAbortNewZombie.setVisible(false);
+        botonConfirmNewZombie.setVisible(false);        
+        limpiarTextosNuevoZombie();
+    }//GEN-LAST:event_botonAbortNewZombieActionPerformed
 
-    private void diagNuevaPlanta1WindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagNuevaPlanta1WindowOpened
+    //ya
+    private void diagNuevoZombieWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagNuevoZombieWindowOpened
+        ponerImagenLabel(pathZombieImageDefault, etiquetaImagenZombie);
+        diagNuevoZombie.getContentPane().setBackground(new Color(0,0,0));//pruebas
+    }//GEN-LAST:event_diagNuevoZombieWindowOpened
+
+    //ya
+    private void jbContinuarCatalogoDatosPlayerZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbContinuarCatalogoDatosPlayerZombiesActionPerformed
+        diagCatalogoZombies.setLocationRelativeTo(null);
+        diagCatalogoZombies.show();
+        diagCatalogoZombies.setModal(true);
+        diagCatalogoZombies.getContentPane().setBackground(new Color(0,0,0));
+    }//GEN-LAST:event_jbContinuarCatalogoDatosPlayerZombiesActionPerformed
+
+    //pendiente
+    private void jbOkDatosPlayerZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOkDatosPlayerZombiesActionPerformed
+        
+    }//GEN-LAST:event_jbOkDatosPlayerZombiesActionPerformed
+
+    //pendiente
+    private void jbOkDatosPlayerPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOkDatosPlayerPlantasActionPerformed
+        
+    }//GEN-LAST:event_jbOkDatosPlayerPlantasActionPerformed
+
+    //pendiente
+    private void jbAgregarNuevoCampoPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarNuevoCampoPlantasActionPerformed
+        
+    }//GEN-LAST:event_jbAgregarNuevoCampoPlantasActionPerformed
+
+    //pendiente
+    private void jbFinalizarNuevosCamposPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFinalizarNuevosCamposPlantasActionPerformed
+        
+    }//GEN-LAST:event_jbFinalizarNuevosCamposPlantasActionPerformed
+
+    //pendiente
+    private void jbAgregarNuevoCampoZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarNuevoCampoZombiesActionPerformed
+        
+    }//GEN-LAST:event_jbAgregarNuevoCampoZombiesActionPerformed
+
+    //pendiente
+    private void jbFinalizarNuevosCamposZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFinalizarNuevosCamposZombiesActionPerformed
+       
+    }//GEN-LAST:event_jbFinalizarNuevosCamposZombiesActionPerformed
+
+    //ya
+    private void diagDatosPlayerPlantasWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagDatosPlayerPlantasWindowOpened
+        diagDatosPlayerPlantas.getContentPane().setBackground(new Color(0,0,0));
+    }//GEN-LAST:event_diagDatosPlayerPlantasWindowOpened
+
+    //ya
+    private void diagNuevosCamposPlayerPlantasWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagNuevosCamposPlayerPlantasWindowOpened
+        diagNuevosCamposPlayerPlantas.getContentPane().setBackground(new Color(0,0,0));
+    }//GEN-LAST:event_diagNuevosCamposPlayerPlantasWindowOpened
+
+    //ya
+    private void diagDatosPlayerZombiesWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagDatosPlayerZombiesWindowOpened
+        diagDatosPlayerZombies.getContentPane().setBackground(new Color(0,0,0));
+    }//GEN-LAST:event_diagDatosPlayerZombiesWindowOpened
+
+    //ya
+    private void diagNuevosCamposPlayerZombiesWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagNuevosCamposPlayerZombiesWindowOpened
+        diagNuevosCamposPlayerZombies.getContentPane().setBackground(new Color(0,0,0));
+    }//GEN-LAST:event_diagNuevosCamposPlayerZombiesWindowOpened
+
+    //ya
+    private void diagCatalogoPlantasWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagCatalogoPlantasWindowOpened
+        diagCatalogoPlantas.getContentPane().setBackground(new Color(0,0,0));
+    }//GEN-LAST:event_diagCatalogoPlantasWindowOpened
+
+    //ya
+    private void diagCatalogoZombiesWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagCatalogoZombiesWindowOpened
+        diagCatalogoZombies.getContentPane().setBackground(new Color(0,0,0));
+    }//GEN-LAST:event_diagCatalogoZombiesWindowOpened
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_diagNuevaPlanta1WindowOpened
+        JPanel panel=new JPanel();
+        panel.setSize(300, 100);
+        panel.setBackground(Color.red);
+        jScrollPaneCatalogoZombies.add(panel);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1300,29 +1586,30 @@ public class Inicio extends Mi_Ventana_200412823 {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public java.awt.Button botonAbortNewPlanta;
-    public java.awt.Button botonAbortNewPlanta1;
+    public java.awt.Button botonAbortNewZombie;
     private javax.swing.JButton botonAgregarPlantasCatalogo;
-    private javax.swing.JButton botonAgregarPlantasCatalogo1;
+    private javax.swing.JButton botonAgregarZombiesCatalogo;
     public java.awt.Button botonConfirmNewPlanta;
-    public java.awt.Button botonConfirmNewPlanta1;
+    public java.awt.Button botonConfirmNewZombie;
     private javax.swing.JButton botonFinalizaDatosPlayerPlantas;
-    private javax.swing.JButton botonFinalizaDatosPlayerPlantas1;
+    private javax.swing.JButton botonFinalizaDatosPlayerZombies;
     private javax.swing.JButton botonGuardarPlantaNueva;
-    private javax.swing.JButton botonGuardarPlantaNueva1;
+    private javax.swing.JButton botonGuardarZombieNuevo;
     private javax.swing.JButton botonNuevaPlanta;
-    private javax.swing.JButton botonNuevaPlanta1;
     private javax.swing.JButton botonSalirIngresoPlantaNueva;
-    private javax.swing.JButton botonSalirIngresoPlantaNueva1;
+    private javax.swing.JButton botonSalirIngresoZombieNuevo;
+    private javax.swing.JButton botonZombieNuevo;
     private javax.swing.JDialog diagCatalogoPlantas;
-    private javax.swing.JDialog diagCatalogoPlantas1;
+    private javax.swing.JDialog diagCatalogoZombies;
     private javax.swing.JDialog diagDatosPlayerPlantas;
     private javax.swing.JDialog diagDatosPlayerZombies;
     private javax.swing.JDialog diagNuevaPlanta;
-    private javax.swing.JDialog diagNuevaPlanta1;
+    private javax.swing.JDialog diagNuevoZombie;
     private javax.swing.JDialog diagNuevosCamposPlayerPlantas;
     private javax.swing.JDialog diagNuevosCamposPlayerZombies;
     private javax.swing.JLabel etiquetaImagenPlanta;
-    private javax.swing.JLabel etiquetaImagenPlanta1;
+    private javax.swing.JLabel etiquetaImagenZombie;
+    private javax.swing.JButton jButton1;
     private javax.swing.JFileChooser jFileChooserFotos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1346,7 +1633,7 @@ public class Inicio extends Mi_Ventana_200412823 {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelZombie;
     private javax.swing.JScrollPane jScrollPaneCatalogoPlantas;
-    private javax.swing.JScrollPane jScrollPaneCatalogoPlantas1;
+    private javax.swing.JScrollPane jScrollPaneCatalogoZombies;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -1368,20 +1655,20 @@ public class Inicio extends Mi_Ventana_200412823 {
     private javax.swing.JButton jbStartJuego;
     private javax.swing.JLabel jlabelPlanta;
     public java.awt.Label labelConfirmacionNuevaPlanta;
-    public java.awt.Label labelConfirmacionNuevaPlanta1;
+    public java.awt.Label labelConfirmacionNuevoZombie;
     private javax.swing.JTextField txtCantidadDatosPlantas;
     private javax.swing.JTextField txtCantidadDatosZombies;
     private javax.swing.JTextField txtNewCampoPlantas;
     private javax.swing.JTextField txtNewCampoZombies;
     private javax.swing.JTextField txtNombrePlantaNueva;
-    private javax.swing.JTextField txtNombrePlantaNueva1;
     private javax.swing.JTextField txtNombrePlayerPlantas;
     private javax.swing.JTextField txtNombrePlayerZombies;
+    private javax.swing.JTextField txtNombreZombieNuevo;
     private javax.swing.JTextField txtPuntosAtaquePlantaNueva;
-    private javax.swing.JTextField txtPuntosAtaquePlantaNueva1;
+    private javax.swing.JTextField txtPuntosAtaqueZombieNuevo;
     private javax.swing.JTextField txtPuntosDefensaPlantaNueva;
-    private javax.swing.JTextField txtPuntosDefensaPlantaNueva1;
+    private javax.swing.JTextField txtPuntosDefensaZombieNuevo;
     private javax.swing.JTextField txtTipoAtaquePlantaNueva;
-    private javax.swing.JTextField txtTipoAtaquePlantaNueva1;
+    private javax.swing.JTextField txtTipoAtaqueZombieNuevo;
     // End of variables declaration//GEN-END:variables
 }
