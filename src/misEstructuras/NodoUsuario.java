@@ -20,6 +20,8 @@ public class NodoUsuario {
     NodoUsuario siguiente;
     NodoUsuario anterior;
     ListaCamposTexto listaCampos;
+    ListaCatalogoPlantas catalogoPlantas;
+    ListaCatalogoZombies catalogoZombies;
 
     public NodoUsuario() {
         this.anterior = null;
@@ -28,6 +30,8 @@ public class NodoUsuario {
         this.listaCampos = null;
         this.nombre = "";
         this.tipoPersonaje = "";
+        this.catalogoPlantas = null;
+        this.catalogoZombies = null;
     }
 
     public NodoUsuario(String nombre, String tipoPersonaje) {
@@ -41,6 +45,8 @@ public class NodoUsuario {
         this.nombre = nombre;
         this.cantidad = cantidad;              
         this.listaCampos = null;
+        this.catalogoPlantas = null;
+        this.catalogoZombies = null;
     }
 
     public NodoUsuario(String tipoPersonaje) {
@@ -50,6 +56,8 @@ public class NodoUsuario {
         this.cantidad = 0;
         this.nombre = "";
         this.listaCampos = null;
+        this.catalogoPlantas = null;
+        this.catalogoZombies = null;
     }    
            
     public String getNombre() {
@@ -100,4 +108,20 @@ public class NodoUsuario {
         this.listaCampos = listaCampos;
     }  
 
+    public ListaCatalogoPlantas getCatalogoPlantas() {
+        return catalogoPlantas;
+    }
+
+    public void setCatalogoPlantas(ListaCatalogoPlantas catalogoPlantas) {
+        this.catalogoPlantas = catalogoPlantas;
+    }
+
+    public ListaCatalogoZombies getCatalogoZombies() {
+        return catalogoZombies;
+    }
+
+    public void setCatalogoZombies(ListaCatalogoZombies catalogoZombies) {
+        this.catalogoZombies = catalogoZombies;
+    }   
+    
 }

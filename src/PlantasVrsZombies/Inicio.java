@@ -14,8 +14,11 @@ import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import misEstructuras.ListaUsuario;
+import misEstructuras.NodoUsuario;
 
 /**
  *
@@ -29,7 +32,9 @@ public class Inicio extends Mi_Ventana_200412823 {
     String pathZombieImageDefault ="C:\\Users\\Ben\\Dropbox\\Mis docs\\EDD\\15\\Practicas\\Practica1s12015_200412823\\src\\imagenes\\defaultZombie.jpg";
     String foto = "null";
     FileNameExtensionFilter filtroFotos = new FileNameExtensionFilter("JPG & GIF & PNG", "jpg", "gif","png");
-  
+    ListaUsuario listadoUsuarios;
+    
+    
     /**
      * Creates new form Inicio
      */
@@ -37,6 +42,17 @@ public class Inicio extends Mi_Ventana_200412823 {
         initComponents();
         ponerImagenLabel(pathPlantaImage, jlabelPlanta);
         ponerImagenLabel(pathZombieImage, jLabelZombie);
+        listadoUsuarios = new ListaUsuario();
+        borrarListaUserr();
+        listadoUsuarios = new ListaUsuario();
+        NodoUsuario plants = new NodoUsuario("Plantas");
+        listadoUsuarios.insertarUsuario(plants);
+        NodoUsuario zomb = new NodoUsuario("Zombies");
+        listadoUsuarios.insertarUsuario(zomb);
+    }
+    
+    public void borrarListaUserr(){
+        listadoUsuarios = null;
     }
     
     /**
@@ -1470,12 +1486,34 @@ public class Inicio extends Mi_Ventana_200412823 {
 
     //pendiente
     private void jbOkDatosPlayerZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOkDatosPlayerZombiesActionPerformed
-        
+        NodoUsuario nodito = listadoUsuarios.buscarUsuarioTipo("Zombies");
+        if(!txtNombrePlayerZombies.getText().isEmpty()&&!txtCantidadDatosZombies.getText().isEmpty()){
+            String nameUserrr = txtNombrePlayerZombies.getText();
+            int cantidadZombiies = Integer.parseInt(txtCantidadDatosZombies.getText());    
+            nodito.setNombre(nameUserrr);
+            nodito.setCantidad(cantidadZombiies);
+        }
+        else {
+            //JOptionPane.showMessageDialog(diagDatosPlayerPlantas, "Por favor Ingrese todos los datos son obligatorios", "Warning", WIDTH);
+            String mensaje =  "Por favor Ingrese todos los datos son obligatorios!!!";
+            JOptionPane.showMessageDialog(diagDatosPlayerZombies, mensaje, "Warning", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jbOkDatosPlayerZombiesActionPerformed
 
     //pendiente
     private void jbOkDatosPlayerPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOkDatosPlayerPlantasActionPerformed
-        
+        NodoUsuario nodito = listadoUsuarios.buscarUsuarioTipo("Plantas");
+        if(!txtNombrePlayerPlantas.getText().isEmpty()&&!txtCantidadDatosPlantas.getText().isEmpty()){
+            String nameUserr = txtNombrePlayerPlantas.getText();
+            int cantidadPlantass = Integer.parseInt(txtCantidadDatosPlantas.getText());    
+            nodito.setNombre(nameUserr);
+            nodito.setCantidad(cantidadPlantass);
+        }
+        else {
+            //JOptionPane.showMessageDialog(diagDatosPlayerPlantas, "Por favor Ingrese todos los datos son obligatorios", "Warning", WIDTH);
+            String mensaje =  "Por favor Ingrese todos los datos son obligatorios!!!";
+            JOptionPane.showMessageDialog(diagDatosPlayerPlantas, mensaje, "Warning", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jbOkDatosPlayerPlantasActionPerformed
 
     //pendiente
