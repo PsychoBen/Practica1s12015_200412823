@@ -1422,7 +1422,14 @@ public class Inicio extends Mi_Ventana_200412823 {
 
     //pendiente
     private void jbEliminarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarDatosActionPerformed
-        // TODO add your handling code here:
+        listadoUsuarios = new ListaUsuario();
+        borrarListaUserr();
+        listadoUsuarios = new ListaUsuario();
+        NodoUsuario plants = new NodoUsuario("Plantas");
+        listadoUsuarios.insertarUsuario(plants);
+        NodoUsuario zomb = new NodoUsuario("Zombies");
+        listadoUsuarios.insertarUsuario(zomb);
+        cantColumnas = 0; cantFilas = 0; String foto = "null";
     }//GEN-LAST:event_jbEliminarDatosActionPerformed
 
     //pendiente
