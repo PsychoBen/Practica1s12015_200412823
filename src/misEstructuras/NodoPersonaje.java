@@ -24,6 +24,7 @@ public class NodoPersonaje {
     private int tipoIdentificadorAtaque;
     private int puntosAtaque;
     private int puntosDefensa;
+    private int accesoRandom;
 
     public NodoPersonaje() {
         this.siguiente = null;
@@ -50,6 +51,20 @@ public class NodoPersonaje {
         this.tipoPersonaje = tipoPersonaj;
         this.identificadorTipoPersonaje = obtenerTipoPersonaje(tipoPersonaj);
         this.tipoIdentificadorAtaque = obtenerTipoAtaque(tipoAtaque);
+        this.siguiente = null;
+        this.anterior = null;
+    }
+    
+    public NodoPersonaje(String nombre, String imagen, String tipoAtaque, int puntosAtaque, int puntosDefensa, String tipoPersonaj, int acceso) {
+        this.nombre = nombre;
+        this.imagen = imagen;
+        this.tipoAtaque = tipoAtaque;
+        this.puntosAtaque = puntosAtaque;
+        this.puntosDefensa = puntosDefensa;
+        this.tipoPersonaje = tipoPersonaj;
+        this.identificadorTipoPersonaje = obtenerTipoPersonaje(tipoPersonaj);
+        this.tipoIdentificadorAtaque = obtenerTipoAtaque(tipoAtaque);
+        this.accesoRandom = acceso;
         this.siguiente = null;
         this.anterior = null;
     }
@@ -177,5 +192,13 @@ public class NodoPersonaje {
         }
         return resultado;
     } 
-     
+
+    public int getAccesoRandom() {
+        return accesoRandom;
+    }
+
+    public void setAccesoRandom(int accesoRandom) {
+        this.accesoRandom = accesoRandom;
+    }    
+        
 }

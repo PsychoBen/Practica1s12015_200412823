@@ -102,6 +102,31 @@ public class ListaPersonajes {
     }
     
     /**
+     * Este metodo sirve para buscar un personaje por un identificador de acceso
+     * @param accesoRand el numero por el cual se buscara un nodo 
+     * @return un nodo personaje para ser insertado en la pila o cola
+     */
+    public NodoPersonaje buscarPersonajePorAccesoRandom(int accesoRand){
+
+        NodoPersonaje encontrado = null; 
+        NodoPersonaje aux;
+        
+        aux = inicio;
+
+        while(aux!=null){
+
+            if(aux.getAccesoRandom()==accesoRand)
+            {
+                encontrado = aux; 
+                break; 
+            }
+            else
+                aux = aux.getSiguiente();
+        }
+        return encontrado;
+    }
+    
+    /**
      * Este metodo sirve para buscar un usuario determinado
      * @param nombre el parametro por el cual se hara la busqueda
      * @return encontrado el nodo de usuario encontrado que corresponde con el buscado

@@ -105,5 +105,15 @@ public class PilaZombies {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }    
+
+    public NodoPersonaje getFondo() {
+        return fondo;
+    }
+
+    public void setFondo(NodoPersonaje fondo) {
+        this.fondo = fondo;
+    }
+
+    
     
 }
