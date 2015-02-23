@@ -8,6 +8,8 @@
 
 package misEstructuras;
 
+import java.util.Random;
+
 /**
  *
  * @author Ben
@@ -268,6 +270,15 @@ public class ListaPersonajes {
 
     public void setFin(NodoPersonaje fin) {
         this.fin = fin;
-    }    
+    }   
+    
+    public int randomListaPersonaje(int tamanio)
+    {
+        Random aleatorio = new Random();
+        int numeroAleatorio;
+   	numeroAleatorio = (int)(aleatorio.nextDouble() * tamanio);
+        
+        return numeroAleatorio;
+    }
     
 }

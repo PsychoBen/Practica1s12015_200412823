@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import misEstructuras.ListaUsuario;
 import misEstructuras.NodoUsuario;
+import misEstructuras.*;
 
 /**
  *
@@ -30,7 +31,9 @@ public class Inicio extends Mi_Ventana_200412823 {
     String pathZombieImage ="C:\\Users\\Ben\\Dropbox\\Mis docs\\EDD\\15\\Practicas\\Practica1s12015_200412823\\src\\imagenes\\zombie.jpg";
     String pathPlantaImageDefault ="C:\\Users\\Ben\\Dropbox\\Mis docs\\EDD\\15\\Practicas\\Practica1s12015_200412823\\src\\imagenes\\defaultPlanta.jpg";
     String pathZombieImageDefault ="C:\\Users\\Ben\\Dropbox\\Mis docs\\EDD\\15\\Practicas\\Practica1s12015_200412823\\src\\imagenes\\defaultZombie.jpg";
-    String foto = "null";
+    String foto = "";
+    String fotoPlanta = "";
+    String fotoZombie="";
     FileNameExtensionFilter filtroFotos = new FileNameExtensionFilter("JPG & GIF & PNG", "jpg", "gif","png");
     ListaUsuario listadoUsuarios;
     int cantFilas, cantColumnas = 0;
@@ -1121,7 +1124,6 @@ public class Inicio extends Mi_Ventana_200412823 {
 
         VentanaGame.setTitle("Plants vrs Zombies Guatemalteco");
         VentanaGame.setIconImage(getIconImage());
-        VentanaGame.setMaximumSize(new java.awt.Dimension(800, 500));
         VentanaGame.setMinimumSize(new java.awt.Dimension(800, 500));
         VentanaGame.setResizable(false);
         VentanaGame.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1204,11 +1206,12 @@ public class Inicio extends Mi_Ventana_200412823 {
             VentanaGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentanaGameLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(VentanaGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNombrePlayerPlantasGame)
-                    .addComponent(labelNombrePlayerZombiesGame)
-                    .addComponent(labelCantidadRestanteZombies, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelCantidadRestantePlantas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(VentanaGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelCantidadRestanteZombies, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelCantidadRestantePlantas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(VentanaGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelNombrePlayerPlantasGame)
+                        .addComponent(labelNombrePlayerZombiesGame)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(VentanaGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelColaPlantas)
@@ -1219,7 +1222,6 @@ public class Inicio extends Mi_Ventana_200412823 {
 
         diagTamanioMatriz.setTitle("Tamaño Tablero");
         diagTamanioMatriz.setIconImage(getIconImage());
-        diagTamanioMatriz.setMaximumSize(new java.awt.Dimension(340, 170));
         diagTamanioMatriz.setMinimumSize(new java.awt.Dimension(340, 170));
         diagTamanioMatriz.setModal(true);
         diagTamanioMatriz.setResizable(false);
@@ -1429,15 +1431,16 @@ public class Inicio extends Mi_Ventana_200412823 {
         listadoUsuarios.insertarUsuario(plants);
         NodoUsuario zomb = new NodoUsuario("Zombies");
         listadoUsuarios.insertarUsuario(zomb);
-        cantColumnas = 0; cantFilas = 0; String foto = "null";
+        cantColumnas = 0; cantFilas = 0; String foto = "";
     }//GEN-LAST:event_jbEliminarDatosActionPerformed
 
     //pendiente
     private void jbStartJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbStartJuegoActionPerformed
         if(cantFilas!=0&&cantColumnas!=0)
         {
-            VentanaGame.setLocationRelativeTo(null);
-            VentanaGame.show();         
+            
+           // VentanaGame.setLocationRelativeTo(null);
+           // VentanaGame.show();         
         }
         else
         {
@@ -1482,6 +1485,8 @@ public class Inicio extends Mi_Ventana_200412823 {
 
     //ya
     private void botonFinalizaDatosPlayerPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizaDatosPlayerPlantasActionPerformed
+        NodoUsuario nodito = listadoUsuarios.buscarUsuarioTipo("Plantas"); 
+        nodito.getCatalogoPersonajes().RecorrerLista2();
         diagCatalogoPlantas.hide();
         diagDatosPlayerPlantas.hide();
         jbPlayerPlantas.setEnabled(false);
@@ -1521,9 +1526,39 @@ public class Inicio extends Mi_Ventana_200412823 {
         botonSalirIngresoPlantaNueva.setEnabled(false);
     }//GEN-LAST:event_botonNuevaPlantaActionPerformed
 
+    private String obtenerrFotoPlanta(String ima)
+    {
+        String regresa="";
+        if(ima.isEmpty())
+        {
+            regresa=pathPlantaImageDefault;
+            
+        }
+        else {
+            regresa=ima;
+        }
+        return regresa;
+    }
+    
+    private String obtenerrFotoZombie(String ima)
+    {
+        String regresa="";
+        if(ima.isEmpty())
+        {
+            regresa=pathZombieImageDefault;
+            
+        }
+        else {
+            regresa=ima;
+        }
+        return regresa;
+    }
+    
     //ya
     private void botonConfirmNewPlantaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmNewPlantaActionPerformed
-        //Primero inserto la planta al listado del catalogo 
+        NodoUsuario nodito = listadoUsuarios.buscarUsuarioTipo("Plantas");        
+        NodoPersonaje nuevaPlanta = new NodoPersonaje(txtNombrePlantaNueva.getText(),obtenerrFotoPlanta(fotoPlanta),txtTipoAtaquePlantaNueva.getText(),Integer.parseInt(txtPuntosAtaquePlantaNueva.getText()),Integer.parseInt(txtPuntosDefensaPlantaNueva.getText()),"Plantas",(nodito.getCatalogoPersonajes().getLongitud()+1));
+        nodito.getCatalogoPersonajes().insertarPersonaje(nuevaPlanta);
         txtNombrePlantaNueva.setEnabled(false);
         txtPuntosAtaquePlantaNueva.setEnabled(false);
         txtPuntosDefensaPlantaNueva.setEnabled(false);
@@ -1589,10 +1624,12 @@ public class Inicio extends Mi_Ventana_200412823 {
     //ya
     private void etiquetaImagenPlantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaImagenPlantaMouseClicked
         foto="";
+        fotoPlanta = "";
         int resuul = jFileChooserFotos.showOpenDialog(diagNuevaPlanta); 
         if(resuul == jFileChooserFotos.APPROVE_OPTION){
         foto = jFileChooserFotos.getSelectedFile().getPath();
             if(!foto.isEmpty()){
+                fotoPlanta = foto;
                 ImageIcon fot = new ImageIcon(foto);
                 Icon icono = new ImageIcon(fot.getImage().getScaledInstance(etiquetaImagenPlanta.getWidth(), etiquetaImagenPlanta.getHeight(), Image.SCALE_DEFAULT));
                 etiquetaImagenPlanta.setIcon(icono);        
@@ -1617,18 +1654,22 @@ public class Inicio extends Mi_Ventana_200412823 {
 
     //ya
     private void botonFinalizaDatosPlayerZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizaDatosPlayerZombiesActionPerformed
-       diagCatalogoZombies.hide();
-       diagDatosPlayerZombies.hide();
-       jbPlayerZombie.setEnabled(false);
+        NodoUsuario nodito = listadoUsuarios.buscarUsuarioTipo("Zombies"); 
+        nodito.getCatalogoPersonajes().RecorrerLista2();
+        diagCatalogoZombies.hide();
+        diagDatosPlayerZombies.hide();
+        jbPlayerZombie.setEnabled(false);
     }//GEN-LAST:event_botonFinalizaDatosPlayerZombiesActionPerformed
 
     //ya
     private void etiquetaImagenZombieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaImagenZombieMouseClicked
          foto ="";
+         fotoZombie ="";
         int resuul = jFileChooserFotos.showOpenDialog(diagNuevaPlanta); 
         if(resuul == jFileChooserFotos.APPROVE_OPTION){
         foto = jFileChooserFotos.getSelectedFile().getPath();
             if(!foto.isEmpty()){
+                fotoZombie = foto;
                 ImageIcon fot = new ImageIcon(foto);
                 Icon icono = new ImageIcon(fot.getImage().getScaledInstance(etiquetaImagenZombie.getWidth(), etiquetaImagenZombie.getHeight(), Image.SCALE_DEFAULT));
                 etiquetaImagenZombie.setIcon(icono);        
@@ -1668,7 +1709,9 @@ public class Inicio extends Mi_Ventana_200412823 {
 
     //ya
     private void botonConfirmNewZombieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmNewZombieActionPerformed
-        //Primero inserto la planta al listado del catalogo 
+        NodoUsuario nodito = listadoUsuarios.buscarUsuarioTipo("Zombies");        
+        NodoPersonaje nuevoZombie = new NodoPersonaje(txtNombreZombieNuevo.getText(),obtenerrFotoZombie(fotoZombie),txtTipoAtaqueZombieNuevo.getText(),Integer.parseInt(txtPuntosAtaqueZombieNuevo.getText()),Integer.parseInt(txtPuntosDefensaZombieNuevo.getText()),"Zombies",(nodito.getCatalogoPersonajes().getLongitud()+1));
+        nodito.getCatalogoPersonajes().insertarPersonaje(nuevoZombie);
         txtNombreZombieNuevo.setEnabled(false);
         txtPuntosAtaqueZombieNuevo.setEnabled(false);
         txtPuntosDefensaZombieNuevo.setEnabled(false);
