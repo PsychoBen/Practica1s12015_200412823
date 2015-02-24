@@ -1474,6 +1474,7 @@ public class Inicio extends Mi_Ventana_200412823 {
         NodoPersonaje personajeRandomm;
         int ale;
         int tamaniooCatalogoPlantas = 0;
+        tamaniooCatalogoPlantas = Plantass.getCatalogoPersonajes().getLongitud();
         if(cantiPlantas<5){
             for (int i = 0; i < cantiPlantas; i++) {
                 ale=Plantass.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoPlantas);            
@@ -1483,8 +1484,6 @@ public class Inicio extends Mi_Ventana_200412823 {
             }        
         }else
         {           
-            tamaniooCatalogoPlantas = Plantass.getCatalogoPersonajes().getLongitud();
-            
             int predet = 5;
             for(int i=0; i<predet;i++){
                 ale=Plantass.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoPlantas);            
@@ -1501,6 +1500,7 @@ public class Inicio extends Mi_Ventana_200412823 {
         NodoPersonaje personajeRandomm;
         int ale;
         int tamaniooCatalogoZombies = 0;
+        tamaniooCatalogoZombies = Zombiees.getCatalogoPersonajes().getLongitud();
         if(cantiZombies<5){
             for (int i = 0; i < cantiZombies; i++) {
                 ale=Zombiees.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoZombies);            
@@ -1509,9 +1509,7 @@ public class Inicio extends Mi_Ventana_200412823 {
                 totalZombies=totalZombies-1;
             }        
         }else
-        {           
-            tamaniooCatalogoZombies = Zombiees.getCatalogoPersonajes().getLongitud();
-            
+        {   
             int predet = 5;
             for(int i=0; i<predet;i++){
                 ale=Zombiees.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoZombies);            
@@ -1830,8 +1828,8 @@ public class Inicio extends Mi_Ventana_200412823 {
     //ya
     private void botonConfirmNewZombieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmNewZombieActionPerformed
         NodoUsuario nodito = listadoUsuarios.buscarUsuarioTipo("Zombies");          
-        NodoPersonaje nuevaPlanta = new NodoPersonaje(txtNombreZombieNuevo.getText(),obtenerrFotoZombie(fotoZombie),txtTipoAtaqueZombieNuevo.getText(),Integer.parseInt(txtPuntosAtaqueZombieNuevo.getText()),Integer.parseInt(txtPuntosDefensaZombieNuevo.getText()),"Zombies",obtenerTamanioListaPersonaje(nodito.getCatalogoPersonajes()));
-        procesarNuevoPersonaje(nodito, nuevaPlanta);
+        NodoPersonaje nuevoZomb = new NodoPersonaje(txtNombreZombieNuevo.getText(),obtenerrFotoZombie(fotoZombie),txtTipoAtaqueZombieNuevo.getText(),Integer.parseInt(txtPuntosAtaqueZombieNuevo.getText()),Integer.parseInt(txtPuntosDefensaZombieNuevo.getText()),"Zombies",obtenerTamanioListaPersonaje(nodito.getCatalogoPersonajes()));
+        procesarNuevoPersonaje(nodito, nuevoZomb);
         txtNombreZombieNuevo.setEnabled(false);
         txtPuntosAtaqueZombieNuevo.setEnabled(false);
         txtPuntosDefensaZombieNuevo.setEnabled(false);

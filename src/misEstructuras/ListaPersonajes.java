@@ -292,7 +292,7 @@ public class ListaPersonajes {
     {
         Random aleatorio = new Random();
         int numeroAleatorio;
-   	numeroAleatorio = (int)(aleatorio.nextDouble() * tamanio);
+   	numeroAleatorio = (int)(aleatorio.nextDouble() * tamanio + 1);
         
         return numeroAleatorio;
     }
