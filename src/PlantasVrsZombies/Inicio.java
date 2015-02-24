@@ -2050,10 +2050,11 @@ public class Inicio extends Mi_Ventana_200412823 {
         VentanaGame.getContentPane().setBackground(new Color(0,0,0));
         try {
             pilaInicial(totalZombies);
+            colaInicial(totalPlantas);
         } catch (CloneNotSupportedException ex) {
             Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
         }
-            colaInicial(totalPlantas);
+            
     }//GEN-LAST:event_VentanaGameWindowOpened
 
     private void diagCatalogoPlantasWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagCatalogoPlantasWindowClosed
