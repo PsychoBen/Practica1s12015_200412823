@@ -37,6 +37,7 @@ public class Inicio extends Mi_Ventana_200412823 {
     FileNameExtensionFilter filtroFotos = new FileNameExtensionFilter("JPG & GIF & PNG", "jpg", "gif","png");
     ListaUsuario listadoUsuarios;
     int cantFilas, cantColumnas = 0;
+    int totalPlantas, totalZombies;
     
     
     /**
@@ -1468,15 +1469,66 @@ public class Inicio extends Mi_Ventana_200412823 {
         }
     }
     
+    public void colaInicial(int cantiPlantas){
+        NodoUsuario Plantass = listadoUsuarios.buscarUsuarioTipo("Plantas");
+        NodoPersonaje personajeRandomm;
+        int ale;
+        int tamaniooCatalogoPlantas = 0;
+        if(cantiPlantas<5){
+            for (int i = 0; i < cantiPlantas; i++) {
+                ale=Plantass.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoPlantas);            
+                personajeRandomm =  Plantass.getCatalogoPersonajes().buscarPersonajePorAccesoRandom(ale);
+                insertarEnCola(Plantass, personajeRandomm);
+                totalPlantas=totalPlantas-1;
+            }        
+        }else
+        {           
+            tamaniooCatalogoPlantas = Plantass.getCatalogoPersonajes().getLongitud();
+            
+            int predet = 5;
+            for(int i=0; i<predet;i++){
+                ale=Plantass.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoPlantas);            
+                personajeRandomm =  Plantass.getCatalogoPersonajes().buscarPersonajePorAccesoRandom(ale);
+                insertarEnCola(Plantass, personajeRandomm);
+                totalPlantas=totalPlantas-1;
+            }            
+        }
+        
+    }
+    
+    public void pilaInicial(int cantiZombies){
+        NodoUsuario Zombiees = listadoUsuarios.buscarUsuarioTipo("Zombies");
+        NodoPersonaje personajeRandomm;
+        int ale;
+        int tamaniooCatalogoZombies = 0;
+        if(cantiZombies<5){
+            for (int i = 0; i < cantiZombies; i++) {
+                ale=Zombiees.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoZombies);            
+                personajeRandomm =  Zombiees.getCatalogoPersonajes().buscarPersonajePorAccesoRandom(ale);
+                insertarEnPila(Zombiees, personajeRandomm);
+                totalZombies=totalZombies-1;
+            }        
+        }else
+        {           
+            tamaniooCatalogoZombies = Zombiees.getCatalogoPersonajes().getLongitud();
+            
+            int predet = 5;
+            for(int i=0; i<predet;i++){
+                ale=Zombiees.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoZombies);            
+                personajeRandomm =  Zombiees.getCatalogoPersonajes().buscarPersonajePorAccesoRandom(ale);
+                insertarEnPila(Zombiees, personajeRandomm);
+                totalZombies=totalZombies-1;
+            }            
+        }
+        
+    }
+    
     //pendiente
     private void jbStartJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbStartJuegoActionPerformed
         if(cantFilas!=0&&cantColumnas!=0)
         {
-            NodoUsuario Zombiees = listadoUsuarios.buscarUsuarioTipo("Zombies");
-            int tamaniooCatalogoZombies = 0;
-            tamaniooCatalogoZombies = Zombiees.getCatalogoPersonajes().getLongitud();
-            int ale=Zombiees.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoZombies);            
-            NodoPersonaje personajeRandomm =  Zombiees.getCatalogoPersonajes().buscarPersonajePorAccesoRandom(ale);
+            pilaInicial(totalZombies);
+            colaInicial(totalPlantas);
             //NodoPersonaje pers = 
            // VentanaGame.setLocationRelativeTo(null);
            // VentanaGame.show();         
@@ -1838,6 +1890,7 @@ public class Inicio extends Mi_Ventana_200412823 {
             int cantidadZombiies = Integer.parseInt(txtCantidadDatosZombies.getText());    
             nodito.setNombre(nameUserrr);
             nodito.setCantidad(cantidadZombiies);
+            totalZombies=cantidadZombiies;
             txtNombrePlayerZombies.setText("");
             txtCantidadDatosZombies.setText("");
             String mensaje =  "Jugador Zombie Creado Exitosamente!!!";
@@ -1860,6 +1913,7 @@ public class Inicio extends Mi_Ventana_200412823 {
             int cantidadPlantass = Integer.parseInt(txtCantidadDatosPlantas.getText());    
             nodito.setNombre(nameUserr);
             nodito.setCantidad(cantidadPlantass);
+            totalPlantas = cantidadPlantass;
             txtNombrePlayerPlantas.setText("");
             txtCantidadDatosPlantas.setText("");
             String mensaje =  "Jugador Planta Creado Exitosamente!!!";
