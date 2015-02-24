@@ -190,6 +190,17 @@ public class ListaPersonajes {
        System.out.println("");
    }
     
+    private String obtenerNameImagen(String path){
+        String immmaggen="";
+        path=path.replace('\\', ',');
+        if(!path.isEmpty()){
+            String [] cadena = path.split(",");
+            int  posi = cadena.length;
+            immmaggen = cadena[posi-1];
+        }
+        return immmaggen;
+    }
+    
     public void RecorrerLista2() {
         
         NodoPersonaje aux;
@@ -206,7 +217,9 @@ public class ListaPersonajes {
               //  System.out.print("<-");
             }
             System.out.println("node"+k+"[shape=box];");
-            System.out.println("node"+k+"[label = \"Tipo personaje:"+" "+aux.getTipoPersonaje()+"\\"+"n"+" "+"Nombre:"+" "+aux.getNombre()+"\\"+"n"+" "+"Imagen:"+" "+aux.getImagen()+"\\"+"n"+"\"];");
+            String imaggenn =""; 
+            //System.out.println("node"+k+"[label = \"Tipo personaje:"+" "+aux.getTipoPersonaje()+"\\"+"n"+" "+"Nombre:"+" "+aux.getNombre()+"\\"+"n"+" "+"Imagen:"+" "+aux.getImagen()+"\\"+"n"+"\"];");
+            System.out.println("node"+k+"[label = \"Tipo personaje:"+" "+aux.getTipoPersonaje()+"\\"+"n"+" "+"Nombre:"+" "+aux.getNombre()+"\\"+"n"+" "+"Puntos Ataque:"+" "+String.valueOf(aux.getPuntosAtaque())+"\\"+"n"+" "+"Puntos Defensa:"+" "+String.valueOf(aux.getPuntosDefensa())+"\\"+"n"+" "+"Tipo Ataque:"+" "+aux.getTipoAtaque()+"\\"+"n"+" "+"Imagen:"+" "+obtenerNameImagen(aux.getImagen())+"\\"+"n"+"\"];");
             if(aux.getSiguiente()!=null){                
                // System.out.print("->");
                // aux = aux.getSiguiente();

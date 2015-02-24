@@ -141,7 +141,6 @@ public class Inicio extends Mi_Ventana_200412823 {
         jSeparator3 = new javax.swing.JSeparator();
         botonAgregarZombiesCatalogo = new javax.swing.JButton();
         botonFinalizaDatosPlayerZombies = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         diagNuevoZombie = new javax.swing.JDialog();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -307,6 +306,7 @@ public class Inicio extends Mi_Ventana_200412823 {
 
         diagDatosPlayerPlantas.getAccessibleContext().setAccessibleParent(this);
 
+        diagNuevosCamposPlayerPlantas.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         diagNuevosCamposPlayerPlantas.setTitle("Nuevos Campos");
         diagNuevosCamposPlayerPlantas.setAlwaysOnTop(true);
         diagNuevosCamposPlayerPlantas.setIconImage(getIconImage());
@@ -388,6 +388,7 @@ public class Inicio extends Mi_Ventana_200412823 {
 
         diagNuevosCamposPlayerPlantas.getAccessibleContext().setAccessibleParent(diagDatosPlayerPlantas);
 
+        diagDatosPlayerZombies.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         diagDatosPlayerZombies.setTitle("Player Zombies");
         diagDatosPlayerZombies.setIconImage(getIconImage());
         diagDatosPlayerZombies.setMinimumSize(new java.awt.Dimension(540, 280));
@@ -504,6 +505,7 @@ public class Inicio extends Mi_Ventana_200412823 {
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
+        diagNuevosCamposPlayerZombies.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         diagNuevosCamposPlayerZombies.setTitle("Nuevos Campos");
         diagNuevosCamposPlayerZombies.setAlwaysOnTop(true);
         diagNuevosCamposPlayerZombies.setIconImage(getIconImage());
@@ -582,6 +584,7 @@ public class Inicio extends Mi_Ventana_200412823 {
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
+        diagCatalogoPlantas.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         diagCatalogoPlantas.setTitle("Creacion de Catalogo de Plantas");
         diagCatalogoPlantas.setMaximumSize(new java.awt.Dimension(640, 300));
         diagCatalogoPlantas.setMinimumSize(new java.awt.Dimension(640, 300));
@@ -589,6 +592,9 @@ public class Inicio extends Mi_Ventana_200412823 {
         diagCatalogoPlantas.setPreferredSize(new java.awt.Dimension(640, 300));
         diagCatalogoPlantas.setResizable(false);
         diagCatalogoPlantas.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                diagCatalogoPlantasWindowClosed(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 diagCatalogoPlantasWindowOpened(evt);
             }
@@ -649,6 +655,7 @@ public class Inicio extends Mi_Ventana_200412823 {
 
         diagCatalogoPlantas.getAccessibleContext().setAccessibleParent(diagDatosPlayerPlantas);
 
+        diagNuevaPlanta.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         diagNuevaPlanta.setTitle("Nueva Planta");
         diagNuevaPlanta.setBackground(java.awt.Color.black);
         diagNuevaPlanta.setIconImage(getIconImage());
@@ -852,6 +859,7 @@ public class Inicio extends Mi_Ventana_200412823 {
         jFileChooserFotos.setMinimumSize(new java.awt.Dimension(640, 410));
         jFileChooserFotos.setPreferredSize(new java.awt.Dimension(640, 410));
 
+        diagCatalogoZombies.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         diagCatalogoZombies.setTitle("Creacion de Catalogo de Zombies");
         diagCatalogoZombies.setMinimumSize(new java.awt.Dimension(650, 350));
         diagCatalogoZombies.setModal(true);
@@ -886,13 +894,6 @@ public class Inicio extends Mi_Ventana_200412823 {
             }
         });
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout diagCatalogoZombiesLayout = new javax.swing.GroupLayout(diagCatalogoZombies.getContentPane());
         diagCatalogoZombies.getContentPane().setLayout(diagCatalogoZombiesLayout);
         diagCatalogoZombiesLayout.setHorizontalGroup(
@@ -905,8 +906,7 @@ public class Inicio extends Mi_Ventana_200412823 {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(diagCatalogoZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonFinalizaDatosPlayerZombies, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonAgregarZombiesCatalogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(botonAgregarZombiesCatalogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         diagCatalogoZombiesLayout.setVerticalGroup(
@@ -918,14 +918,13 @@ public class Inicio extends Mi_Ventana_200412823 {
                         .addComponent(botonAgregarZombiesCatalogo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(botonFinalizaDatosPlayerZombies)
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPaneCatalogoZombies, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
                     .addComponent(jSeparator3))
                 .addContainerGap())
         );
 
+        diagNuevoZombie.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         diagNuevoZombie.setTitle("Nuevo Zombie");
         diagNuevoZombie.setBackground(java.awt.Color.black);
         diagNuevoZombie.setIconImage(getIconImage());
@@ -1221,8 +1220,10 @@ public class Inicio extends Mi_Ventana_200412823 {
                 .addContainerGap())
         );
 
+        diagTamanioMatriz.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         diagTamanioMatriz.setTitle("Tamaño Tablero");
         diagTamanioMatriz.setIconImage(getIconImage());
+        diagTamanioMatriz.setMaximumSize(new java.awt.Dimension(340, 170));
         diagTamanioMatriz.setMinimumSize(new java.awt.Dimension(340, 170));
         diagTamanioMatriz.setModal(true);
         diagTamanioMatriz.setResizable(false);
@@ -1412,6 +1413,7 @@ public class Inicio extends Mi_Ventana_200412823 {
         diagDatosPlayerPlantas.setLocationRelativeTo(null);
         diagDatosPlayerPlantas.show();
         diagDatosPlayerPlantas.setModal(true); 
+        jbOkDatosPlayerPlantas.setEnabled(true);
         //diagDatosPlayerPlantas.getContentPane().setBackground(new Color(0,0,0));
     }//GEN-LAST:event_jbPlayerPlantasActionPerformed
 
@@ -1419,7 +1421,8 @@ public class Inicio extends Mi_Ventana_200412823 {
     private void jbPlayerZombieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPlayerZombieActionPerformed
         diagDatosPlayerZombies.setLocationRelativeTo(null);
         diagDatosPlayerZombies.show();
-        diagDatosPlayerZombies.setModal(true);
+        diagDatosPlayerZombies.setModal(true);        
+        jbOkDatosPlayerZombies.setEnabled(true);
         //diagDatosPlayerZombies.getContentPane().setBackground(new Color(0,0,0));
     }//GEN-LAST:event_jbPlayerZombieActionPerformed
 
@@ -1433,6 +1436,11 @@ public class Inicio extends Mi_Ventana_200412823 {
         NodoUsuario zomb = new NodoUsuario("Zombies");
         listadoUsuarios.insertarUsuario(zomb);
         cantColumnas = 0; cantFilas = 0; String foto = "";
+        jbPlayerZombie.setEnabled(true);
+        jbPlayerPlantas.setEnabled(true);
+        jbOkDatosPlayerPlantas.setEnabled(true);
+        jbOkDatosPlayerZombies.setEnabled(true);
+        //jbStartJuego.setEnabled(false);
     }//GEN-LAST:event_jbEliminarDatosActionPerformed
 
     //pendiente
@@ -1453,7 +1461,7 @@ public class Inicio extends Mi_Ventana_200412823 {
 
     //pendiente
     private void jbCancelDatosPlayerPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelDatosPlayerPlantasActionPerformed
-        
+        diagDatosPlayerPlantas.dispose();
     }//GEN-LAST:event_jbCancelDatosPlayerPlantasActionPerformed
 
     //ya
@@ -1465,7 +1473,7 @@ public class Inicio extends Mi_Ventana_200412823 {
 
     //pendiente
     private void jbCancelDatosPlayerZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelDatosPlayerZombiesActionPerformed
-        
+        diagDatosPlayerZombies.dispose();
     }//GEN-LAST:event_jbCancelDatosPlayerZombiesActionPerformed
 
     //ya
@@ -1638,6 +1646,7 @@ public class Inicio extends Mi_Ventana_200412823 {
     //ya
     private void botonSalirIngresoPlantaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirIngresoPlantaNuevaActionPerformed
         limpiarTextosNuevaPlanta();
+        diagNuevaPlanta.hide();
     }//GEN-LAST:event_botonSalirIngresoPlantaNuevaActionPerformed
 
     //ya
@@ -1733,6 +1742,7 @@ public class Inicio extends Mi_Ventana_200412823 {
     //ya
     private void botonSalirIngresoZombieNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirIngresoZombieNuevoActionPerformed
         limpiarTextosNuevoZombie();
+        diagNuevoZombie.hide();
     }//GEN-LAST:event_botonSalirIngresoZombieNuevoActionPerformed
 
     //ya
@@ -1798,6 +1808,12 @@ public class Inicio extends Mi_Ventana_200412823 {
             int cantidadZombiies = Integer.parseInt(txtCantidadDatosZombies.getText());    
             nodito.setNombre(nameUserrr);
             nodito.setCantidad(cantidadZombiies);
+            txtNombrePlayerZombies.setText("");
+            txtCantidadDatosZombies.setText("");
+            String mensaje =  "Jugador Zombie Creado Exitosamente!!!";
+            JOptionPane.showMessageDialog(diagDatosPlayerZombies, mensaje, "Warning", JOptionPane.ERROR_MESSAGE);
+            jbOkDatosPlayerZombies.setEnabled(false);
+            jbCancelDatosPlayerZombies.setEnabled(false);
         }
         else {
             //JOptionPane.showMessageDialog(diagDatosPlayerPlantas, "Por favor Ingrese todos los datos son obligatorios", "Warning", WIDTH);
@@ -1814,6 +1830,12 @@ public class Inicio extends Mi_Ventana_200412823 {
             int cantidadPlantass = Integer.parseInt(txtCantidadDatosPlantas.getText());    
             nodito.setNombre(nameUserr);
             nodito.setCantidad(cantidadPlantass);
+            txtNombrePlayerPlantas.setText("");
+            txtCantidadDatosPlantas.setText("");
+            String mensaje =  "Jugador Planta Creado Exitosamente!!!";
+            JOptionPane.showMessageDialog(diagDatosPlayerPlantas, mensaje, "Warning", JOptionPane.ERROR_MESSAGE);
+            jbOkDatosPlayerPlantas.setEnabled(false);
+            jbCancelDatosPlayerPlantas.setEnabled(false);
         }
         else {
             //JOptionPane.showMessageDialog(diagDatosPlayerPlantas, "Por favor Ingrese todos los datos son obligatorios", "Warning", WIDTH);
@@ -1822,24 +1844,51 @@ public class Inicio extends Mi_Ventana_200412823 {
         }
     }//GEN-LAST:event_jbOkDatosPlayerPlantasActionPerformed
 
+    private void procesarNuevoCampoTexto(NodoUsuario nodoUsr, NodoCampoTexto nodoCTexto){
+        if(nodoUsr.getListaCampos()==null)
+        {
+            ListaCamposTexto nuevosCampos = new ListaCamposTexto();
+            nodoUsr.setListaCampos(nuevosCampos);
+            nodoUsr.getListaCampos().insertarCampoTexto(nodoCTexto);
+        }
+        else
+        {
+            nodoUsr.getListaCampos().insertarCampoTexto(nodoCTexto);
+        }
+    }
+    
     //pendiente
     private void jbAgregarNuevoCampoPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarNuevoCampoPlantasActionPerformed
-        
+        NodoUsuario nodito = listadoUsuarios.buscarUsuarioTipo("Plantas");
+        if(!txtNewCampoPlantas.getText().isEmpty()){
+            NodoCampoTexto nuevoCampo = new NodoCampoTexto(txtNewCampoPlantas.getText());
+            procesarNuevoCampoTexto(nodito, nuevoCampo);
+            txtNewCampoPlantas.setText("");
+            String mensaje =  "Campo Creado Exitosamente!!!";
+            JOptionPane.showMessageDialog(diagNuevosCamposPlayerPlantas, mensaje, "Warning", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jbAgregarNuevoCampoPlantasActionPerformed
 
     //pendiente
     private void jbFinalizarNuevosCamposPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFinalizarNuevosCamposPlantasActionPerformed
-        
+        diagNuevosCamposPlayerPlantas.dispose();
     }//GEN-LAST:event_jbFinalizarNuevosCamposPlantasActionPerformed
 
     //pendiente
     private void jbAgregarNuevoCampoZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarNuevoCampoZombiesActionPerformed
-        
+        NodoUsuario nodito = listadoUsuarios.buscarUsuarioTipo("Zombies");
+        if(!txtNewCampoZombies.getText().isEmpty()){
+            NodoCampoTexto nuevoCampo = new NodoCampoTexto(txtNewCampoZombies.getText());
+            procesarNuevoCampoTexto(nodito, nuevoCampo);
+            txtNewCampoZombies.setText("");
+            String mensaje =  "Campo Creado Exitosamente!!!";
+            JOptionPane.showMessageDialog(diagNuevosCamposPlayerZombies, mensaje, "Warning", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jbAgregarNuevoCampoZombiesActionPerformed
 
     //pendiente
     private void jbFinalizarNuevosCamposZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFinalizarNuevosCamposZombiesActionPerformed
-       
+       diagNuevosCamposPlayerZombies.dispose();
     }//GEN-LAST:event_jbFinalizarNuevosCamposZombiesActionPerformed
 
     //ya
@@ -1872,14 +1921,6 @@ public class Inicio extends Mi_Ventana_200412823 {
         diagCatalogoZombies.getContentPane().setBackground(new Color(0,0,0));
     }//GEN-LAST:event_diagCatalogoZombiesWindowOpened
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        JPanel panel=new JPanel();
-        panel.setSize(300, 100);
-        panel.setBackground(Color.red);
-        jScrollPaneCatalogoZombies.add(panel);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void diagTamanioMatrizWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagTamanioMatrizWindowOpened
         diagTamanioMatriz.getContentPane().setBackground(new Color(0,0,0));
     }//GEN-LAST:event_diagTamanioMatrizWindowOpened
@@ -1901,7 +1942,7 @@ public class Inicio extends Mi_Ventana_200412823 {
         }
         else{
             String mensaje =  "Por favor Ingrese todos los datos son obligatorios!!!";
-            JOptionPane.showMessageDialog(diagDatosPlayerPlantas, mensaje, "Warning", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(diagTamanioMatriz, mensaje, "Warning", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_botonAceptarTamanioMatrizActionPerformed
 
@@ -1916,12 +1957,18 @@ public class Inicio extends Mi_Ventana_200412823 {
     }
     
     private void botonCancelarTamanioMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarTamanioMatrizActionPerformed
-        // TODO add your handling code here:
+        diagTamanioMatriz.hide();
     }//GEN-LAST:event_botonCancelarTamanioMatrizActionPerformed
 
     private void VentanaGameWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_VentanaGameWindowOpened
         VentanaGame.getContentPane().setBackground(new Color(0,0,0));
     }//GEN-LAST:event_VentanaGameWindowOpened
+
+    private void diagCatalogoPlantasWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagCatalogoPlantasWindowClosed
+        diagCatalogoPlantas.hide();
+        diagDatosPlayerPlantas.hide();
+        jbPlayerPlantas.setEnabled(false);
+    }//GEN-LAST:event_diagCatalogoPlantasWindowClosed
 
     
     
@@ -2003,7 +2050,6 @@ public class Inicio extends Mi_Ventana_200412823 {
     private javax.swing.JDialog diagTamanioMatriz;
     private javax.swing.JLabel etiquetaImagenPlanta;
     private javax.swing.JLabel etiquetaImagenZombie;
-    private javax.swing.JButton jButton1;
     private javax.swing.JFileChooser jFileChooserFotos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
