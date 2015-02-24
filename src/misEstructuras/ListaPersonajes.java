@@ -209,10 +209,13 @@ public class ListaPersonajes {
             System.out.println("node"+k+"[label = \"Tipo personaje:"+" "+aux.getTipoPersonaje()+"\\"+"n"+" "+"Nombre:"+" "+aux.getNombre()+"\\"+"n"+" "+"Imagen:"+" "+aux.getImagen()+"\\"+"n"+"\"];");
             if(aux.getSiguiente()!=null){                
                // System.out.print("->");
+               // aux = aux.getSiguiente();
+                System.out.println("node"+k+" -> node"+(k+1)+";");
+                System.out.println("node"+(k + 1)+" -> node"+k+";");
             }
-            aux = aux.getSiguiente();
-        System.out.println("node"+k+" -> node"+(k+1)+";");
-        System.out.println("node"+(k + 1)+" -> node"+k+";");
+           aux = aux.getSiguiente();
+//        System.out.println("node"+k+" -> node"+(k+1)+";");
+//        System.out.println("node"+(k + 1)+" -> node"+k+";");
         
         }        
        // System.out.println(k);         

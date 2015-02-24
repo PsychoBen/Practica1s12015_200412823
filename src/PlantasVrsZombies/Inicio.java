@@ -1124,6 +1124,7 @@ public class Inicio extends Mi_Ventana_200412823 {
 
         VentanaGame.setTitle("Plants vrs Zombies Guatemalteco");
         VentanaGame.setIconImage(getIconImage());
+        VentanaGame.setMaximumSize(new java.awt.Dimension(800, 500));
         VentanaGame.setMinimumSize(new java.awt.Dimension(800, 500));
         VentanaGame.setResizable(false);
         VentanaGame.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1554,11 +1555,38 @@ public class Inicio extends Mi_Ventana_200412823 {
         return regresa;
     }
     
+    private int obtenerTamanioListaPersonaje(ListaPersonajes lista){
+        int tammanioListado=0;
+        
+        if(lista==null){
+            tammanioListado=tammanioListado+1;
+        }
+        else{
+            tammanioListado=lista.getLongitud()+1;
+        }
+        
+        return tammanioListado;
+    }
+    
+    private void procesarNuevoPersonaje(NodoUsuario nodoo, NodoPersonaje personaje){
+        if(nodoo.getCatalogoPersonajes()==null){
+            ListaPersonajes nuevaLista = new ListaPersonajes();
+            nodoo.setCatalogoPersonajes(nuevaLista); 
+            nodoo.getCatalogoPersonajes().insertarPersonaje(personaje);
+        }
+        else
+        {        
+            nodoo.getCatalogoPersonajes().insertarPersonaje(personaje);
+        }
+    }
+    
     //ya
     private void botonConfirmNewPlantaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmNewPlantaActionPerformed
-        NodoUsuario nodito = listadoUsuarios.buscarUsuarioTipo("Plantas");        
-        NodoPersonaje nuevaPlanta = new NodoPersonaje(txtNombrePlantaNueva.getText(),obtenerrFotoPlanta(fotoPlanta),txtTipoAtaquePlantaNueva.getText(),Integer.parseInt(txtPuntosAtaquePlantaNueva.getText()),Integer.parseInt(txtPuntosDefensaPlantaNueva.getText()),"Plantas",(nodito.getCatalogoPersonajes().getLongitud()+1));
-        nodito.getCatalogoPersonajes().insertarPersonaje(nuevaPlanta);
+        NodoUsuario nodito = listadoUsuarios.buscarUsuarioTipo("Plantas");  
+        
+        NodoPersonaje nuevaPlanta = new NodoPersonaje(txtNombrePlantaNueva.getText(),obtenerrFotoPlanta(fotoPlanta),txtTipoAtaquePlantaNueva.getText(),Integer.parseInt(txtPuntosAtaquePlantaNueva.getText()),Integer.parseInt(txtPuntosDefensaPlantaNueva.getText()),"Plantas",obtenerTamanioListaPersonaje(nodito.getCatalogoPersonajes()));
+        procesarNuevoPersonaje(nodito, nuevaPlanta);
+        //nodito.getCatalogoPersonajes().insertarPersonaje(nuevaPlanta);
         txtNombrePlantaNueva.setEnabled(false);
         txtPuntosAtaquePlantaNueva.setEnabled(false);
         txtPuntosDefensaPlantaNueva.setEnabled(false);
@@ -1709,9 +1737,9 @@ public class Inicio extends Mi_Ventana_200412823 {
 
     //ya
     private void botonConfirmNewZombieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmNewZombieActionPerformed
-        NodoUsuario nodito = listadoUsuarios.buscarUsuarioTipo("Zombies");        
-        NodoPersonaje nuevoZombie = new NodoPersonaje(txtNombreZombieNuevo.getText(),obtenerrFotoZombie(fotoZombie),txtTipoAtaqueZombieNuevo.getText(),Integer.parseInt(txtPuntosAtaqueZombieNuevo.getText()),Integer.parseInt(txtPuntosDefensaZombieNuevo.getText()),"Zombies",(nodito.getCatalogoPersonajes().getLongitud()+1));
-        nodito.getCatalogoPersonajes().insertarPersonaje(nuevoZombie);
+        NodoUsuario nodito = listadoUsuarios.buscarUsuarioTipo("Zombies");          
+        NodoPersonaje nuevaPlanta = new NodoPersonaje(txtNombreZombieNuevo.getText(),obtenerrFotoZombie(fotoZombie),txtTipoAtaqueZombieNuevo.getText(),Integer.parseInt(txtPuntosAtaqueZombieNuevo.getText()),Integer.parseInt(txtPuntosDefensaZombieNuevo.getText()),"Zombies",obtenerTamanioListaPersonaje(nodito.getCatalogoPersonajes()));
+        procesarNuevoPersonaje(nodito, nuevaPlanta);
         txtNombreZombieNuevo.setEnabled(false);
         txtPuntosAtaqueZombieNuevo.setEnabled(false);
         txtPuntosDefensaZombieNuevo.setEnabled(false);
