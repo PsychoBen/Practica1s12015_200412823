@@ -91,6 +91,105 @@ public class PilaZombies {
         return encontrado;
     }
     
+    public void mostrarPila1()
+    {        
+        NodoPersonaje aux=cima;
+        while (aux!=null) {
+            System.out.println("Nombre: "+aux.getNombre()+" , imagen "+aux.getImagen());
+            aux=aux.getSiguiente();
+        }        
+    }
+    
+    public void mostrarPila2()
+    {        
+        NodoPersonaje aux=cima;
+        while (aux!=null) {
+            System.out.println("Nombre: "+aux.getNombre()+" , imagen "+aux.getImagen());
+            aux=aux.getSiguiente();
+        }        
+    }
+    
+    private String obtenerNameImagen(String path){
+        String immmaggen="";
+        path=path.replace('\\', ',');
+        if(!path.isEmpty()){
+            String [] cadena = path.split(",");
+            int  posi = cadena.length;
+            immmaggen = cadena[posi-1];
+        }
+        return immmaggen;
+    }
+    
+    public String generarCadenaPilaDot() {
+        
+        NodoPersonaje aux;
+        int k = -1;
+        aux = cima;
+        
+        String cadena = "";
+        
+        System.out.println("digraph G" +" "+ " { ");
+        cadena ="digraph G" +" "+ " { \\n ";
+        System.out.println("rankdir = LR;");
+        cadena =cadena+" rankdir = LR;";
+        String cadena2="";
+        while(aux!=null) {
+            k++;
+            if(aux.getAnterior()!=null){
+                
+
+            }
+            System.out.println("node"+k+"[shape=box];");
+            cadena2 = "node"+k+"[shape=box];";
+            String imaggenn =""; 
+           
+            System.out.println("node"+k+"[label = \"Tipo personaje:"+" "+aux.getTipoPersonaje()+"\\"+"n"+" "+"Nombre:"+" "+aux.getNombre()+"\\"+"n"+" "+"Puntos Ataque:"+" "+String.valueOf(aux.getPuntosAtaque())+"\\"+"n"+" "+"Puntos Defensa:"+" "+String.valueOf(aux.getPuntosDefensa())+"\\"+"n"+" "+"Tipo Ataque:"+" "+aux.getTipoAtaque()+"\\"+"n"+" "+"Imagen:"+" "+obtenerNameImagen(aux.getImagen())+"\\"+"n"+"\"];");
+            cadena2 = cadena2 + "node"+k+"[label = \"Tipo personaje:"+" "+aux.getTipoPersonaje()+"\\"+"n"+" "+"Nombre:"+" "+aux.getNombre()+"\\"+"n"+" "+"Puntos Ataque:"+" "+String.valueOf(aux.getPuntosAtaque())+"\\"+"n"+" "+"Puntos Defensa:"+" "+String.valueOf(aux.getPuntosDefensa())+"\\"+"n"+" "+"Tipo Ataque:"+" "+aux.getTipoAtaque()+"\\"+"n"+" "+"Imagen:"+" "+obtenerNameImagen(aux.getImagen())+"\\"+"n"+"\"];";
+            if(aux.getSiguiente()!=null){                
+
+                System.out.println("node"+k+" -> node"+(k+1)+";");
+                cadena2 = cadena2 + "node"+k+" -> node"+(k+1)+";";
+                System.out.println("node"+(k + 1)+" -> node"+k+";");
+                cadena2 = cadena2 + "node"+(k + 1)+" -> node"+k+";";
+            }
+           aux = aux.getSiguiente();       
+        }        
+        cadena = cadena + cadena2 + "}";
+        System.out.println("}");
+        return cadena;
+    }
+    
+    public void RecorrerLista2() {
+        
+        NodoPersonaje aux;
+        int k = -1;
+        aux = cima;
+        
+        System.out.println("digraph G" +" "+ " { ");
+        System.out.println("rankdir = LR;");
+        
+        while(aux!=null) {
+            k++;
+            if(aux.getAnterior()!=null){
+                
+
+            }
+            System.out.println("node"+k+"[shape=box];");
+            String imaggenn =""; 
+           
+            System.out.println("node"+k+"[label = \"Tipo personaje:"+" "+aux.getTipoPersonaje()+"\\"+"n"+" "+"Nombre:"+" "+aux.getNombre()+"\\"+"n"+" "+"Puntos Ataque:"+" "+String.valueOf(aux.getPuntosAtaque())+"\\"+"n"+" "+"Puntos Defensa:"+" "+String.valueOf(aux.getPuntosDefensa())+"\\"+"n"+" "+"Tipo Ataque:"+" "+aux.getTipoAtaque()+"\\"+"n"+" "+"Imagen:"+" "+obtenerNameImagen(aux.getImagen())+"\\"+"n"+"\"];");
+            if(aux.getSiguiente()!=null){                
+
+                System.out.println("node"+k+" -> node"+(k+1)+";");
+                System.out.println("node"+(k + 1)+" -> node"+k+";");
+            }
+           aux = aux.getSiguiente();       
+        }        
+         
+        System.out.println("}");
+                      
+    }
+    
     public NodoPersonaje getCima() {
         return cima;
     }

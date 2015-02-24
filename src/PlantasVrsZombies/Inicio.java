@@ -11,6 +11,7 @@ package PlantasVrsZombies;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
@@ -40,6 +41,7 @@ public class Inicio extends Mi_Ventana_200412823 {
     ListaUsuario listadoUsuarios;
     int cantFilas, cantColumnas = 0;
     int totalPlantas, totalZombies;
+    
     
     
     /**
