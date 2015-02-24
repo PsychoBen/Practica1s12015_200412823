@@ -185,6 +185,7 @@ public class Inicio extends Mi_Ventana_200412823 {
         jLabelZombie = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
 
+        diagDatosPlayerPlantas.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         diagDatosPlayerPlantas.setTitle("Player Plantas");
         diagDatosPlayerPlantas.setIconImage(getIconImage());
         diagDatosPlayerPlantas.setMaximumSize(new java.awt.Dimension(540, 280));
@@ -1443,11 +1444,40 @@ public class Inicio extends Mi_Ventana_200412823 {
         //jbStartJuego.setEnabled(false);
     }//GEN-LAST:event_jbEliminarDatosActionPerformed
 
+     private void insertarEnCola(NodoUsuario nodousr, NodoPersonaje person){
+        if(nodousr.getColaPlantas()==null){
+            ColaPlantas nuevaCola = new ColaPlantas();
+            nodousr.setColaPlantas(nuevaCola);
+            nodousr.getColaPlantas().insertarCola(person);
+        }
+        else
+        {
+             nodousr.getColaPlantas().insertarCola(person);
+        }
+    }
+    
+    private void insertarEnPila(NodoUsuario nodousr, NodoPersonaje person){
+        if(nodousr.getPilaZombies()==null){
+            PilaZombies nuevaPila = new PilaZombies();
+            nodousr.setPilaZombies(nuevaPila);
+            nodousr.getPilaZombies().insertarPila(person);
+        }
+        else
+        {
+             nodousr.getPilaZombies().insertarPila(person);
+        }
+    }
+    
     //pendiente
     private void jbStartJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbStartJuegoActionPerformed
         if(cantFilas!=0&&cantColumnas!=0)
         {
-            
+            NodoUsuario Zombiees = listadoUsuarios.buscarUsuarioTipo("Zombies");
+            int tamaniooCatalogoZombies = 0;
+            tamaniooCatalogoZombies = Zombiees.getCatalogoPersonajes().getLongitud();
+            int ale=Zombiees.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoZombies);            
+            NodoPersonaje personajeRandomm =  Zombiees.getCatalogoPersonajes().buscarPersonajePorAccesoRandom(ale);
+            //NodoPersonaje pers = 
            // VentanaGame.setLocationRelativeTo(null);
            // VentanaGame.show();         
         }

@@ -23,12 +23,17 @@ public class NodoUsuario {
     ListaPersonajes catalogoPersonajes;
     ListaCatalogoPlantas catalogoPlantas;
     ListaCatalogoZombies catalogoZombies;
+    PilaZombies pilaZombies;
+    ColaPlantas colaPlantas;
 
     public NodoUsuario() {
         this.anterior = null;
         this.siguiente = null;
         this.cantidad = 0;
         this.listaCampos = null;
+        this.catalogoPersonajes=null;
+        this.pilaZombies = null;
+        this.colaPlantas=null;
         this.nombre = "";
         this.tipoPersonaje = "";
         this.catalogoPlantas = null;
@@ -40,6 +45,9 @@ public class NodoUsuario {
         this.tipoPersonaje = tipoPersonaje;
         this.cantidad = 0;
         this.listaCampos = null;
+        this.catalogoPersonajes=null;
+        this.pilaZombies = null;
+        this.colaPlantas=null;
     }
 
     public NodoUsuario(String nombre, int cantidad) {
@@ -48,6 +56,9 @@ public class NodoUsuario {
         this.listaCampos = null;
         this.catalogoPlantas = null;
         this.catalogoZombies = null;
+        this.catalogoPersonajes=null;
+        this.pilaZombies = null;
+        this.colaPlantas=null;
     }
 
     public NodoUsuario(String tipoPersonaje) {
@@ -57,6 +68,8 @@ public class NodoUsuario {
         this.cantidad = 0;
         this.nombre = "";
         this.catalogoPersonajes = null;
+        this.pilaZombies = null;
+        this.colaPlantas=null;
         this.listaCampos = null;
         this.catalogoPlantas = null;
         this.catalogoZombies = null;
@@ -133,6 +146,21 @@ public class NodoUsuario {
     public void setCatalogoPersonajes(ListaPersonajes catalogoPersonajes) {
         this.catalogoPersonajes = catalogoPersonajes;
     }
-    
-    
+
+    public PilaZombies getPilaZombies() {
+        return pilaZombies;
+    }
+
+    public void setPilaZombies(PilaZombies pilaZombies) {
+        this.pilaZombies = pilaZombies;
+    }
+
+    public ColaPlantas getColaPlantas() {
+        return colaPlantas;
+    }
+
+    public void setColaPlantas(ColaPlantas colaPlantas) {
+        this.colaPlantas = colaPlantas;
+    }
+        
 }

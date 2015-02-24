@@ -87,6 +87,7 @@ public class PilaZombies {
         NodoPersonaje encontrado;
         encontrado = cima;
         cima=cima.getSiguiente();
+        cantidad--;
         return encontrado;
     }
     
@@ -113,7 +114,5 @@ public class PilaZombies {
     public void setFondo(NodoPersonaje fondo) {
         this.fondo = fondo;
     }
-
-    
-    
+        
 }

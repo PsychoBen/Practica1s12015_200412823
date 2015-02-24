@@ -14,4 +14,8 @@ package misEstructuras;
  */
 public class ColaPlantas {
     
+    public void insertarCola(NodoPersonaje nuevo){
+        
+    }
+    
 }
