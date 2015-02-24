@@ -12,7 +12,7 @@ package misEstructuras;
  *
  * @author Ben
  */
-public class NodoPersonaje {
+public class NodoPersonaje implements Cloneable {
 
     NodoPersonaje siguiente;
     NodoPersonaje anterior;
@@ -25,6 +25,17 @@ public class NodoPersonaje {
     private int puntosAtaque;
     private int puntosDefensa;
     private int accesoRandom;
+    
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Object obj = null;
+        try {
+            obj = super.clone();
+        } catch (CloneNotSupportedException ex) {
+            System.out.println("No se puede clonar");
+        }
+        return obj;
+    }
 
     public NodoPersonaje() {
         this.siguiente = null;

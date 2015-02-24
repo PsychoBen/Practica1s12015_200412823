@@ -19,6 +19,7 @@ public class ListaPersonajes {
     NodoPersonaje inicio;
     int longitud;
     NodoPersonaje fin;
+    Random aleatorio = new Random();
 
     public ListaPersonajes() {
         this.longitud = 0;
@@ -288,11 +289,17 @@ public class ListaPersonajes {
         this.fin = fin;
     }   
     
-    public int randomListaPersonaje(int tamanio)
-    {
-        Random aleatorio = new Random();
+    public int randomListaPersonaje(int tamanio)    {
+        
         int numeroAleatorio;
-   	numeroAleatorio = (int)(aleatorio.nextDouble() * tamanio + 1);
+        int nivel = (int)(aleatorio.nextDouble() * tamanio);
+   	if(nivel==0)
+        {
+            numeroAleatorio = nivel+1;
+        }else
+        {
+            numeroAleatorio = nivel;
+        }
         
         return numeroAleatorio;
     }

@@ -11,6 +11,8 @@ package PlantasVrsZombies;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -1461,6 +1463,8 @@ public class Inicio extends Mi_Ventana_200412823 {
         if(nodousr.getPilaZombies()==null){
             PilaZombies nuevaPila = new PilaZombies();
             nodousr.setPilaZombies(nuevaPila);
+            //NodoPersonaje nnnn = new NodoPersonaje();
+            //nnnn =person;
             nodousr.getPilaZombies().insertarPila(person);
         }
         else
@@ -1469,7 +1473,7 @@ public class Inicio extends Mi_Ventana_200412823 {
         }
     }
     
-    public void colaInicial(int cantiPlantas){
+    public void colaInicial(int cantiPlantas) throws CloneNotSupportedException{
         NodoUsuario Plantass = listadoUsuarios.buscarUsuarioTipo("Plantas");
         NodoPersonaje personajeRandomm;
         int ale;
@@ -1478,7 +1482,7 @@ public class Inicio extends Mi_Ventana_200412823 {
         if(cantiPlantas<5){
             for (int i = 0; i < cantiPlantas; i++) {
                 ale=Plantass.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoPlantas);            
-                personajeRandomm =  Plantass.getCatalogoPersonajes().buscarPersonajePorAccesoRandom(ale);
+                personajeRandomm =  (NodoPersonaje)Plantass.getCatalogoPersonajes().buscarPersonajePorAccesoRandom(ale).clone();
                 insertarEnCola(Plantass, personajeRandomm);
                 totalPlantas=totalPlantas-1;
             }        
@@ -1487,7 +1491,7 @@ public class Inicio extends Mi_Ventana_200412823 {
             int predet = 5;
             for(int i=0; i<predet;i++){
                 ale=Plantass.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoPlantas);            
-                personajeRandomm =  Plantass.getCatalogoPersonajes().buscarPersonajePorAccesoRandom(ale);
+                personajeRandomm = (NodoPersonaje) Plantass.getCatalogoPersonajes().buscarPersonajePorAccesoRandom(ale).clone();
                 insertarEnCola(Plantass, personajeRandomm);
                 totalPlantas=totalPlantas-1;
             }            
@@ -1495,16 +1499,16 @@ public class Inicio extends Mi_Ventana_200412823 {
         
     }
     
-    public void pilaInicial(int cantiZombies){
+    public void pilaInicial(int cantiZombies) throws CloneNotSupportedException{
         NodoUsuario Zombiees = listadoUsuarios.buscarUsuarioTipo("Zombies");
         NodoPersonaje personajeRandomm;
-        int ale;
+        int alea;
         int tamaniooCatalogoZombies = 0;
         tamaniooCatalogoZombies = Zombiees.getCatalogoPersonajes().getLongitud();
         if(cantiZombies<5){
             for (int i = 0; i < cantiZombies; i++) {
-                ale=Zombiees.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoZombies);            
-                personajeRandomm =  Zombiees.getCatalogoPersonajes().buscarPersonajePorAccesoRandom(ale);
+                alea=Zombiees.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoZombies);            
+                personajeRandomm =  (NodoPersonaje)(Zombiees.getCatalogoPersonajes().buscarPersonajePorAccesoRandom(alea).clone());
                 insertarEnPila(Zombiees, personajeRandomm);
                 totalZombies=totalZombies-1;
             }        
@@ -1512,8 +1516,9 @@ public class Inicio extends Mi_Ventana_200412823 {
         {   
             int predet = 5;
             for(int i=0; i<predet;i++){
-                ale=Zombiees.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoZombies);            
-                personajeRandomm =  Zombiees.getCatalogoPersonajes().buscarPersonajePorAccesoRandom(ale);
+                alea=Zombiees.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoZombies);            
+                personajeRandomm =  (NodoPersonaje)Zombiees.getCatalogoPersonajes().buscarPersonajePorAccesoRandom(alea).clone();
+                
                 insertarEnPila(Zombiees, personajeRandomm);
                 totalZombies=totalZombies-1;
             }            
@@ -1524,12 +1529,9 @@ public class Inicio extends Mi_Ventana_200412823 {
     //pendiente
     private void jbStartJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbStartJuegoActionPerformed
         if(cantFilas!=0&&cantColumnas!=0)
-        {
-            pilaInicial(totalZombies);
-            colaInicial(totalPlantas);
-            //NodoPersonaje pers = 
-           // VentanaGame.setLocationRelativeTo(null);
-           // VentanaGame.show();         
+        {         
+            VentanaGame.setLocationRelativeTo(null);
+            VentanaGame.show();         
         }
         else
         {
@@ -1827,9 +1829,9 @@ public class Inicio extends Mi_Ventana_200412823 {
 
     //ya
     private void botonConfirmNewZombieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmNewZombieActionPerformed
-        NodoUsuario nodito = listadoUsuarios.buscarUsuarioTipo("Zombies");          
-        NodoPersonaje nuevoZomb = new NodoPersonaje(txtNombreZombieNuevo.getText(),obtenerrFotoZombie(fotoZombie),txtTipoAtaqueZombieNuevo.getText(),Integer.parseInt(txtPuntosAtaqueZombieNuevo.getText()),Integer.parseInt(txtPuntosDefensaZombieNuevo.getText()),"Zombies",obtenerTamanioListaPersonaje(nodito.getCatalogoPersonajes()));
-        procesarNuevoPersonaje(nodito, nuevoZomb);
+        NodoUsuario noditos = listadoUsuarios.buscarUsuarioTipo("Zombies");          
+        NodoPersonaje nuevoZomb = new NodoPersonaje(txtNombreZombieNuevo.getText(),obtenerrFotoZombie(fotoZombie),txtTipoAtaqueZombieNuevo.getText(),Integer.parseInt(txtPuntosAtaqueZombieNuevo.getText()),Integer.parseInt(txtPuntosDefensaZombieNuevo.getText()),"Zombies",obtenerTamanioListaPersonaje(noditos.getCatalogoPersonajes()));
+        procesarNuevoPersonaje(noditos, nuevoZomb);
         txtNombreZombieNuevo.setEnabled(false);
         txtPuntosAtaqueZombieNuevo.setEnabled(false);
         txtPuntosDefensaZombieNuevo.setEnabled(false);
@@ -2015,7 +2017,9 @@ public class Inicio extends Mi_Ventana_200412823 {
                 cantFilas =  Integer.parseInt(fillas);
                 cantColumnas = Integer.parseInt(collumnas);
                 txtCantColumnas.setText("");
-                txtCantFilas.setText("");                
+                txtCantFilas.setText("");  
+                VentanaGame.setLocationRelativeTo(null);
+                VentanaGame.show();
             }
             else{
                 String mensss =  "Por favor Ingrese solo numeros!!!";
@@ -2044,6 +2048,12 @@ public class Inicio extends Mi_Ventana_200412823 {
 
     private void VentanaGameWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_VentanaGameWindowOpened
         VentanaGame.getContentPane().setBackground(new Color(0,0,0));
+        try {
+            pilaInicial(totalZombies);
+        } catch (CloneNotSupportedException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            colaInicial(totalPlantas);
     }//GEN-LAST:event_VentanaGameWindowOpened
 
     private void diagCatalogoPlantasWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagCatalogoPlantasWindowClosed
