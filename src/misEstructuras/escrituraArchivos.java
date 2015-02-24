@@ -1,9 +1,7 @@
-/**
- * Universidad de San Carlos de Guatemala
- * Facultad de Ingenieria
- * Ingenieria en Ciencias y Sistemas
- * Esdras Benjamin Cotto Revolorio
- * Carnet: 200412823
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 
 package misEstructuras;
@@ -53,6 +51,19 @@ public class escrituraArchivos {
         crearCarpeta();
         String nombreaArchivo="C:\\Proyecto\\EDD\\catalogoZombies.dot";        
         archivoCatalogoZombies = new File(nombreaArchivo);
+        try {
+            if (!archivoPilaZombies.exists())
+            {
+                archivoPilaZombies.createNewFile();
+            }
+            else 
+            {
+                System.out.println("Ya EXISTE");
+            }
+               // escribirPila(miPila); escribir
+        } 
+        catch (Exception e) {
+        }
     }
     
     public void crearArchivoPilaZombiesDot(PilaZombies miPila) throws IOException{
@@ -68,7 +79,7 @@ public class escrituraArchivos {
             {
                 System.out.println("Ya EXISTE");
             }
-                escribirPila(miPila);
+                escribirPilaZombies(miPila);
         } 
         catch (Exception e) {
         }
@@ -85,7 +96,7 @@ public class escrituraArchivos {
         return immmaggen;
     }
     
-    private void escribirPila(PilaZombies pilita){
+    private void escribirPilaZombies(PilaZombies pilita){
         
         NodoPersonaje aux;
         int k = -1;        
@@ -129,11 +140,111 @@ public class escrituraArchivos {
         }
         
     }
-    
-    public void crearArchivoColaPlantasDot(){
+        
+    private void escribirListaCatalogoZombies(ListaPersonajes miListita){
+        
+        NodoPersonaje aux;
+        int k = -1;        
+        
+        try {
+            aux = miListita.getInicio();
+            PrintWriter pw = new PrintWriter(archivoCatalogoZombies.getAbsolutePath());
+            //System.out.println("digraph G" +" "+ " { ");
+            pw.println("digraph G" +" "+ " { ");
+            //System.out.println("rankdir = LR;");
+            pw.println("rankdir = LR;");
+        
+            while(aux!=null) {
+                k++;
+                if(aux.getAnterior()!=null){
+
+                }
+                //System.out.println("node"+k+"[shape=box];");
+                pw.println("node"+k+"[shape=box];");
+                String imaggenn =""; 
+
+                //System.out.println("node"+k+"[label = \"Tipo personaje:"+" "+aux.getTipoPersonaje()+"\\"+"n"+" "+"Nombre:"+" "+aux.getNombre()+"\\"+"n"+" "+"Puntos Ataque:"+" "+String.valueOf(aux.getPuntosAtaque())+"\\"+"n"+" "+"Puntos Defensa:"+" "+String.valueOf(aux.getPuntosDefensa())+"\\"+"n"+" "+"Tipo Ataque:"+" "+aux.getTipoAtaque()+"\\"+"n"+" "+"Imagen:"+" "+obtenerNameImagen(aux.getImagen())+"\\"+"n"+"\"];");
+                pw.println("node"+k+"[label = \"Tipo personaje:"+" "+aux.getTipoPersonaje()+"\\"+"n"+" "+"Nombre:"+" "+aux.getNombre()+"\\"+"n"+" "+"Puntos Ataque:"+" "+String.valueOf(aux.getPuntosAtaque())+"\\"+"n"+" "+"Puntos Defensa:"+" "+String.valueOf(aux.getPuntosDefensa())+"\\"+"n"+" "+"Tipo Ataque:"+" "+aux.getTipoAtaque()+"\\"+"n"+" "+"Imagen:"+" "+obtenerNameImagen(aux.getImagen())+"\\"+"n"+"\"];");
+                if(aux.getSiguiente()!=null){                
+
+                  //  System.out.println("node"+k+" -> node"+(k+1)+";");
+                    pw.println("node"+k+" -> node"+(k+1)+";");
+                    //System.out.println("node"+(k + 1)+" -> node"+k+";");
+                    pw.println("node"+(k + 1)+" -> node"+k+";");
+                }
+               aux = aux.getSiguiente();       
+            }        
+
+            //System.out.println("}"); 
+            pw.println("}");
+            pw.flush();
+            pw.close();
+            
+        } catch (Exception e) {
+        }
+        
+    }
+            
+    private void escribirColaPlantas(ColaPlantas colita){
+        
+        NodoPersonaje aux;
+        int k = -1;        
+        
+        try {
+            aux = colita.getInicio();
+            PrintWriter pw = new PrintWriter(archivoColaPlantas.getAbsolutePath());
+            //System.out.println("digraph G" +" "+ " { ");
+            pw.println("digraph G" +" "+ " { ");
+            //System.out.println("rankdir = LR;");
+            pw.println("rankdir = LR;");
+        
+            while(aux!=null) {
+                k++;
+                if(aux.getAnterior()!=null){
+
+                }
+                //System.out.println("node"+k+"[shape=box];");
+                pw.println("node"+k+"[shape=box];");
+                String imaggenn =""; 
+
+                //System.out.println("node"+k+"[label = \"Tipo personaje:"+" "+aux.getTipoPersonaje()+"\\"+"n"+" "+"Nombre:"+" "+aux.getNombre()+"\\"+"n"+" "+"Puntos Ataque:"+" "+String.valueOf(aux.getPuntosAtaque())+"\\"+"n"+" "+"Puntos Defensa:"+" "+String.valueOf(aux.getPuntosDefensa())+"\\"+"n"+" "+"Tipo Ataque:"+" "+aux.getTipoAtaque()+"\\"+"n"+" "+"Imagen:"+" "+obtenerNameImagen(aux.getImagen())+"\\"+"n"+"\"];");
+                pw.println("node"+k+"[label = \"Tipo personaje:"+" "+aux.getTipoPersonaje()+"\\"+"n"+" "+"Nombre:"+" "+aux.getNombre()+"\\"+"n"+" "+"Puntos Ataque:"+" "+String.valueOf(aux.getPuntosAtaque())+"\\"+"n"+" "+"Puntos Defensa:"+" "+String.valueOf(aux.getPuntosDefensa())+"\\"+"n"+" "+"Tipo Ataque:"+" "+aux.getTipoAtaque()+"\\"+"n"+" "+"Imagen:"+" "+obtenerNameImagen(aux.getImagen())+"\\"+"n"+"\"];");
+                if(aux.getSiguiente()!=null){                
+
+                  //  System.out.println("node"+k+" -> node"+(k+1)+";");
+                    pw.println("node"+k+" -> node"+(k+1)+";");
+                    //System.out.println("node"+(k + 1)+" -> node"+k+";");
+                    pw.println("node"+(k + 1)+" -> node"+k+";");
+                }
+               aux = aux.getSiguiente();       
+            }        
+            //System.out.println("}"); 
+            pw.println("}");
+            pw.flush();
+            pw.close();
+            
+        } catch (Exception e) {
+        }
+        
+    }    
+        
+    public void crearArchivoColaPlantasDot(ColaPlantas miPlantita){
         crearCarpeta();
         String nombreaArchivo="C:\\Proyecto\\EDD\\colaPlantas.dot";        
         archivoColaPlantas = new File(nombreaArchivo);
+        try {
+            if (!archivoColaPlantas.exists())
+            {
+                archivoColaPlantas.createNewFile();
+            }
+            else 
+            {
+                System.out.println("Ya EXISTE");
+            }
+                escribirColaPlantas(miPlantita);
+        } 
+        catch (Exception e) {
+        }
     }
     
     public void crearArchivoMatrizJuegoDot(){

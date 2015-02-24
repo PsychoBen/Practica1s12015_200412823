@@ -80,7 +80,15 @@ public class PilaZombies {
         }
     }
 
-    public void limpiarPila(){}
+    public void limpiarPila(){
+        NodoPersonaje aux;
+        while(!estaVaciaPila())
+        {
+            aux = cima;
+            cima = cima.getSiguiente();
+            aux.setSiguiente(null);
+        }
+    }
     
     public NodoPersonaje sacarPila()
     {
