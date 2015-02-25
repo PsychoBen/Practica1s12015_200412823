@@ -30,8 +30,8 @@ public class Matriz {
 
     public void insertar(){
         
-    }
-    
+    }  
+        
     public NodoMatriz getInicio() {
         return inicio;
     }
