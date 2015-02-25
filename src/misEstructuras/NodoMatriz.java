@@ -87,5 +87,29 @@ public class NodoMatriz {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }    
+
+    public NodoMatriz(int fila, int col, String imagen) {
+        this.fila = fila;
+        this.col = col;
+        this.imagen = imagen;
+        this.abajo = null;
+        this.arriba  = null;
+        this.derecha = null;
+        this.izquierda = null;
+        this.listaPersonajesNodo = new ListaPersonajes();
+    }
+
+    public NodoMatriz(int fila, int col) {
+        this.fila = fila;
+        this.col = col;
+        this.imagen = "";
+        this.abajo = null;
+        this.arriba  = null;
+        this.derecha = null;
+        this.izquierda = null;
+        this.listaPersonajesNodo = new ListaPersonajes();
+    }
+    
+    
     
 }
