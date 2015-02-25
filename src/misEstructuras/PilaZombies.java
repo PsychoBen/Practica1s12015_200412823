@@ -59,46 +59,6 @@ public class PilaZombies {
         return contadorr;
     }
     
-    /**
-     * Metodo para ir metiendo nodos en la pila
-     * @param nuevo de tipo nodoPersonaje es el nuevo nodo a apilar
-     */
-    public void meterPila(NodoPersonaje nuevo){
-        NodoPersonaje aux = nuevo;
-         if (estaVaciaPila())
-        {
-            fondo = nuevo;
-            cima = nuevo;
-            cantidad++;
-        }
-        else
-        {
-            cima.setSiguiente(nuevo);
-            nuevo.setAnterior(cima);
-            cima = nuevo;
-            cantidad++;
-        }
-    }
-
-    public void limpiarPila(){
-        NodoPersonaje aux;
-        while(!estaVaciaPila())
-        {
-            aux = cima;
-            cima = cima.getSiguiente();
-            aux.setSiguiente(null);
-        }
-    }
-    
-    public NodoPersonaje sacarPila()
-    {
-        NodoPersonaje encontrado;
-        encontrado = cima;
-        cima=cima.getSiguiente();
-        cantidad--;
-        return encontrado;
-    }
-    
     public void mostrarPila1()
     {        
         NodoPersonaje aux=cima;
@@ -108,16 +68,7 @@ public class PilaZombies {
         }        
     }
     
-    public void mostrarPila2()
-    {        
-        NodoPersonaje aux=cima;
-        while (aux!=null) {
-            System.out.println("Nombre: "+aux.getNombre()+" , imagen "+aux.getImagen());
-            aux=aux.getSiguiente();
-        }        
-    }
-    
-    private String obtenerNameImagen(String path){
+        private String obtenerNameImagen(String path){
         String immmaggen="";
         path=path.replace('\\', ',');
         if(!path.isEmpty()){
@@ -128,7 +79,67 @@ public class PilaZombies {
         return immmaggen;
     }
     
-    public String generarCadenaPilaDot() {
+    public void RecorrerLista2() {
+        
+        NodoPersonaje aux;
+        int k = -1;
+        aux = cima;
+        
+        System.out.println("digraph G" +" "+ " { ");
+                
+        while(aux!=null) {
+            k++;
+            if(aux.getAnterior()!=null){
+                
+
+            }
+            System.out.println("node"+k+"[shape=box];");
+            String imaggenn =""; 
+           
+            System.out.println("node"+k+"[label = \"Tipo personaje:"+" "+aux.getTipoPersonaje()+"\\"+"n"+" "+"Nombre:"+" "+aux.getNombre()+"\\"+"n"+" "+"Puntos Ataque:"+" "+String.valueOf(aux.getPuntosAtaque())+"\\"+"n"+" "+"Puntos Defensa:"+" "+String.valueOf(aux.getPuntosDefensa())+"\\"+"n"+" "+"Tipo Ataque:"+" "+aux.getTipoAtaque()+"\\"+"n"+" "+"Imagen:"+" "+obtenerNameImagen(aux.getImagen())+"\\"+"n"+"\"];");
+            if(aux.getSiguiente()!=null){                
+
+                System.out.println("node"+k+" -> node"+(k+1)+";");
+                System.out.println("node"+(k + 1)+" -> node"+k+";");
+            }
+           aux = aux.getSiguiente();       
+        }        
+         
+        System.out.println("}");
+                      
+    }
+    
+    public void GenerarDot() {
+        
+        NodoPersonaje aux;
+        int k = -1;
+        aux = cima;
+        
+        System.out.println("digraph G" +" "+ " { ");
+                
+        while(aux!=null) {
+            k++;
+            if(aux.getAnterior()!=null){
+                
+
+            }
+            System.out.println("node"+k+"[shape=box];");
+            String imaggenn =""; 
+           
+            System.out.println("node"+k+"[label = \"Tipo personaje:"+" "+aux.getTipoPersonaje()+"\\"+"n"+" "+"Nombre:"+" "+aux.getNombre()+"\\"+"n"+" "+"Puntos Ataque:"+" "+String.valueOf(aux.getPuntosAtaque())+"\\"+"n"+" "+"Puntos Defensa:"+" "+String.valueOf(aux.getPuntosDefensa())+"\\"+"n"+" "+"Tipo Ataque:"+" "+aux.getTipoAtaque()+"\\"+"n"+" "+"Imagen:"+" "+obtenerNameImagen(aux.getImagen())+"\\"+"n"+"\"];");
+            if(aux.getSiguiente()!=null){                
+
+                System.out.println("node"+k+" -> node"+(k+1)+";");
+                System.out.println("node"+(k + 1)+" -> node"+k+";");
+            }
+           aux = aux.getSiguiente();       
+        }        
+         
+        System.out.println("}");
+                      
+    }
+    
+        public String generarCadenaPilaDot() {
         
         NodoPersonaje aux;
         int k = -1;
@@ -167,35 +178,36 @@ public class PilaZombies {
         return cadena;
     }
     
-    public void RecorrerLista2() {
-        
-        NodoPersonaje aux;
-        int k = -1;
-        aux = cima;
-        
-        System.out.println("digraph G" +" "+ " { ");
-        System.out.println("rankdir = LR;");
-        
-        while(aux!=null) {
-            k++;
-            if(aux.getAnterior()!=null){
-                
+    /**
+     * Metodo para ir metiendo nodos en la pila
+     * @param nuevo de tipo nodoPersonaje es el nuevo nodo a apilar
+     */
+    public void meterPila(NodoPersonaje nuevo){
+        NodoPersonaje aux = nuevo;
+         if (estaVaciaPila())
+        {
+            fondo = nuevo;
+            cima = nuevo;
+            cantidad++;
+        }
+        else
+        {
+            cima.setSiguiente(nuevo);
+            nuevo.setAnterior(cima);
+            cima = nuevo;
+            cantidad++;
+        }
+    }
 
-            }
-            System.out.println("node"+k+"[shape=box];");
-            String imaggenn =""; 
-           
-            System.out.println("node"+k+"[label = \"Tipo personaje:"+" "+aux.getTipoPersonaje()+"\\"+"n"+" "+"Nombre:"+" "+aux.getNombre()+"\\"+"n"+" "+"Puntos Ataque:"+" "+String.valueOf(aux.getPuntosAtaque())+"\\"+"n"+" "+"Puntos Defensa:"+" "+String.valueOf(aux.getPuntosDefensa())+"\\"+"n"+" "+"Tipo Ataque:"+" "+aux.getTipoAtaque()+"\\"+"n"+" "+"Imagen:"+" "+obtenerNameImagen(aux.getImagen())+"\\"+"n"+"\"];");
-            if(aux.getSiguiente()!=null){                
-
-                System.out.println("node"+k+" -> node"+(k+1)+";");
-                System.out.println("node"+(k + 1)+" -> node"+k+";");
-            }
-           aux = aux.getSiguiente();       
-        }        
-         
-        System.out.println("}");
-                      
+    public void limpiarPila(){}
+    
+    public NodoPersonaje sacarPila()
+    {
+        NodoPersonaje encontrado;
+        encontrado = cima;
+        cima=cima.getSiguiente();
+        cantidad--;
+        return encontrado;
     }
     
     public NodoPersonaje getCima() {
