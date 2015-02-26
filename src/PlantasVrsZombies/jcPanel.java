@@ -21,9 +21,9 @@ public class jcPanel extends JPanel implements ActionListener {
 
     public jcPanel()
     {
-        this.setSize(20, 40);
+        this.setSize(620, 750);
         this.setVisible(true);
-        this.setBorder(BorderFactory.createLineBorder( Color.BLACK ));        
+        this.setBorder(BorderFactory.createLineBorder( Color.BLACK ));
         this.setLayout( new FlowLayout() );
     }
 
@@ -39,7 +39,36 @@ public class jcPanel extends JPanel implements ActionListener {
         //se incrementa contador de componentes
         index++;
     }
+    
+    public void Mi_Componente(String puntoAta, String TipoAta, String puntoDefen)
+    {        
+        //instancia nueva a componente
+        jpComponente jpc = new jpComponente(index, puntoAta, TipoAta ,puntoDefen);
+        jpc.btn.addActionListener(this);//escucha eventos
+        this.add(jpc);//se añade al jpanel
+        this.validate();
+        //se añade al MAP
+        this.nota.put("key_" + index, jpc );
+        //se incrementa contador de componentes
+        index++;
+    }
 
+    public void Mi_Componente(String nombre, String imagen, String puntoAta, String TipoAta, String puntoDefen)
+    {        
+        //instancia nueva a componente
+        jpComponente jpc = new jpComponente(index,nombre,imagen, puntoAta, TipoAta ,puntoDefen);
+        jpc.btn.addActionListener(this);//escucha eventos
+        imagen = "C:\\Users\\Ben\\Dropbox\\Mis docs\\EDD\\15\\Practicas\\Practica1s12015_200412823\\src\\imagenes\\planta.jpg";
+        jpc.lblImagen.setSize(new java.awt.Dimension(50, 50));
+        jpc.ponerImagenLabel(imagen, jpc.lblImagen);
+        this.add(jpc);//se añade al jpanel
+        this.validate();
+        //se añade al MAP
+        this.nota.put("key_" + index, jpc );
+        //se incrementa contador de componentes
+        index++;
+    }
+    
     public void actionPerformed(ActionEvent e) {
         //se obtiene el comando ejecutado
         String comando = e.getActionCommand();

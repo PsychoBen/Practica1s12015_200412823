@@ -1,4 +1,10 @@
 package PlantasVrsZombies;
+
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  * @web http://www.jc-mouse.net/
  * @author Mouse
@@ -12,18 +18,69 @@ public class jpComponente extends javax.swing.JPanel {
      * SE CAMBIO LA PROPIEDAD PRIVATE POR PUBLIC
      * ver lineas 72 y 74
      */
+    
+    
 
     /** Creates new form jpComponente */
     public jpComponente( int index )  {
         initComponents();
         //JPanel
         setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        this.setSize(230, 30);
+        this.setSize(590, 80);
         this.setVisible(true);
         //se agrega un comando al boton
         this.btn.setActionCommand("key_" + index);
+        //this.lblImagen.setPreferredSize(new java.awt.Dimension(100, 100));
+    }
+    
+    /** Creates new form jpComponente */
+    public jpComponente(int index, String puntoAta, String TipoAta, String puntoDefen)  {
+        initComponents();
+        //JPanel
+        setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        this.setSize(590, 80);
+        this.setVisible(true);
+        //this.lblImagen.setPreferredSize(new java.awt.Dimension(100, 100));
+        //se agrega un comando al boton
+        this.btn.setActionCommand("key_" + index);
+        
+        this.lblAta.setText(puntoAta);
+        this.lblDef.setText(puntoDefen);
+        this.lblTipAta.setText(TipoAta);
     }
 
+    /**
+     * Este metodo es para poner imagen en un label y que se ajuste al tamaño de este
+     */
+    public void ponerImagenLabel(String imag,JLabel etiqueta)
+    {
+        //Image immage = new ImageIcon(getClass().getResource(imag)).getImage();
+        //Image immage = new ImageIcon(imag).getImage();
+        ImageIcon fot = new ImageIcon(imag);        
+        Icon icono = new ImageIcon(fot.getImage().getScaledInstance(etiqueta.getWidth(), etiqueta.getHeight(), Image.SCALE_DEFAULT));
+        etiqueta.setIcon(icono);
+        this.repaint();
+    }
+    
+    /** Creates new form jpComponente */
+    public jpComponente(int index, String nombre,String imagen, String puntoAta, String TipoAta, String puntoDefen)  {
+        initComponents();
+        //JPanel
+        setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        this.setSize(590, 80);
+        this.setVisible(true);
+        //this.lblImagen.setPreferredSize(new java.awt.Dimension(100, 100));
+        //se agrega un comando al boton
+        this.btn.setActionCommand("key_" + index);
+        this.lblName.setText(nombre);
+        this.lblAta.setText(puntoAta);
+        this.lblDef.setText(puntoDefen);
+        //String pathPlantaImage = pathPlantaImage ="C:\\Users\\Ben\\Dropbox\\Mis docs\\EDD\\15\\Practicas\\Practica1s12015_200412823\\src\\imagenes\\planta.jpg";
+        //imagen = pathPlantaImage;
+        ///ponerImagenLabel(imagen, this.lblImagen);
+        this.lblTipAta.setText(TipoAta);
+    }
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -32,47 +89,102 @@ public class jpComponente extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel1 = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
         btn = new javax.swing.JButton();
         txtName = new javax.swing.JTextField();
+        lblImagen = new javax.swing.JLabel();
+        lblAta = new javax.swing.JLabel();
+        lblDef = new javax.swing.JLabel();
+        lblTipAta = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        setLayout(new java.awt.GridBagLayout());
+        setMaximumSize(new java.awt.Dimension(590, 80));
+        setMinimumSize(new java.awt.Dimension(590, 80));
+        setPreferredSize(new java.awt.Dimension(590, 80));
 
-        jLabel1.setText("Nombre :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(jLabel1, gridBagConstraints);
+        lblName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblName.setText("Nombre :");
 
-        btn.setText("OK");
+        btn.setBackground(java.awt.Color.yellow);
+        btn.setText("Editar");
         btn.setMargin(new java.awt.Insets(2, 2, 2, 2));
         btn.setPreferredSize(new java.awt.Dimension(47, 26));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(btn, gridBagConstraints);
 
+        txtName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtName.setText("Anonymous");
         txtName.setPreferredSize(new java.awt.Dimension(120, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
-        add(txtName, gridBagConstraints);
+
+        lblImagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lblAta.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblAta.setText("Ataque: ");
+        lblAta.setToolTipText("");
+
+        lblDef.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblDef.setText("Defensa:");
+
+        lblTipAta.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblTipAta.setText("Tip. Ataque:");
+
+        jButton1.setBackground(java.awt.Color.red);
+        jButton1.setText("Eliminar");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblName)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblAta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDef)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTipAta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblName)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAta)
+                            .addComponent(lblDef)
+                            .addComponent(lblTipAta)
+                            .addComponent(btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel lblAta;
+    private javax.swing.JLabel lblDef;
+    public javax.swing.JLabel lblImagen;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblTipAta;
     public javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 
