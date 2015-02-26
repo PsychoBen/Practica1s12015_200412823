@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import misEstructuras.ListaUsuario;
 import misEstructuras.NodoUsuario;
@@ -39,10 +40,13 @@ public class Inicio extends Mi_Ventana_200412823 {
     String foto = "";
     String fotoPlanta = "";
     String fotoZombie="";
+    escrituraArchivos misReportes; 
     FileNameExtensionFilter filtroFotos = new FileNameExtensionFilter("JPG & GIF & PNG", "jpg", "gif","png");
     ListaUsuario listadoUsuarios;
     int cantFilas, cantColumnas = 0;
     int totalPlantas, totalZombies;
+    PilaZombies miPilaZombies;
+    ColaPlantas miColaPlantas;
     jcPanel mipanel = new jcPanel();
     
     /**
@@ -60,6 +64,9 @@ public class Inicio extends Mi_Ventana_200412823 {
         NodoUsuario zomb = new NodoUsuario("Zombies");
         listadoUsuarios.insertarUsuario(zomb);
         jScrollPaneCatalogoPlantas.add(mipanel);
+        misReportes = new escrituraArchivos();
+        miPilaZombies = new PilaZombies();
+        miColaPlantas = new ColaPlantas();
     }
     
     public void borrarListaUserr(){
@@ -871,7 +878,6 @@ public class Inicio extends Mi_Ventana_200412823 {
         diagCatalogoZombies.setTitle("Creacion de Catalogo de Zombies");
         diagCatalogoZombies.setMinimumSize(new java.awt.Dimension(650, 350));
         diagCatalogoZombies.setModal(true);
-        diagCatalogoZombies.setResizable(false);
         diagCatalogoZombies.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 diagCatalogoZombiesWindowOpened(evt);
@@ -909,13 +915,13 @@ public class Inicio extends Mi_Ventana_200412823 {
             diagCatalogoZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(diagCatalogoZombiesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPaneCatalogoZombies, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneCatalogoZombies, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(diagCatalogoZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonFinalizaDatosPlayerZombies, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonAgregarZombiesCatalogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(diagCatalogoZombiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botonFinalizaDatosPlayerZombies, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(botonAgregarZombiesCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         diagCatalogoZombiesLayout.setVerticalGroup(
@@ -1182,6 +1188,11 @@ public class Inicio extends Mi_Ventana_200412823 {
         menuReportes.setText("Reportes");
 
         menuItemVerReportes.setText("Ver Reportes");
+        menuItemVerReportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemVerReportesActionPerformed(evt);
+            }
+        });
         menuReportes.add(menuItemVerReportes);
 
         jMenuBar1.add(menuReportes);
@@ -1774,20 +1785,28 @@ public class Inicio extends Mi_Ventana_200412823 {
         diagNuevoZombie.setModal(true);        
     }//GEN-LAST:event_botonAgregarZombiesCatalogoActionPerformed
 
-    private void obtenerCompionente(JScrollPane scrol){
-        
-    }
+    
     
     //ya
     private void botonFinalizaDatosPlayerZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizaDatosPlayerZombiesActionPerformed
         NodoUsuario nodito = listadoUsuarios.buscarUsuarioTipo("Zombies"); 
         nodito.getCatalogoPersonajes().RecorrerLista2();
-        
+//        
         diagCatalogoZombies.hide();
-        //jScrollPaneCatalogoPlantas.add(mipanel);
-        //mipanel.Mi_Componente();
+//        this.jScrollPaneCatalogoPlantas.add(mipanel);
+//        //mipanel.Mi_Componente();
         diagDatosPlayerZombies.hide();
         jbPlayerZombie.setEnabled(false);
+        
+        //jScrollPaneCatalogoZombies.set
+//        jScrollPaneCatalogoZombies.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+//        jScrollPaneCatalogoZombies.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+//        jScrollPaneCatalogoZombies.add(mipanel);
+        //diagCatalogoZombies.getContentPane().add(jScrollPaneCatalogoZombies);
+//        mipanel.Mi_Componente();
+//        jScrollPaneCatalogoPlantas.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+//        jScrollPaneCatalogoPlantas.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+//        diagCatalogoZombies.getContentPane().add(jScrollPaneCatalogoPlantas);
     }//GEN-LAST:event_botonFinalizaDatosPlayerZombiesActionPerformed
 
     //ya
@@ -2013,7 +2032,10 @@ public class Inicio extends Mi_Ventana_200412823 {
     //ya
     private void diagCatalogoZombiesWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagCatalogoZombiesWindowOpened
         diagCatalogoZombies.getContentPane().setBackground(new Color(0,0,0));
-        //diagCatalogoZombies.getContentPane().get
+        
+        jScrollPaneCatalogoZombies.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPaneCatalogoZombies.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPaneCatalogoZombies.add(mipanel);
     }//GEN-LAST:event_diagCatalogoZombiesWindowOpened
 
     private void diagTamanioMatrizWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagTamanioMatrizWindowOpened
@@ -2073,6 +2095,19 @@ public class Inicio extends Mi_Ventana_200412823 {
         diagDatosPlayerPlantas.hide();
         jbPlayerPlantas.setEnabled(false);
     }//GEN-LAST:event_diagCatalogoPlantasWindowClosed
+
+    private void menuItemVerReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemVerReportesActionPerformed
+        try {
+            misReportes.crearArchivoListaUsuariosDot(listadoUsuarios);
+            misReportes.crearArchivoCatalogoPlantasDot(listadoUsuarios.buscarUsuarioTipo("Plantas").getCatalogoPersonajes());
+            misReportes.crearArchivoCatalogoZombiesDot(listadoUsuarios.buscarUsuarioTipo("Zombies").getCatalogoPersonajes());
+            misReportes.crearArchivoColaPlantasDot(miColaPlantas);
+            misReportes.crearArchivoPilaZombiesDot(miPilaZombies);
+            misReportes.generarReportesImagenes();
+        } catch (IOException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_menuItemVerReportesActionPerformed
 
     
     

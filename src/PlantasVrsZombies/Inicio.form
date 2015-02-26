@@ -1120,7 +1120,6 @@
           <Dimension value="[650, 350]"/>
         </Property>
         <Property name="modal" type="boolean" value="true"/>
-        <Property name="resizable" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="diagCatalogoZombiesWindowOpened"/>
@@ -1131,13 +1130,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPaneCatalogoZombies" min="-2" pref="490" max="-2" attributes="0"/>
+                  <Component id="jScrollPaneCatalogoZombies" pref="644" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="botonFinalizaDatosPlayerZombies" max="32767" attributes="0"/>
-                      <Component id="botonAgregarZombiesCatalogo" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="botonFinalizaDatosPlayerZombies" pref="100" max="32767" attributes="0"/>
+                      <Component id="botonAgregarZombiesCatalogo" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -1747,6 +1746,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ver Reportes"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemVerReportesActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>

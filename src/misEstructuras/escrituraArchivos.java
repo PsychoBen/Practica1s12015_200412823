@@ -8,9 +8,12 @@
 
 package misEstructuras;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,6 +22,7 @@ import java.io.PrintWriter;
 public class escrituraArchivos {
 
     File archivoListaUsuarios, archivoCatalogoPlantas,archivoCatalogoZombies,archivoPilaZombies, archivoColaPlantas, archivoMatrizJuego;
+    String nameListaUser ="C:\\Proyecto\\EDD\\listaUsuarios.dot";
     
     public escrituraArchivos() {
     }
@@ -623,4 +627,39 @@ public class escrituraArchivos {
     private void escribirArchivoMatriz(Matriz matrixx){
     }
 
+    public void generarReportesImagenes(){
+        generarArchivosImagenes(archivoListaUsuarios);
+        generarArchivosImagenes(archivoCatalogoPlantas);
+        generarArchivosImagenes(archivoCatalogoZombies);
+        generarArchivosImagenes(archivoColaPlantas);
+        generarArchivosImagenes(archivoPilaZombies);
+    }
+    
+    private String nombreIImagen(String pathh){
+        String devol="";
+        devol = pathh.replace(".dot", ".jpg");
+        return devol;
+    }
+    
+    private void generarArchivosImagenes(File archivo){
+        
+        String cadena = "";
+        cadena = nombreIImagen(archivo.getAbsolutePath());
+        try {
+            String cadenaComando = "dot -Tgif "+ archivo.getAbsolutePath() +" -o  "+cadena;
+            Runtime.getRuntime().exec("dot -Tgif "+ archivo.getAbsolutePath() +" -o  "+cadena);
+        } catch (IOException ex) {
+            Logger.getLogger(escrituraArchivos.class.getName()).log(Level.SEVERE, null, ex);
+        }           
+           
+        try {
+            String path = cadena;        
+            File file = new File(path);
+            Desktop.getDesktop().open(file);
+        } catch (IOException ex) {
+            Logger.getLogger(escrituraArchivos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
+    }
+    
 }
