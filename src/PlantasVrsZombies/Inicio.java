@@ -19,6 +19,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import misEstructuras.ListaUsuario;
 import misEstructuras.NodoUsuario;
@@ -41,8 +43,7 @@ public class Inicio extends Mi_Ventana_200412823 {
     ListaUsuario listadoUsuarios;
     int cantFilas, cantColumnas = 0;
     int totalPlantas, totalZombies;
-    
-    
+    jcPanel mipanel = new jcPanel();
     
     /**
      * Creates new form Inicio
@@ -58,6 +59,7 @@ public class Inicio extends Mi_Ventana_200412823 {
         listadoUsuarios.insertarUsuario(plants);
         NodoUsuario zomb = new NodoUsuario("Zombies");
         listadoUsuarios.insertarUsuario(zomb);
+        jScrollPaneCatalogoPlantas.add(mipanel);
     }
     
     public void borrarListaUserr(){
@@ -878,6 +880,7 @@ public class Inicio extends Mi_Ventana_200412823 {
 
         jScrollPaneCatalogoZombies.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPaneCatalogoZombies.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Catalogo de Zombies", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Agency FB", 1, 24), java.awt.Color.red)); // NOI18N
+        jScrollPaneCatalogoZombies.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -1129,7 +1132,6 @@ public class Inicio extends Mi_Ventana_200412823 {
 
         VentanaGame.setTitle("Plants vrs Zombies Guatemalteco");
         VentanaGame.setIconImage(getIconImage());
-        VentanaGame.setMaximumSize(new java.awt.Dimension(800, 500));
         VentanaGame.setMinimumSize(new java.awt.Dimension(800, 500));
         VentanaGame.setResizable(false);
         VentanaGame.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1229,7 +1231,6 @@ public class Inicio extends Mi_Ventana_200412823 {
         diagTamanioMatriz.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         diagTamanioMatriz.setTitle("Tamaño Tablero");
         diagTamanioMatriz.setIconImage(getIconImage());
-        diagTamanioMatriz.setMaximumSize(new java.awt.Dimension(340, 170));
         diagTamanioMatriz.setMinimumSize(new java.awt.Dimension(340, 170));
         diagTamanioMatriz.setModal(true);
         diagTamanioMatriz.setResizable(false);
@@ -1773,11 +1774,18 @@ public class Inicio extends Mi_Ventana_200412823 {
         diagNuevoZombie.setModal(true);        
     }//GEN-LAST:event_botonAgregarZombiesCatalogoActionPerformed
 
+    private void obtenerCompionente(JScrollPane scrol){
+        
+    }
+    
     //ya
     private void botonFinalizaDatosPlayerZombiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizaDatosPlayerZombiesActionPerformed
         NodoUsuario nodito = listadoUsuarios.buscarUsuarioTipo("Zombies"); 
         nodito.getCatalogoPersonajes().RecorrerLista2();
+        
         diagCatalogoZombies.hide();
+        //jScrollPaneCatalogoPlantas.add(mipanel);
+        //mipanel.Mi_Componente();
         diagDatosPlayerZombies.hide();
         jbPlayerZombie.setEnabled(false);
     }//GEN-LAST:event_botonFinalizaDatosPlayerZombiesActionPerformed
@@ -2005,6 +2013,7 @@ public class Inicio extends Mi_Ventana_200412823 {
     //ya
     private void diagCatalogoZombiesWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagCatalogoZombiesWindowOpened
         diagCatalogoZombies.getContentPane().setBackground(new Color(0,0,0));
+        //diagCatalogoZombies.getContentPane().get
     }//GEN-LAST:event_diagCatalogoZombiesWindowOpened
 
     private void diagTamanioMatrizWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_diagTamanioMatrizWindowOpened
@@ -2171,8 +2180,8 @@ public class Inicio extends Mi_Ventana_200412823 {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelZombie;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JScrollPane jScrollPaneCatalogoPlantas;
-    private javax.swing.JScrollPane jScrollPaneCatalogoZombies;
+    public javax.swing.JScrollPane jScrollPaneCatalogoPlantas;
+    public javax.swing.JScrollPane jScrollPaneCatalogoZombies;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
