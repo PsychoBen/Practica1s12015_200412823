@@ -1465,11 +1465,11 @@ public class Inicio extends Mi_Ventana_200412823 {
         if(nodousr.getColaPlantas()==null){
             ColaPlantas nuevaCola = new ColaPlantas();
             nodousr.setColaPlantas(nuevaCola);
-            nodousr.getColaPlantas().insertarCola(person);
+            nodousr.getColaPlantas().insertarCola2(person);
         }
         else
         {
-             nodousr.getColaPlantas().insertarCola(person);
+             nodousr.getColaPlantas().insertarCola2(person);
         }
     }
     
@@ -1502,8 +1502,8 @@ public class Inicio extends Mi_Ventana_200412823 {
             }        
         }else
         {           
-            int predet = 5;
-            for(int i=0; i<predet;i++){
+            int predeti = 5;
+            for(int i=0; i<predeti;i++){
                 ale=Plantass.getCatalogoPersonajes().randomListaPersonaje(tamaniooCatalogoPlantas);            
                 personajeRandomm = (NodoPersonaje) Plantass.getCatalogoPersonajes().buscarPersonajePorAccesoRandom(ale).clone();
                 insertarEnCola(Plantass, personajeRandomm);
@@ -2051,8 +2051,10 @@ public class Inicio extends Mi_Ventana_200412823 {
                 cantColumnas = Integer.parseInt(collumnas);
                 txtCantColumnas.setText("");
                 txtCantFilas.setText("");  
+                diagTamanioMatriz.hide();
                 VentanaGame.setLocationRelativeTo(null);
                 VentanaGame.show();
+                
             }
             else{
                 String mensss =  "Por favor Ingrese solo numeros!!!";
@@ -2101,9 +2103,10 @@ public class Inicio extends Mi_Ventana_200412823 {
             misReportes.crearArchivoListaUsuariosDot(listadoUsuarios);
             misReportes.crearArchivoCatalogoPlantasDot(listadoUsuarios.buscarUsuarioTipo("Plantas").getCatalogoPersonajes());
             misReportes.crearArchivoCatalogoZombiesDot(listadoUsuarios.buscarUsuarioTipo("Zombies").getCatalogoPersonajes());
-            misReportes.crearArchivoColaPlantasDot(miColaPlantas);
-            misReportes.crearArchivoPilaZombiesDot(miPilaZombies);
+            misReportes.crearArchivoColaPlantasDot(listadoUsuarios.buscarUsuarioTipo("Plantas").getColaPlantas());
+            misReportes.crearArchivoPilaZombiesDot(listadoUsuarios.buscarUsuarioTipo("Zombies").getPilaZombies());
             misReportes.generarReportesImagenes();
+            misReportes.abrirArchivosImagen();
         } catch (IOException ex) {
             Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -629,10 +629,15 @@ public class escrituraArchivos {
 
     public void generarReportesImagenes(){
         generarArchivosImagenes(archivoListaUsuarios);
+        retrasoAcciones(4000);
         generarArchivosImagenes(archivoCatalogoPlantas);
+        retrasoAcciones(4000);
         generarArchivosImagenes(archivoCatalogoZombies);
+        retrasoAcciones(4000);
         generarArchivosImagenes(archivoColaPlantas);
+        retrasoAcciones(4000);
         generarArchivosImagenes(archivoPilaZombies);
+        retrasoAcciones(4000);
     }
     
     private String nombreIImagen(String pathh){
@@ -650,8 +655,13 @@ public class escrituraArchivos {
             Runtime.getRuntime().exec("dot -Tgif "+ archivo.getAbsolutePath() +" -o  "+cadena);
         } catch (IOException ex) {
             Logger.getLogger(escrituraArchivos.class.getName()).log(Level.SEVERE, null, ex);
-        }           
-           
+        }                     
+                   
+    }
+    
+    private void abrirCadaImagen(File archiivo){
+        String cadena="";
+        cadena = nombreIImagen(archiivo.getAbsolutePath());
         try {
             String path = cadena;        
             File file = new File(path);
@@ -659,7 +669,26 @@ public class escrituraArchivos {
         } catch (IOException ex) {
             Logger.getLogger(escrituraArchivos.class.getName()).log(Level.SEVERE, null, ex);
         }
-           
+    }
+    
+    public void abrirArchivosImagen(){
+        abrirCadaImagen(archivoListaUsuarios);
+        retrasoAcciones(2000);
+        abrirCadaImagen(archivoCatalogoPlantas);
+        retrasoAcciones(2000);
+        abrirCadaImagen(archivoCatalogoZombies);
+        retrasoAcciones(2000);
+        abrirCadaImagen(archivoColaPlantas);
+        retrasoAcciones(2000);
+        abrirCadaImagen(archivoPilaZombies);        
+    }
+    
+    private void retrasoAcciones(long segundos){
+        System.out.println("Hola ahora esperamo asta que");
+        try{
+            Thread.sleep(segundos);
+        }catch(InterruptedException e){}
+            System.out.println("que transcurran 2 segundos ok");
     }
     
 }
